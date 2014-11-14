@@ -1,0 +1,44 @@
+if product
+  link-to "products.product.show" product.id class="flex-start"
+    .media-object
+      img.product-image src=product.pictures.firstObject.picUrl
+    .media-texts
+      .product-title
+        i.fa.fa-star
+        tr-span en=product.material
+        if product.sku
+          span.predash= product.sku
+      if product.others
+        p.product-summary
+          tr-span en=product.others
+      .flex-start.product-specs
+        if product.amount
+          span.upcase.colon
+            tr-span en="quantity"
+          span.spec.spacebar= product.amount
+        if product.price
+          span.upcase.colon
+            tr-span en="price"
+          span.spec.spacebar= product.price
+        if product.place
+          span.upcase.colon
+            tr-span en="origin"
+          span.spec.spacebar= product.place
+        if product.quality
+          span.upcase.colon
+            tr-span en="quality"
+          span.spec.spacebar= product.quality
+      .taxon-tags
+        span.tag dog
+      if product.taxons
+        .taxon-tags
+          each taxon in product.taxons
+            span.tag= taxon.taxonName
+else
+  .media-object.align-right
+    i.fa.fa-circle-o.fa-4x
+  .media-texts
+    h2.capitalize.ellipsis
+      tr-span en="no results"
+    p.product-summary
+      tr-span en="or perhaps there are no products to load yet"

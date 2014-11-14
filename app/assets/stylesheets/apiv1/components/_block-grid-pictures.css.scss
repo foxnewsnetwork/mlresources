@@ -1,0 +1,21 @@
+.block-grid-pictures {
+  padding-left: 10px;
+  padding-right: 10px;
+  .request-delete {
+    color: darken(red, 15%);
+    &:hover {
+      color: darken(red, 5%);
+    }
+  }
+  .block-picture {
+    @include display-flex;
+    @include justify-content(space-between);
+    @include flex-direction(row);
+    padding: 0px;
+    border: 1px solid #888;
+
+  }
+  img.block-pic-img {
+    max-height: 45px;
+  }
+}

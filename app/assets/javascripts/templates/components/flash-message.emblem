@@ -1,0 +1,2 @@
+each flash in flashes
+  flash-slice flash=flash

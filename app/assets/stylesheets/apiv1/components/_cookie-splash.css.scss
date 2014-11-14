@@ -1,0 +1,58 @@
+.cookie-splash {
+  padding-bottom: 25px;
+  .standard-container {
+    @include display-flex;
+    @include justify-content(center);
+    @include flex-direction(row);
+    width: 100%;
+  }
+  .splash-background::before {
+    display: block;
+    content: " ";
+    width: 100%;
+    height: 125px;
+    background: {
+      image: url(cookie-splash/albatross.jpg);
+      size: cover;
+      position: bottom center;
+      repeat: no-repeat;
+    }
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+    left: 0px;
+    @include filter(blur(5px));
+  }
+  .splash-background {
+    position: relative; 
+    height: 125px;
+  }
+  .page-intro {
+    width: $row-width;
+    @include display-flex;
+    @include align-items(flex-end);
+    @include justify-content(flex-end);
+    @include flex-direction(row);
+  }
+  .active-page-title {
+    text-align: right;
+    margin-bottom: -25px;
+    font-size: 1.35rem;
+  }
+  .product-icon {
+    max-height: 75px;
+  }
+  .cookiecrumbs {
+    width: $row-width;
+    font-size: 1.15rem;
+  }
+  .crumb {
+    padding-left: 15px;
+  }
+  .crumb:not(:last-child) {
+    &:after {
+      content: " / ";
+    }
+  }
+}
+

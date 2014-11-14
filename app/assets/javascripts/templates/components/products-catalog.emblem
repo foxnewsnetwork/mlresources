@@ -1,0 +1,15 @@
+.showcased-stuff
+  .row
+    if products.isPending
+      .small-12.columns
+        .thin-slice
+          h2.capitalize.ellipsis
+            i.fa.fa-cog.fa-spin
+            tr-span en="loading..."
+    else
+      each product in products
+        .small-12.columns
+          product-listing product=product class="container-row product-row"
+      else
+        .small-12.columns
+          product-listing class="container-row product-row"

@@ -1,0 +1,31 @@
+.row
+  .small-12.columns
+    .pagination-holder
+      unless onFirstPage
+        button.button.secondary.action.go-left click="flipLeft"
+          i.fa.fa-chevron-left
+          tr-span en="prev"
+      unless onLastPage
+        button.button.secondary.action.go-right click="flipRight"
+          tr-span en="next"
+          i.fa.fa-chevron-right
+.row
+  .small-12.columns
+    .pagination-meta
+      .total
+        span.bold.colon
+          tr-span en="results"
+        span.prespace= metadatum.count
+
+      .page
+        span.bold.colon
+          tr-span en="page"
+        span.prespace= page
+
+      .per
+        .row.collapse
+          .small-4.columns
+            span.prefix
+              tr-span en="per"
+          .small-8.columns
+            Ember.Select content=perPageChoices value=per

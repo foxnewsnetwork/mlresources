@@ -1,0 +1,21 @@
+!!!5
+/ [if lt IE 7 ]
+  %html.ie.ie6{ lang: I18n.locale }
+/ [if IE 7 ]
+  %html.ie.ie7{ lang: I18n.locale }
+/ [if IE 8 ]
+  %html.ie.ie8{ lang: I18n.locale }
+/ [if IE 9 ]
+  %html.ie.ie9{ lang: I18n.locale }
+/ [if gt IE 9]
+  %html{ lang: I18n.locale }
+
+%head
+  %meta{ :charset => "utf-8" }
+  %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+  = stylesheet_link_tag 'application', media: 'all', "data-turbolinks-track" => false
+  = javascript_include_tag "application", "data-turbolinks-track" => false
+  = csrf_meta_tags
+
+%body#apiv1
+  = yield

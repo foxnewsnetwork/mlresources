@@ -1,0 +1,27 @@
+.row.apiv1-login-modal
+  .action-cancel.pointer click="closeModal"
+    i.fa.fa-times
+  form-for errors=failureReason submit="formSubmitted"
+    .small-12.columns
+      fieldset
+        legend admin login
+        .input-section attr-name="email"
+          label.form-label
+            span email
+            Ember.TextField name="email" value=session.email
+        .input-section attr-name="password"
+          label.form-label
+            span password
+            Ember.TextField name="password" value=session.password type="password"
+
+    .small-6.columns
+      .input-section
+        promise-button model=session class="button expand"
+          i.fa.fa-check
+          span submit
+
+    .small-6.columns
+      .input-section
+        button.button.expand.alert click="closeModal"
+          i.fa.fa-times
+          span cancel

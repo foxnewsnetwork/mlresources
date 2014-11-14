@@ -1,0 +1,15 @@
+.splash-background.standard-container
+  .page-intro
+    .active-page-title
+      tr-span en=path
+      preload-image class="th product-icon" source=logo
+
+.standard-container
+  .cookiecrumbs
+    .small-6.medium-4.large-3.columns.crumb
+      link-to "index" (query-params anchor="products")
+        .show-for-small-only
+          i.fa.fa-chevron-left
+        .hide-for-small-only.upcase
+          tr-span en="home"
+          

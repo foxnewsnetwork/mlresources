@@ -1,0 +1,1 @@
+Ember.Select value=locale content=localeLanguages class="select-control" optionValuePath="content.id" optionLabelPath="content.language"

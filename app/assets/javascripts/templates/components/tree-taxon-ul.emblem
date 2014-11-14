@@ -1,0 +1,8 @@
+if rootTaxon.children.isPending
+  .tree-taxon-li
+    .view
+      span.spacebar
+        i.fa.fa-spin.fa-cog
+      tr-span en="loading"        
+each taxon in rootTaxon.children
+  tree-taxon-li taxon=taxon activeTaxons=activeTaxons adminMode=adminMode

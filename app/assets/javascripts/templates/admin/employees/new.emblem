@@ -1,0 +1,35 @@
+.row.admin-employee-new
+  .small-12.columns
+    form-for errors=failureReason submit="formSubmitted"
+      fieldset
+        legend.capitalize.bold
+          tr-span en="new employee contact"
+        .input-section attr-name="personName"
+          label.form-label
+            span.asterisk
+              tr-span en="employee name"
+            Ember.TextField name="personName" value=model.personName placeholder="John Smith"
+        .input-section attr-name="employeeTitle"
+          label.form-label
+            tr-span en="employee title"
+            Ember.TextField name="employeeTitle" value=model.employeeTitle placeholder="Vice President of Sales"
+        .input-section attr-name="email"
+          label.form-label
+            tr-span en="email"
+            Ember.TextField name="email" value=model.email placeholder="jsmith@example.com" type="email"
+        .input-section attr-name="phoneNumber"
+          label.form-label
+            tr-span en="phone number"
+            Ember.TextField name="phoneNumber" value=model.phoneNumber placeholder="(555) 555 5555"
+        .input-section attr-name="pictures"
+          label.form-label
+            tr-span en="employee picture"
+            files-field name="pictures" files=model.pictures class="form-control upload-control"
+        
+        .actions.row
+          .small-6.columns.end
+            promise-button model=model class="button expand"
+              i.fa.fa-check
+              span.capitalize.bold 
+                tr-span en="submit"
+            

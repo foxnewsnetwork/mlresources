@@ -1,0 +1,64 @@
+.admin-product-slice {
+  @include transition-property(background-color);
+  @include transition-duration(300ms);
+  @include transition-timing-function(ease-out);
+  border-bottom: 1px solid #444;
+  background-color: #ddd;
+  &:hover {
+    background-color: lighten(#ddd, 10%);
+  }
+  .actions {
+    @include display-flex;
+    @include justify-content(space-between);
+    @include flex-direction(row);
+    a {
+      display: block;
+    }
+  }
+  .summary {
+    @include display-flex;
+    @include justify-content(flex-start);
+    @include flex-direction(row);
+    padding: 0px 15px 15px 15px;
+  }
+  .view {
+    @include flex-grow(3);
+    @include transition-property(background-color);
+    @include transition-duration(300ms);
+    @include transition-timing-function(ease-out);
+    padding: 15px;
+    font-size: 1.25rem;
+  }
+  .edit {
+    font-size: 1.25rem;
+    padding: 15px;
+    @include transition-property(background-color);
+    @include transition-duration(300ms);
+    @include transition-timing-function(ease-out);
+    &:hover {
+      a {
+        color: #ddd;
+      }
+      background-color: #43ac6a;
+    } 
+  }
+  .delete {
+    @include transition-property(background-color);
+    @include transition-duration(300ms);
+    @include transition-timing-function(ease-out);
+    font-size: 1.25rem;
+    color: darken(red, 15%);
+    padding: 15px;
+    &:hover {
+      color: #ddd;
+      background-color: darken(red, 20%);
+    } 
+  }
+  .media-text {
+    padding-left: 15px;
+  }
+  .product-image {
+    max-width: 65px;
+  }
+  
+}

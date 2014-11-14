@@ -1,0 +1,20 @@
+.row
+  .small-12.columns
+    form-for errors=failureReason submit="formSubmitted"
+      fieldset
+        legend
+          unless model.id
+            i.fa.fa-asterisk
+          = model.language
+        .key 
+          i.fa.fa-key
+          span.prespace= model.key
+        .input-section attr-name="translatedText"
+          label.form-label
+            tr-span en="translation"
+            Ember.TextArea name="translatedText" value=model.translatedText
+        .input-section
+          promise-button model=model class="button"
+            i.fa.fa-check
+            span.spacebar
+              tr-span en="submit"

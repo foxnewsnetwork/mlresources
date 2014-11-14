@@ -1,0 +1,41 @@
+.row
+  .small-12.columns
+    if alreadySubmitted
+      .thank-you-card
+        tr-span en="your message has been submitted"
+
+    else
+      form-for errors=failureReason submit="formSubmitted"
+        .input-section attr-name="fromCompany"
+          label.form-label
+            span.capitalize.white
+              span.asterisk
+              tr-span en="your company"
+            Ember.TextField value=model.fromCompany type="text" placeholder="ex. Jack Smith"
+
+        .input-section attr-name="senderEmail"
+          label.form-label
+            span.capitalize.white
+              span.asterisk
+              tr-span en="company email"
+            Ember.TextField value=model.senderEmail type="email" placeholder="ex. jsmith@gmail.com"
+
+        .input-section attr-name="subjectText"
+          label.form-label
+            span.capitalize.white
+              span.asterisk
+              tr-span en="subject"
+            Ember.TextField value=model.subjectText type="text"
+          
+        .input-section attr-name="message"
+          label.form-label
+            span.capitalize.white
+              span.asterisk
+              tr-span en="message"
+            Ember.TextArea value=model.message
+
+        .button-forms
+          promise-button model=model class="button expand"
+            span.capitalize 
+              i.fa.fa-check
+              tr-span en="submit"

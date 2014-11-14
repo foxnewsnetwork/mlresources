@@ -1,0 +1,23 @@
+.admin-translation-slice
+  .actions
+    .view
+      i.fa.fa-key
+      span.prespace= model.key
+    .edit
+      link-to "admin.translation.edit" model.key
+        i.fa.fa-edit
+        span.prespace
+          tr-span en="edit"
+    .delete
+      .pointer click="requestDelete"
+        i.fa.fa-times
+        span.prespace
+          tr-span en="delete"
+  
+  .summary
+    span.bold
+      span.spacebar
+        i.fa.fa-globe
+      span.colon= model.locale
+    span.text
+      = model.translatedText

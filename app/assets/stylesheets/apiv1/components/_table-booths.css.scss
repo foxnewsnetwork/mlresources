@@ -1,0 +1,25 @@
+.table-booths {
+  .business-cards-side,
+  .contact-form-side {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  .contact-form-side {
+    background-color: #777;
+  }
+  .white {
+    color: #eee;
+  }
+  .name {
+    font-size: 1.25rem;
+  }
+  .job {
+    font-style: italic;
+  }
+  .text-right {
+    padding-bottom: 15px;
+  }
+  .text-left {
+    padding-top: 15px;
+  }
+}

@@ -1,0 +1,16 @@
+preload-billboard
+  .application-container.toggle-shift.shifted
+    #canvas-menu-top
+      site-nav action="displayModal"
+    #page-wrapper
+      .site-content
+        .not-site-footer
+          == outlet
+        site-footer action="displayModal"
+
+    #fixed-bottom
+      .row
+        flash-message
+  .modal-background
+    .modal-vertical-container
+      == outlet "modal"

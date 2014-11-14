@@ -1,0 +1,23 @@
+.admin-message-slice
+  .actions
+    .view
+      i.fa.fa-user
+      span.prespace= model.fromCompany
+      span.predash= model.senderEmail
+    .date
+      span.time-created= model.createdAt
+
+  .summary
+    .media-subject.bold= model.subjectText
+    .media-text= model.message
+    .media-extras
+      dl
+        dt
+          tr-span en="phone number"
+        dd= model.phoneNumber
+        dt
+          tr-span en="contact person"
+        dd= model.contactPerson
+        dt
+          tr-span en="company location"
+        dd= model.companyAddress

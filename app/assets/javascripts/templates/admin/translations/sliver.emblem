@@ -1,0 +1,18 @@
+.admin-translation-slice
+  .actions
+    .view
+      i.fa.fa-key
+      span.prespace= model.key
+    .create
+      .pointer click="requestCreate"
+        i.fa.fa-plus-circle
+        span.prespace
+          tr-span en="create"
+  
+  .summary
+    span.bold
+      span.spacebar
+        i.fa.fa-globe
+      span.colon= model.locale
+    span.text
+      = model.translatedText

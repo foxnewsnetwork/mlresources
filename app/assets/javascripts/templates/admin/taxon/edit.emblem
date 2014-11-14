@@ -1,0 +1,36 @@
+.row
+  .small-6.medium-4.large-3.columns.end
+    link-to "admin.taxons.index" class="button expand secondary"
+      span.spacebar
+        i.fa.fa-chevron-left
+      tr-span en="back"
+
+.row.admin-products-new
+  .small-12.columns
+    form-for errors=failureReason submit="formSubmitted"
+      fieldset
+        legend.capitalize.bold 
+          tr-span en="edit category"
+
+        .input-section attr-name="taxonName"
+          label.form-label
+            span.asterisk
+              tr-span en="the name of this new category"
+            Ember.TextField name="taxonName" value=model.taxonName placeholder="shellfish"
+        .input-section attr-name="explanation"
+          label.form-label
+            tr-span en="describe this category"
+            Ember.TextArea name="explanation" value=model.explanation placeholder="fishes with shell"
+
+        .actions.row
+          .small-6.columns
+            promise-button model=model class="button expand"
+              i.fa.fa-check
+              span.capitalize.bold.prespace
+                tr-span en="submit"
+          .small-6.columns.end
+            link-to "admin.taxons.index" class="button expand secondary"
+              span.spacebar
+                i.fa.fa-chevron-left
+              span.capitalize.bold
+                tr-span en="back"

@@ -1,0 +1,15 @@
+@import "apiv1/admin/contacts/index";
+@import "apiv1/admin/messages/index";
+@import "apiv1/admin/products/index";
+@import "apiv1/admin/products/new";
+@import "apiv1/admin/translations/index";
+
+.admin-nav-tabs {
+  .admin-nav-tab {
+    @extend .button;
+    @extend .expand;
+  }
+  .admin-nav-tab:not(.active) {
+    @extend .secondary;
+  }
+}

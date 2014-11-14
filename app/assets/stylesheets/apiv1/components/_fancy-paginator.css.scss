@@ -1,0 +1,22 @@
+.fancy-paginator {
+  .pagination-meta {
+    @include display-flex;
+    @include justify-content(space-between);
+    @include flex-direction(row);
+    color: #555;
+    font-size: 0.75rem;
+  }
+  .go-left {
+    float: left;
+  }
+  .go-right {
+    float: right;
+  }
+  .action {
+    text-transform: uppercase;
+    min-width: 125px;
+  }
+  .per {
+    min-width: 125px;
+  }
+}

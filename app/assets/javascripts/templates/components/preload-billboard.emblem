@@ -1,0 +1,12 @@
+#billboard-holder
+  .row 
+    .small-12.columns
+      h2.bill-title.capitalize.bold
+        i.fa.fa-cog.fa-spin
+        tr-span en="loading"
+    .small-12.columns
+      .progress.small-12.success
+        span.meter.filling
+
+#everything-else-holder
+  == yield

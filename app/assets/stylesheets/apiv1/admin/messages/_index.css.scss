@@ -1,0 +1,34 @@
+.admin-messages-index {
+  .actions {
+    @include display-flex;
+    @include justify-content(space-between);
+    @include flex-direction(row);
+    a {
+      display: block;
+    }
+  }
+  .summary {
+    @include display-flex;
+    @include justify-content(flex-start);
+    @include flex-direction(column);
+    padding: 0px 15px 15px 15px;
+  }
+  .view,
+  .date {
+    padding: 15px;
+    font-size: 1.25rem;
+  }
+  .media-text {
+    padding-left: 15px;
+  }
+  .admin-message-slice {
+    @include transition-property(background-color);
+    @include transition-duration(300ms);
+    @include transition-timing-function(ease-out);
+    border-bottom: 1px solid #444;
+    background-color: #ddd;
+    &:hover {
+      background-color: lighten(#ddd, 10%);
+    }
+  }
+}

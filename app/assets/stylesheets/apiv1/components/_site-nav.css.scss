@@ -1,0 +1,57 @@
+//# ruby
+// $standard-container-height: 75px;
+// $menu-tab-width: 125px;
+// $company-title-font-size: 1.35rem;
+// $nav-bar-bg-color: fade-out(#444, 0.25);
+// $tab-vertical-padding: 15px;
+// $tab-horizontal-padding: 15px;
+// $tab-border: 1px solid #666;
+// $title-font-color: #eee;
+// $tab-font-default-color: #333;
+// $tab-bg-default-color: #e7e7e7;
+// $tab-bg-active-color: #008cba;
+// $tab-font-active-color: #fff;
+// $tab-bg-hover-color: darken(#008cba, 10%);
+// $tab-font-hover-color: invert($tab-bg-default-color);
+//# end
+
+nav.site-nav {
+  height: 2.2rem;
+  background: {
+    color: #ccc;
+  }
+  .space-between {
+    @include display-flex;
+    @include flex-direction(row);
+    @include justify-content(space-between);
+  }
+  .button-like {
+    height: 2.2rem;
+    min-width: 75px;
+    @include display-flex;
+    @include flex-direction(column);
+    @include justify-content(center); 
+  }
+}
+.application-container,
+#canvas-menu-top,
+#page-wrapper {
+  position: absolute;
+}
+.application-container,
+#canvas-menu-top {
+  top: 0px;
+  width: 100%;
+  z-index: 2;
+}
+.application-container,
+#page-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+#page-wrapper {
+  padding-top: 2.2rem;
+  overflow-y: auto;
+}
+

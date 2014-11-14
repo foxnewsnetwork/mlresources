@@ -1,0 +1,1 @@
+class Apiv1.AdminOffer extends DS.Model

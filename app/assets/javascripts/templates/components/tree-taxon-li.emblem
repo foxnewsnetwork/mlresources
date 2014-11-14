@@ -1,0 +1,37 @@
+.taxon-interactor.pointer click="interactWithTaxon"
+  .view
+    if isExpandable
+      span class=isExpanded:hidden:visible
+        i.fa.fa-caret-right
+      span class=isExpanded:visible:hidden
+        i.fa.fa-caret-down
+
+    else
+      span class=isSelected:hidden:visible
+        i.fa.fa-square-o
+      span class=isSelected:visible:hidden
+        i.fa.fa-check-square-o
+    
+    span.taxon-name
+      tr-span en=taxon.taxonName
+
+  if adminModeReasonable
+    .edit
+      link-to "admin.taxon.edit" taxon.id
+        i.fa.fa-edit
+        tr-span en="edit"
+    .delete.pointer click="killTaxon"
+      i.fa.fa-times
+      tr-span en="delete"
+
+if adminMode
+  .new-child-taxon
+    link-to "admin.taxons.new" (query-params parent=taxon.id) class="taxon-interactor admin-mode"
+      .view
+        span.spacebar
+          i.fa.fa-plus
+        tr-span en="new child category"
+
+if taxon.hasChildren
+  if isExpanded
+    tree-taxon-ul rootTaxon=taxon activeTaxons=activeTaxons adminMode=adminMode

@@ -1,0 +1,1 @@
+class Apiv1.AdminTranslationEditRoute extends Ember.Route

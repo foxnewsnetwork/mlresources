@@ -1,0 +1,22 @@
+.row
+  .small-12.medium-4.large-4.columns.medium-offset-4.large-offset-4
+    link-to "admin.employees.new" class="button expand success"
+      span.spacebar
+        i.fa.fa-plus
+      tr-span en="new employee employee"
+
+.row
+  .small-12.columns
+    each employee in model
+      == render "admin/employees/slice" employee
+    else
+      .admin-employee-slice
+        i.fa.fa-cog.fa-spin
+        span.prespace
+          tr-span en="now loading"
+
+.row
+  .small-4.medium-3.large-2.columns
+    span.bold.colon
+      tr-span en="employees"
+    span.prespace= model.length

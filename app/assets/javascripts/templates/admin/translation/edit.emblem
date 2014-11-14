@@ -1,0 +1,11 @@
+.row
+  .small-12.columns
+    h2
+      tr-span en="edit translations"
+
+.row
+  .small-12.columns
+    each translation in translations
+      == render "admin/translation/form" translation
+
+

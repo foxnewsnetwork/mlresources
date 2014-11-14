@@ -1,0 +1,31 @@
+if product
+  link-to "products.product.show" product.id class="product-header"
+    .media-object
+      img.product-image.th src=product.pictures.firstObject.thumbUrl
+    .media-texts
+      .big-title
+        tr-span en=product.material
+        if product.quality
+          span.predash
+            tr-span en=product.quality
+
+      .smaller-details
+        if product.price
+          span= product.price
+        if product.place
+          span @
+          tr-span en=product.place
+      
+      if product.taxons
+        .taxon-tags
+          each taxon in product.taxons
+            span.tag= taxon.taxonName
+else
+  .product-header
+    .media-object
+      i.fa.fa-circle-o.fa-4x
+    .media-texts
+      .capitalize.ellipsis
+        tr-span en="no results"
+      .product-summary
+        tr-span en="or perhaps there are no products to load yet"

@@ -1,0 +1,10 @@
+.row
+  .small-4.medium-3.large-2.column
+    select-locale class="lang-btn"
+  .small-4.medium-3.large-2.column
+    .center-vertical
+      .login.pointer click="displayModal 'login'"
+        tr-span en="login"
+  .small-4.medium-6.large-8.column
+    .center-vertical
+      .copyright Cloudrider. All Rights Reserved

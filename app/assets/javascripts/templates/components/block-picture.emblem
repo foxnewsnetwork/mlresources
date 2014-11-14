@@ -1,0 +1,7 @@
+a href=picture.picUrl target="blank" class="picture"
+  img.th.block-pic-img src=picture.thumbUrl
+.summary= picture.picFileName
+.actions
+  a.request-delete.pointer click="requestDelete"
+    span.spacebar
+      i.fa.fa-times.fa-3x

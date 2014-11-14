@@ -1,0 +1,21 @@
+{
+  "name": "generica",
+  "version": "0.0.0",
+  "authors": [
+    "Thomas Chen <foxnewsnetwork@gmail.com>"
+  ],
+  "description": "Various javascript assets for the generica site project that are not already packaged into the ruby gemfile",
+  "license": "MIT",
+  "homepage": "github.com/foxnewsnetwork/generica",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "typeahead.js": "~0.10.5"
+  }
+}

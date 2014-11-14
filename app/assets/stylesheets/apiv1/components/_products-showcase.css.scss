@@ -1,0 +1,36 @@
+.products-showcase {
+  .contained-media-one {
+    padding-top: 5rem;
+    border-top: 2px solid #777;
+  }
+  .product-container {
+    @include display-flex;
+    @include justify-content(center);
+  }
+  .product-row {
+    width: $row-width;
+  }
+  .container-row {
+    @include display-flex;
+    @include align-items(flex-end);
+    @include align-content(flex-end);
+    @include flex-direction(row);
+    @include flex-wrap(wrap-reverse);
+  }
+  .product-post-note {
+    @include display-flex;
+    @include justify-content(center);
+    @include flex-direction(column);
+    background: {
+      image: url(hero-splash/rocks.jpg);
+      size: cover;
+      position: center center;
+    }
+    min-height: 30rem;
+  }
+  .after-thought {
+    text-align: center;
+    font-weight: bolder;
+    background-color: fade-out(#fff, 0.4);
+  }
+}

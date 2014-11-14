@@ -1,0 +1,36 @@
+section#admin
+  .row
+    .small-12.columns
+      h1.capitalize
+        link-to "admin.index"
+          tr-span en="admin panel"
+
+  .row.admin-nav-tabs
+    .small-6.medium-4.large-2.columns
+      link-to "admin" class="admin-nav-tab"
+        span.capitalize
+          tr-span en="dashboard"
+    .small-6.medium-4.large-2.columns
+      link-to "admin.products.index" class="admin-nav-tab"
+        span.capitalize
+          tr-span en="products"
+    .small-6.medium-4.large-2.columns
+      link-to "admin.employees.index" class="admin-nav-tab"
+        span.capitalize
+          tr-span en="contacts"
+    .small-6.medium-4.large-2.columns
+      link-to "admin.translations" class="admin-nav-tab"
+        span.capitalize
+          tr-span en="translations"
+    .small-6.medium-4.large-2.columns
+      link-to "admin.taxons.index" class="admin-nav-tab"
+        span.capitalize
+          tr-span en="categories"
+    .small-6.medium-4.large-2.columns
+      link-to "admin.messages.index" class="admin-nav-tab"
+        span.capitalize
+          tr-span en="messages"
+
+  .row
+    .small-12.columns
+      == outlet

@@ -1,0 +1,22 @@
+.admin-employee-slice
+  .actions
+    .view
+      i.fa.fa-user
+      span.prespace= model.personName
+      span.predash= model.employeeTitle
+    .edit
+      link-to "admin.employee.edit" model.id
+        i.fa.fa-edit
+        span.prespace
+          tr-span en="edit"
+    .delete
+      .pointer click="requestDelete"
+        i.fa.fa-times
+        span.prespace
+          tr-span en="delete"
+
+  .summary
+    .media-object
+      img.product-image.th src=model.mugShot
+
+    .media-text= model.roughSummary

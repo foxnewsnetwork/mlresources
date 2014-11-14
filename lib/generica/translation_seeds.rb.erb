@@ -1,0 +1,4 @@
+translations = [
+  <%= translations.map(&:inspect).join(",\n  ") %>
+]
+Apiv1::Translation.create! translations

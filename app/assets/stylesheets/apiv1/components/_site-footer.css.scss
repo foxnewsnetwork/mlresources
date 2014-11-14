@@ -1,0 +1,23 @@
+.site-footer {
+  background: #bbb;
+  .select-control {
+    margin: 0px;
+  }
+  .login {
+    text-align: center;
+    text-transform: uppercase;
+    color: #008cba;
+    text-decoration: underline;
+  }
+  .copyright {
+    text-align: right;
+    color: #888;
+    font-size: 0.85rem;
+  }
+  .center-vertical {
+    @include display-flex;
+    @include flex-direction(column);
+    @include justify-content(center);
+    height: 35px;
+  }
+}

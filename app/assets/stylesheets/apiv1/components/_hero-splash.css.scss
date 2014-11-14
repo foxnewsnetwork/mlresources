@@ -1,0 +1,39 @@
+.hero-splash {
+  .background-container {
+    @include display-flex;
+    @include justify-content(center);
+    @include flex-direction(column);
+    background: {
+      repeat: no-repeat;
+      size: cover;
+      // variable - hero-splash/*.jpg
+      image: url(hero-splash/albatross.jpg);
+    }
+    // variable - *rem
+    min-height: 45rem;
+  }
+  .splash-tagline,
+  .splash-cta {
+    @include display-flex;
+    @include justify-content(center);
+    // variable depending upon average background color, use if bg image colors are spread apart enough
+    @include background-image(linear-gradient(to right, fade-out(white, 0.4), fade-out(white, 1)));
+  }
+  .splash-tagline {
+    padding-top: 10px;
+  }
+  .tagline-container,
+  .cta-container {
+    // tied to the other container width
+    // variable - *px
+    width: $row-width;
+  }
+  .companytag,
+  .pretag,
+  .posttag {
+    // variable - left, center, right
+    text-align: left;
+    // variable - invert color of albatross
+    color: #444;
+  }
+}

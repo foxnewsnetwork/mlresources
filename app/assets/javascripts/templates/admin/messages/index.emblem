@@ -1,0 +1,19 @@
+.row.admin-messages-index
+  .small-12.columns
+    each message in messages
+      == render "admin/messages/slice" message
+    else
+      .admin-message-slice
+        i.fa.fa-cog.fa-spin
+        span.prespace
+          tr-span en="now loading"
+
+.row
+  .small-4.medium-3.large-2.columns
+    span.bold.colon
+      tr-span en="messages"
+    span.prespace= messages.length
+
+.row
+  .small-12.columns
+    fancy-paginator per=per page=page metadatum=metadatum

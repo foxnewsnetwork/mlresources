@@ -1,0 +1,10 @@
+.search-and-filter {
+  margin-top: 1.5rem;
+  width: 100%;
+  @include display-flex;
+  @include flex-direction(row);
+  @include justify-content(center);
+  .standard-container {
+    width: 1250px;
+  }
+}

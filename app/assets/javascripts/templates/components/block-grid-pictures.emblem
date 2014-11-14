@@ -1,0 +1,5 @@
+each picture in pictures
+  block-picture picture=picture
+else
+  .default-empty-picture
+    tr-span en="you have no pictures"

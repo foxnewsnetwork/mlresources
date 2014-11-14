@@ -1,0 +1,106 @@
+.products-product-show
+  .row
+    .small-12.columns.goback
+      link-to "products.index"
+        .prespace
+          tr-span en="back to index" 
+  .row
+    .small-12.columns
+      h2.material-title
+        tr-span en=product.material
+        if product.sku
+          span.predash= product.sku
+
+  .row
+    .small-12.medium-4.large-3.columns
+      a href=mainPic.picUrl target="blank"
+        img.main-image.th src=mainPic.picUrl
+    .small-12.medium-8.large-9.columns
+      .row
+        .small-12.columns
+          dl.product-specs
+            if product.amount
+              dt.upcase 
+                tr-span en="quantity"
+              dd
+                span.spacebar= product.amount
+            if product.price
+              dt.upcase 
+                tr-span en="price"
+              dd
+                span= product.price
+            if product.place
+              dt.upcase 
+                tr-span en="origin"
+              dd
+                span= product.place
+            if product.quality
+              dt.upcase 
+                tr-span en="quality"
+              dd
+                span= product.quality
+            if product.others
+              dt.upcase
+                tr-span en="description"
+              dd
+                tr-span en=product.others
+                    
+      if product.taxons
+        .row
+          .small-12.columns
+            h4.tags.capitalize
+              tr-span en="category tags"
+            .taxon-tags
+              each taxon in product.taxons
+                span.tag= taxon.taxonName
+  .row
+    .small-12.columns
+      ul.pics.small-block-grid-3.medium-block-grid-6.large-block-grid-9
+        each picture in product.pictures
+          li.pointer click="selectMainPic picture"
+            img.other-image.th src=picture.thumbUrl
+
+  if product.attachments
+    .row
+      .small-12.columns.files
+        h4.capitalize.bold
+          tr-span en="related files"
+        each attachment in product.attachments
+          a href=attachment.fileUrl
+            span.spacebar= attachment.fileName
+
+  .row
+    .small-12.columns
+      h4.section-title
+        tr-span en="offers"
+      ul.offers.small-block-grid-2.medium-block-4.large-block-grid-6
+        li
+          .offer
+            .price $0.12/lb FAS Los Angeles
+            .created-at 11 / 12 / 2014
+        li
+          .offer
+            .price $0.22/lb CNF Hong Kong
+            .created-at 11 / 14 / 2014
+  .row
+    .small-6.columns
+      a.pointer.action
+        tr-span en="Make public offer"      
+    .small-6.columns
+      .action
+        tr-span en="Directly contact seller to make a private offer"
+      .contact-info
+        .company
+          span.bold.colon
+            tr-span en="seller"
+          span Riverstar Inc.
+        .email
+          span.bold.colon
+            tr-span en="email"
+          span liar@riverstar.com
+        .phone
+          span.bold.colon
+            tr-span en="phone"
+          span 666 555 1234
+
+

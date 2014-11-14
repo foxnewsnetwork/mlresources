@@ -1,0 +1,6 @@
+.business-cards-side.small-12.large-6.columns
+  == render "employees/index" contacts
+  
+
+.contact-form-side.small-12.large-6.columns
+  == render "messages/new" message

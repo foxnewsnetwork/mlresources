@@ -1,0 +1,107 @@
+.tree-taxon-wrapper {
+  > .tree-taxon-ul {
+    margin-left: 0px;
+  }
+  .expanded > .taxon-interactor {
+    color: darken(#43ac6a, 10%)
+  }
+  .selected > .taxon-interactor {
+    color: darken(#43ac6a, 10%);
+  }
+  .taxon-interactor {
+    @include transition-property(background-color);
+    @include transition-duration(300ms);
+    @include transition-timing-function(ease-out);
+    background-color: #ddd;
+    &.admin-mode {
+      color: #333;
+    }
+    
+    &:hover {
+      &:not(.admin-mode) {
+        background-color: #e1e1e1;
+      }
+      &.admin-mode {
+        background-color: darken(#43ac6a, 10%);
+        color: #eee;
+      }
+    }
+  }
+  .new-child-taxon {
+    @media #{$small-only} {
+      margin-left: 5px;
+    }
+    @media #{$medium-only} {
+      margin-left: 10px;
+    }
+    @media #{$large-up} {
+      margin-left: 15px;
+    }
+  }
+  .tree-taxon-ul {
+    list-style: none;
+  }
+  .tree-taxon-li .tree-taxon-ul {
+    @media #{$small-only} {
+      margin-left: 5px;
+    }
+    @media #{$medium-only} {
+      margin-left: 10px;
+    }
+    @media #{$large-up} {
+      margin-left: 15px;
+    }
+  }
+  .taxon-interactor {
+    @include display-flex;
+    @include flex-direction(row);
+    @include justify-content(space-between);
+    font-size: 1.25rem;
+
+  }
+  .taxon-name {
+    padding-left: 10px;
+  }
+  .delete {
+    @include transition-property(background-color);
+    @include transition-duration(300ms);
+    @include transition-timing-function(ease-out);
+    &:hover {
+      color: #ddd;
+      background-color: darken(red, 10%);
+    }
+    color: darken(red, 10%);padding-right: 15px;
+  }
+  .edit {
+    @include transition-property(background-color);
+    @include transition-duration(300ms);
+    @include transition-timing-function(ease-out);
+    &:hover {
+      background-color: #43ac6a;
+      a {
+        color: #ddd;
+      }
+    }
+    a {
+      color: darken(green, 5%);
+    }
+  }
+  .view,
+  .edit,
+  .delete {
+    @media #{$small-only} {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    @media #{$medium-only} {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+    @media #{$large-up} {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}

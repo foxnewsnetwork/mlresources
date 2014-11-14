@@ -1,0 +1,19 @@
+.background-container
+  .splash-tagline
+    .tagline-container
+      .small-12.medium-8.columns
+        
+        h3.pretag 
+          tr-span en="wore it for Ascot"
+        
+        h2.companytag Cloudrider
+        h4.posttag 
+          tr-span en="Poirot retreated to the background"
+  .splash-cta
+    .cta-container
+      .small-12.medium-4.columns
+        link-to "index" (query-params anchor="about") class="button expand"
+          span.call-to-action.spacebar
+            tr-span en="about us"
+          i.fa.fa-caret-down
+

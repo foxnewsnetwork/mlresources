@@ -1,0 +1,10 @@
+input[type=file] {
+  &.drag-entered {
+    border: 4px dashed #2b669a;
+    height: 75px;
+  }
+  &.drag-left {
+    border: none;
+    height: 55px;
+  }
+}

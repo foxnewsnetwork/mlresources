@@ -1,0 +1,26 @@
+.apiv1-login-modal {
+  border: 2px solid #777;
+  background-color: #eee;
+
+  .action-cancel {
+    @include border-radius(25px);
+    @include transition-property(background-color);
+    @include transition-duration(300ms);
+    @include transition-timing-function(ease-out);
+    float: right;
+    margin-top: -20px;
+    @media #{$small-up} {
+      margin-right: 0px;
+    }
+    @media #{$large-up} {
+      margin-right: -25px;
+    }
+    padding: 15px 20px 15px 20px;
+    background-color: #f04124;
+    &:hover {
+      background-color: darken(#f04124, 10%);
+    }
+    border: 1px solid #007095;
+    color: #eee;
+  }
+}

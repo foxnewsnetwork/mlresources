@@ -1,0 +1,48 @@
+//# ruby
+$max-menu-height: 450px;
+$min-menu-width: 155px;
+$selectable-default-bg-color: #e7e7e7;
+$selectable-active-bg-color: #008cba;
+//# end
+
+.select-locale {
+  ul.selections {
+    list-style: none;
+    height: $max-menu-height;
+    overflow-y: auto;
+    margin: 0px;
+    min-width: $min-menu-width;
+  }
+  li.selectable {
+    @include display-flex;
+    @include justify-content(space-between);
+    @include align-items(center);
+    @include transition-property(background-color);
+    @include transition-duration(300ms);
+    @include transition-timing-function(ease-out);
+    background: {
+      color: $selectable-default-bg-color;
+    }
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    &.active {
+      background-color: $selectable-active-bg-color;
+    }
+    &:hover {
+      background-color: darken($selectable-active-bg-color, 10%); 
+    }
+  }
+  .media-object {
+    margin: 0px;
+    img {
+      max-width: 45px;
+    }
+  }
+  .media-text {
+    text-align: left;
+    font-size: 0.85rem;
+    font-weight: bold;
+  }
+}

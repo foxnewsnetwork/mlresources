@@ -1,0 +1,23 @@
+// background-theme-tone: dark, light, sephia, rainbow
+$row-width: 1250px;
+
+$max-row-width: 1250px;
+
+$standard-padding-left: 15px;
+
+$background-color: #eee;
+
+@mixin main-headline-font {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+@mixin secondary-headline-font {
+  font-size: 1.65rem;
+  font-style: italic;
+}
+
+@mixin standard-content-font {
+  font-size: 1rem;
+}
+

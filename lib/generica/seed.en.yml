@@ -1,0 +1,77 @@
+en:
+  about: about
+  product: product
+  products: products
+  contact: contact
+  contacts: contacts
+  three_to_four_words: three to four words
+  couple_more_four_to_six_words: couple more four to six words
+  about_us: about us
+  rest_of_the_showcase: rest of the showcase
+  availability: availability
+  location: location
+  total_products: total products
+  our_team: our team
+  loading_employees: loading employees
+  or_perhaps_no_employees_have_been_listed: or perhaps no employees have been listed
+  contact_us: contact us
+  your_company: your company
+  company_email: company email
+  subject: subject
+  message: message
+  submit: submit
+  admin: admin
+  home: home
+  cancel: cancel
+  product_index: product index
+  browse_and_search: browse and search
+  material: material
+  form: form
+  Los_Angeles: Los Angeles
+  San_Diego: San Diego
+  Oakland: Oakland
+  Seattle: Seattle
+  Tacoma: Tacoma
+  Chicago: Chicago
+  Houston: Houston
+  New_York: New York
+  New_Orleans: New Orleans
+  Norfolk: Norfolk
+  Boston: Boston
+  Miami: Miami
+  virgin: virgin
+  natural: natural
+  colored: colored
+  black: black
+  blue: blue
+  red: red
+  green: green
+  white: white
+  yellow: yellow
+  mixed: mixed
+  form: form
+  rigid: rigid
+  bottle: bottle
+  film: film
+  processing: processing
+  none: none
+  admin_panel: admin panel
+  welcome: welcome
+  translations: translations
+  taxons: taxons
+  new_product: new product
+  edit: edit
+  delete: delete
+  keys: keys
+  new_translation: new translation
+  now_loading: now loading
+  query: query
+  locales: locales
+  languages: languages
+  language: language
+  price: price
+  quality: quality
+  amount: amount
+  quantity: quantity
+  place: place
+  translated_text: translated text

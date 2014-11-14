@@ -1,0 +1,32 @@
+.row
+  .small-12.columns
+    h2.capitalize.align-right
+      tr-span en="our team"
+.row
+  each contact in model
+    .small-12.medium-6.columns
+      .business-card.panel.radius
+        .text-right
+          .name.capitalize= contact.personName
+          .job= contact.employeeTitle
+
+        .text-left
+          .info
+            span.bold.capitalize.colon
+              tr-span en="email"
+            span.prespace= contact.email
+          .info
+            span.bold.capitalize.colon
+              tr-span en="phone"
+            span.prespace= contact.phoneNumber
+
+  else
+    .small-12.medium-6.columns
+      .business-card.panel.radius
+        .text-right
+          .name
+            i.fa.fa-cog.fa-spin
+            span.capitalize.prespace 
+              tr-span en="loading employees"
+          .job
+            tr-span en="or perhaps no employees have been listed"
