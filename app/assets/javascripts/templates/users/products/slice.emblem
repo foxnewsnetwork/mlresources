@@ -1,0 +1,27 @@
+.admin-product-slice
+  .actions
+    .view
+      link-to "users.product.edit" model.id
+        i.fa.fa-eye
+        span.prespace= model.material
+        if model.hasShowOrder
+          span #
+          span= model.showcaseOrder
+    .edit
+      link-to "users.product.edit" model.id
+        i.fa.fa-edit
+        span.prespace
+          tr-span en="edit"
+    .delete
+      .pointer click="requestDelete"
+        i.fa.fa-times
+        span.prespace
+          tr-span en="delete"
+
+  link-to "users.product.edit" model.id class="summary"
+    .media-object
+      img.product-image.th src=model.pictures.firstObject.picUrl
+
+    .media-text
+      .summary-text= model.roughSummary
+      .created-date= model.createdAt

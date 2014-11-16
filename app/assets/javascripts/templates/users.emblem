@@ -1,0 +1,24 @@
+section#user
+  .row
+    .small-12.columns
+      h1.capitalize
+        link-to "users"
+          tr-span en="user panel"
+
+  .row.admin-nav-tabs
+    .small-4.medium-4.large-2.columns
+      link-to "users.products.index" class="admin-nav-tab"
+        span.capitalize
+          tr-span en="my listings"
+    .small-4.medium-4.large-2.columns
+      link-to "users.products.new" class="admin-nav-tab"
+        span.capitalize
+          tr-span en="new listing"
+    .small-4.medium-4.large-2.columns.end
+      link-to "users.messages.index" class="admin-nav-tab"
+        span.capitalize
+          tr-span en="my offers"
+
+  .row
+    .small-12.columns
+      == outlet

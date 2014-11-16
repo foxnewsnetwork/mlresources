@@ -1,7 +1,10 @@
 class Apiv1.ModalsLoginController extends Ember.ObjectController
+  +computed
+  model: -> @store.createRecord("adminSession")
+  
   +computed model
   session: -> 
-    @login @model
+    @login @model if @model
     @model
 
   +computed session.id
@@ -11,8 +14,17 @@ class Apiv1.ModalsLoginController extends Ember.ObjectController
     session.save().then(_.bind @successfulLogin, @).catch(_.bind @failedLogin, @)
 
   successfulLogin: (session) ->
-    Apiv1.Flash.register "success", "Admin logged in", 5000
-    @transitionToRoute "admin.index"
+    if @session.isAdmin
+      Apiv1.Flash.register "success", "Admin logged in", 5000
+    else
+      Apiv1.Flash.register "success", "User logged in", 5000
+    @redirectOut()
+
+  redirectOut: ->
+    if @session.get "isAdmin"
+      @transitionToRoute "admin.index" 
+    else
+      @transitionToRoute "users.index"
 
   failedLogin: _.after 1, (reason) ->
     Apiv1.Flash.register "warning", "login failed", 5000
@@ -21,4 +33,7 @@ class Apiv1.ModalsLoginController extends Ember.ObjectController
 
   actions:
     formSubmitted: ->
-      @login @session
+      if @isAuthenticated
+        @redirectOut()
+      else
+        @login @session

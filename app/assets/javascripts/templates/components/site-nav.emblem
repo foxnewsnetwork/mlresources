@@ -4,4 +4,4 @@
       link-to "index" class="button-like"
         span MLR
       a.pointer.button-like click="displayModal 'login'"
-        tr-span en="account"
+        tr-span en="my account"

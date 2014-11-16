@@ -24,6 +24,8 @@ class Apiv1::ProductsMachine
     lambda do |product|
       if _query.present?
         _cached_elasticsearch_product_query product
+      elsif _user.present?
+        _user.products
       else
         product
       end
@@ -54,6 +56,9 @@ class Apiv1::ProductsMachine
   end
   def _unify_type
     -> (t) { t.respond_to?(:records) ? t.records.load : t }
+  end
+  def _user
+    Admin::User.find_by_id params[:user_id]
   end
   def _query
     params[:query]

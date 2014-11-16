@@ -2,9 +2,9 @@ Rails.application.routes.draw do
 
   root 'apiv1/home#index'
   namespace :apiv1 do
-    resources :products, only: [:index], controller: 'products/index'
     resources :products, only: [:show], controller: 'products/show'
     resources :products, only: [:destroy], controller: 'products/destroy'
+    resources :products, only: [:index], controller: 'products/index'
     resource :product_metadatum, only: [:show], controller: 'product_metadatum/show'
     resource :product_metadata, only: [:show], controller: 'product_metadatum/show'
     resources :pictures, only: [:show], controller: 'pictures/show'
@@ -22,6 +22,13 @@ Rails.application.routes.draw do
     resources :i18n_translations, only: [:index], controller: 'i18n_translations/index'
     resources :messages, only: [:create], controller: 'messages/create'
     resources :messages, only: [:index], controller: 'messages/index'
+    resources :users, only: [:create], controller: 'users/create'
+  end
+
+  namespace :users do
+    resources :users_products, only: [:create], controller: 'products/create'
+    resources :users_products, only: [:index], controller: 'products/index'
+    resources :users_products, only: [:update], controller: 'products/update'
   end
 
   namespace :admin do

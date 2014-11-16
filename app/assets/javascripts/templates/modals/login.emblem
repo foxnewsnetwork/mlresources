@@ -4,24 +4,31 @@
   form-for errors=failureReason submit="formSubmitted"
     .small-12.columns
       fieldset
-        legend admin login
+        legend
+          tr-span en="user login"
+        h3.alt-actions
+          a.pointer click="displayModal 'register'"
+            span.capitalize.spacebar
+              tr-span en="no account?" 
+            span.capitalize
+              tr-span en="register here"
         .input-section attr-name="email"
           label.form-label
-            span email
+            tr-span en="email"
             Ember.TextField name="email" value=session.email
         .input-section attr-name="password"
           label.form-label
-            span password
+            tr-span en="password"
             Ember.TextField name="password" value=session.password type="password"
 
     .small-6.columns
       .input-section
         promise-button model=session class="button expand"
           i.fa.fa-check
-          span submit
+          tr-span en="submit"
 
     .small-6.columns
       .input-section
         button.button.expand.alert click="closeModal"
           i.fa.fa-times
-          span cancel
+          tr-span en="cancel"

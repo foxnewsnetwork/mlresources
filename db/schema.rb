@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141114000255) do
+ActiveRecord::Schema.define(version: 20141114225019) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                        null: false
@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(version: 20141114000255) do
     t.datetime "updated_at"
     t.string   "remember_me_token"
     t.datetime "remember_me_token_expires_at"
+    t.string   "user_rank"
+    t.string   "company_name"
+    t.string   "phone_number"
+    t.text     "about_me"
+    t.string   "address"
   end
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
@@ -126,6 +131,16 @@ ActiveRecord::Schema.define(version: 20141114000255) do
   end
 
   add_index "apiv1_translations", ["key", "locale"], name: "index_apiv1_translations_on_key_and_locale", unique: true, using: :btree
+
+  create_table "apiv1_users_product_relationships", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "apiv1_users_product_relationships", ["product_id"], name: "index_apiv1_users_product_relationships_on_product_id", using: :btree
+  add_index "apiv1_users_product_relationships", ["user_id"], name: "index_apiv1_users_product_relationships_on_user_id", using: :btree
 
   create_table "commerce_units_dimensions", force: true do |t|
     t.string   "root_dimension",                                                  null: false

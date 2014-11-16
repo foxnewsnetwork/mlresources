@@ -1,0 +1,1 @@
+class Apiv1.UsersMessagesIndexRoute extends Ember.Route

@@ -1,0 +1,80 @@
+.row
+  .small-6.medium-4.large-2.columns.end
+    link-to "users.products.index" class="button expand secondary"
+      i.fa.fa-chevron-left
+      span.capitalize.bold 
+        tr-span en="back"
+
+.row.admin-products-new
+  form-for errors=failureReason submit="formSubmitted"
+    .small-12.columns
+      fieldset
+        legend.capitalize.bold 
+          tr-span en="edit listing core"
+        .input-section attr-name="material"
+          label.form-label
+            span.asterisk
+              tr-span en="listing name"
+            Ember.TextField name="material" value=usersProduct.material placeholder="hot dog"
+        .input-section attr-name="sku"
+          label.form-label
+            tr-span en="external reference number"
+            Ember.TextField name="sku" value=usersProduct.sku placeholder="XYZ-00123"
+        .input-section attr-name="price"
+          label.form-label
+            tr-span en="how much to sell for?"
+            Ember.TextField name="price" value=usersProduct.price placeholder="0.33 USD / pound FAS Long Beach Port"
+        .input-section attr-name="amount"
+          label.form-label
+            tr-span en="how much of it do you have?"
+            Ember.TextField name="amount" value=usersProduct.amount placeholder="200 tons every week"
+        .input-section attr-name="quality"
+          label.form-label
+            tr-span en="what sort of goods are these?"
+            Ember.TextField name="quality" value=usersProduct.quality placeholder="A grade, baled"
+        .input-section attr-name="place"
+          label.form-label
+            tr-span en="where is this?"
+            Ember.TextField name="place" value=usersProduct.place placeholder="Los Angeles"
+        .input-section attr-name="others"
+          label.form-label
+            tr-span en="anything else?"
+            Ember.TextArea name="others" value=usersProduct.others
+    
+    .small-12.columns
+      fieldset
+        legend.capitalize.bold
+          tr-span en="existing pictures"      
+        block-grid-pictures pictures=model.pictures
+
+    .small-12.columns
+      fieldset
+        legend.capitalize.bold
+          tr-span en="upload more pictures"
+        .input-section attr-name="pictures"
+          label.form-label
+            span.asterisk
+              tr-span en="your listing needs at least 1 picture"
+              span.parantheses
+                tr-span en="the first picture will be displayed in the showcase"
+            files-field name="pictures" files=usersProduct.pictures class="form-control upload-control"
+
+    .small-12.columns
+      fieldset
+        legend.capitalize.bold
+          tr-span en="categorize"
+        .input-section attr-name="taxons"
+          label.form-label
+            tr-span en="select appropriate category tags for this product"
+          tree-taxon-wrapper taxons=rootTaxons activeTaxons=activeTaxons
+    
+    .small-12.columns
+      fieldset
+        legend.capitalize.bold
+          tr-span en="actions"
+        .actions.row
+          .small-6.columns.end
+            promise-button model=usersProduct class="button expand"
+              i.fa.fa-check
+              span.capitalize.bold
+                tr-span en="save"
