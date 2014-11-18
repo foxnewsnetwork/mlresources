@@ -50,5 +50,4 @@ test:
 production:
   <<: *default
   database: mlresources_production
-  username: mlresources
   password: <%= ENV['APIV1_DATABASE_PASSWORD'] %>
