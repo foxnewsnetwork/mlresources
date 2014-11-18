@@ -1,11 +1,3 @@
-PATH
-  remote: /home/ia/workspace/cloudrider
-  specs:
-    cloudrider (0.3.1)
-      activesupport (>= 3)
-      functional_support (>= 0.0.12)
-      tilt (>= 1.4)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -319,7 +311,6 @@ PLATFORMS
 DEPENDENCIES
   annotate (>= 2.5.0.pre1)
   capybara (~> 2.4.4)
-  cloudrider!
   coffee-rails (~> 4.0.1)
   commerce_units (>= 0.0.5)
   compass-flexbox (~> 1.1.3)
