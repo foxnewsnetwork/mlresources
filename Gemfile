@@ -14,6 +14,7 @@ gem 'probability', "1"
 gem 'elasticsearch-rails', '~> 0.1.4'
 gem 'elasticsearch-model', '~> 0.1.4'
 gem 'elasticsearch', '~> 1.0.4'
+gem 'paranoia', '~> 2.0.2'
 
 # Support
 gem "haml", "~> 4.0.0"

@@ -23,11 +23,17 @@ Rails.application.routes.draw do
     resources :messages, only: [:create], controller: 'messages/create'
     resources :messages, only: [:index], controller: 'messages/index'
     resources :users, only: [:create], controller: 'users/create'
+    resources :users, only: [:show], controller: 'users/show'
+    resources :offers, only: [:create], controller: 'offers/create'
+    resources :offers, only: [:show], controller: 'offers/show'
+    resources :offers, only: [:destroy], controller: 'offers/destroy'
+    resources :offers, only: [:index], controller: 'offers/index'
   end
 
   namespace :users do
+    resources :users_offers, only: [:create], controller: 'offers/create'
+
     resources :users_products, only: [:create], controller: 'products/create'
-    resources :users_products, only: [:index], controller: 'products/index'
     resources :users_products, only: [:update], controller: 'products/update'
   end
 

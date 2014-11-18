@@ -3,6 +3,8 @@ Apiv1.Router.map ->
   @resource "products", path: "/products", ->
     @resource "products.product", path: "/product/:product_id", ->
       @route "show"
+      @resource "products.product.offers", path: "/offers", ->
+        @route "new"
 
   @resource "users", path: "/users", ->
     @resource "users.products", path: "/products", ->
@@ -11,7 +13,7 @@ Apiv1.Router.map ->
     @resource "users.product", path: "/product/:product_id", ->
       @route "edit"
 
-    @resource "users.messages", path: "/messages", ->
+    @resource "users.offers", path: "/offers", ->
       @route "index"
 
   @resource "admin", path: "/admin", ->

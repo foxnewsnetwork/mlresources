@@ -1,0 +1,1 @@
+class Apiv1.UsersOffersIndexRoute extends Ember.Route

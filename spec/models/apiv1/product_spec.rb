@@ -14,6 +14,7 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  showcase_order :integer
+#  deleted_at     :datetime
 #
 
 require 'rails_helper'

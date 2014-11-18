@@ -1,0 +1,25 @@
+.row.admin-messages-index
+  .small-12.columns
+    if offers.isPending
+      .admin-message-slice
+        i.fa.fa-cog.fa-spin
+        span.prespace
+          tr-span en="now loading"
+    else
+      each offer in offers
+        == render "users/offers/slice" offer
+      else
+        .admin-message-slice
+          i.fa.fa-times
+          span.prespace
+            tr-span en="no one has made you an offer"  
+
+.row
+  .small-4.medium-3.large-2.columns
+    span.bold.colon
+      tr-span en="offers"
+    span.prespace= offers.length
+
+.row
+  .small-12.columns
+    fancy-paginator per=per page=page metadatum=metadatum

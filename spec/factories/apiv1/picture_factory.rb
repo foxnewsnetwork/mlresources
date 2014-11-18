@@ -11,6 +11,7 @@
 #  pic_content_type :string(255)
 #  pic_file_size    :integer
 #  pic_updated_at   :datetime
+#  deleted_at       :datetime
 #
 
 class Apiv1::PictureFactory < Apiv1::BaseFactory

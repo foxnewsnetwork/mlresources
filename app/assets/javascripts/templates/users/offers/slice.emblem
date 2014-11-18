@@ -1,0 +1,31 @@
+.admin-message-slice
+  .actions
+    .view
+      i.fa.fa-user
+      span.prespace= model.fromCompany
+      span.predash= model.senderEmail
+    .date
+      span.time-created= model.createdAt
+
+  .summary
+    .media-subject
+      span.bold= model.priceTerms
+      span.spacebar.prespace -
+      link-to "products.product.show" model.product.id
+        span= model.product.material
+      
+    .media-text= model.message
+    .media-extras
+      dl
+        if model.phoneNumber
+          dt
+            tr-span en="phone number"
+          dd= model.phoneNumber
+        if model.contactPerson
+          dt
+            tr-span en="contact person"
+          dd= model.contactPerson
+        if model.companyAddress
+          dt
+            tr-span en="company location"
+          dd= model.companyAddress

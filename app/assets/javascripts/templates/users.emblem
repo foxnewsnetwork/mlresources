@@ -15,7 +15,7 @@ section#user
         span.capitalize
           tr-span en="new listing"
     .small-4.medium-4.large-2.columns.end
-      link-to "users.messages.index" class="admin-nav-tab"
+      link-to "users.offers.index" class="admin-nav-tab"
         span.capitalize
           tr-span en="my offers"
 

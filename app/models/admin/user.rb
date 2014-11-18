@@ -32,6 +32,11 @@ class Admin::User < ActiveRecord::Base
     class_name: 'Apiv1::Product',
     through: :product_relationships
 
+  has_many :offers,
+    -> { order "#{Apiv1::OfferMessage.table_name}.created_at desc" },
+    through: :products,
+    class_name: 'Apiv1::OfferMessage'
+
   def to_ember_hash
     {
       id: id,
@@ -46,6 +51,10 @@ class Admin::User < ActiveRecord::Base
 
   def admin?
     user_rank.to_s == "admin" 
+  end
+
+  def admin!
+    update user_rank: "admin"
   end
 
   def owns?(product)

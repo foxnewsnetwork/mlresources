@@ -212,6 +212,8 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    paranoia (2.0.2)
+      activerecord (~> 4.0)
     probability (1.0.0)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -347,6 +349,7 @@ DEPENDENCIES
   numbers_and_words (~> 0.10.0)
   painful_translate (>= 0.0.4)
   paperclip (~> 4.2.0)
+  paranoia (~> 2.0.2)
   probability (= 1)
   rails (= 4.1.6)
   rails_12factor

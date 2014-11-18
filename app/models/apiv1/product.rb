@@ -14,9 +14,11 @@
 #  created_at     :datetime
 #  updated_at     :datetime
 #  showcase_order :integer
+#  deleted_at     :datetime
 #
 
 class Apiv1::Product < ActiveRecord::Base
+  acts_as_paranoid
   include ::Elasticsearch::Model
   include ::Elasticsearch::Model::Callbacks
   Fields = [
@@ -35,6 +37,9 @@ class Apiv1::Product < ActiveRecord::Base
   has_many :taxons,
     through: :taxon_relationships,
     class_name: 'Apiv1::Taxon'
+  has_many :offers,
+    -> { order "#{Apiv1::OfferMessage.table_name}.created_at desc" },
+    class_name: 'Apiv1::OfferMessage'
   has_many :pictures,
     class_name: 'Apiv1::Picture',
     as: :depictable,
@@ -43,6 +48,12 @@ class Apiv1::Product < ActiveRecord::Base
     class_name: 'Apiv1::Attachment',
     as: :attachable,
     dependent: :destroy
+  has_one :ownership,
+    class_name: 'Apiv1::Users::ProductRelationship',
+    foreign_key: 'product_id'
+  has_one :user,
+    through: :ownership,
+    class_name: 'Admin::User'
 
   scope :belonging_to_taxon,
     -> (taxon) { joins(:taxons).where("#{Apiv1::Taxon.table_name}.id = ?", taxon.id) }
@@ -78,7 +89,9 @@ class Apiv1::Product < ActiveRecord::Base
   def to_ember_hash
     attributes.merge pictures: pictures.map(&:id),
       taxons: taxons.map(&:id),
-      attachments: attachments.map(&:id)
+      attachments: attachments.map(&:id),
+      offers: offers.map(&:id),
+      user_id: user.try(:id)
   end
 
   private

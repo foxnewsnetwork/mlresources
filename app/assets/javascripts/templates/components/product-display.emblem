@@ -28,8 +28,6 @@ if product
           span.upcase.colon
             tr-span en="quality"
           span.spec.spacebar= product.quality
-      .taxon-tags
-        span.tag dog
       if product.taxons
         .taxon-tags
           each taxon in product.taxons

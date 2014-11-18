@@ -26,7 +26,10 @@ class Admin::UserFactory < Apiv1::BaseFactory
       {
         email: Faker::Internet.email,
         password: "asdf123",
-        password_confirmation: "asdf123"
+        password_confirmation: "asdf123",
+        company_name: Faker::Company.name,
+        phone_number: '554654',
+        address: Faker::AddressUS.street_address
       }
     end
   end

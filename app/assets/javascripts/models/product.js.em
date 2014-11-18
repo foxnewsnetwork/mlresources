@@ -12,6 +12,8 @@ class Apiv1.Product extends DS.Model
   attachments: DS.hasMany "attachment", async: true
   pictures: DS.hasMany "picture", async: true
   taxons: DS.hasMany "taxon", async: true
+  offers: DS.hasMany "offer", async: true
+  user: DS.belongsTo "user", async: true
 
   +computed material, price, amount, place, sku
   roughSummary: ->

@@ -12,6 +12,10 @@ class Apiv1.ProductsProductShowController extends Ember.ObjectController
     return @get("pictures.firstObject") if Ember.isBlank @mp
     @pictures.findBy("id", @mp) || @get("pictures.firstObject")
 
+  +computed product.id
+  offer: ->
+    @store.createRecord "offer"
+
   actions:
     selectMainPic: (picture) ->
       @mp = picture.get("id")

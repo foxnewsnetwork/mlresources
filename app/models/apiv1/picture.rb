@@ -11,9 +11,11 @@
 #  pic_content_type :string(255)
 #  pic_file_size    :integer
 #  pic_updated_at   :datetime
+#  deleted_at       :datetime
 #
 
 class Apiv1::Picture < ActiveRecord::Base
+  acts_as_paranoid
   belongs_to :depictable,
     polymorphic: true
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141114225019) do
+ActiveRecord::Schema.define(version: 20141116235808) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                        null: false
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20141114225019) do
     t.datetime "document_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "deleted_at"
   end
 
   add_index "apiv1_attachments", ["attachable_id", "attachable_type"], name: "index_apiv1_attachments_on_attachable_id_and_attachable_type", using: :btree
@@ -76,6 +77,23 @@ ActiveRecord::Schema.define(version: 20141114225019) do
     t.string   "company_address"
   end
 
+  create_table "apiv1_offer_messages", force: true do |t|
+    t.integer  "product_id"
+    t.string   "from_company"
+    t.string   "sender_email"
+    t.string   "subject_text"
+    t.string   "phone_number"
+    t.string   "contact_person"
+    t.string   "company_address"
+    t.string   "status"
+    t.text     "message"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.datetime "deleted_at"
+  end
+
+  add_index "apiv1_offer_messages", ["product_id"], name: "index_apiv1_offer_messages_on_product_id", using: :btree
+
   create_table "apiv1_pictures", force: true do |t|
     t.integer  "depictable_id"
     t.string   "depictable_type"
@@ -85,6 +103,7 @@ ActiveRecord::Schema.define(version: 20141114225019) do
     t.string   "pic_content_type"
     t.integer  "pic_file_size"
     t.datetime "pic_updated_at"
+    t.datetime "deleted_at"
   end
 
   add_index "apiv1_pictures", ["depictable_id", "depictable_type"], name: "index_apiv1_pictures_on_depictable_id_and_depictable_type", using: :btree
@@ -101,6 +120,7 @@ ActiveRecord::Schema.define(version: 20141114225019) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "showcase_order"
+    t.datetime "deleted_at"
   end
 
   add_index "apiv1_products", ["permalink"], name: "index_apiv1_products_on_permalink", using: :btree

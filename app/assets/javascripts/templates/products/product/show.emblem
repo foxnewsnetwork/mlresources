@@ -74,17 +74,15 @@
       h4.section-title
         tr-span en="offers"
       ul.offers.small-block-grid-2.medium-block-4.large-block-grid-6
-        li
-          .offer
-            .price $0.12/lb FAS Los Angeles
-            .created-at 11 / 12 / 2014
-        li
-          .offer
-            .price $0.22/lb CNF Hong Kong
-            .created-at 11 / 14 / 2014
+        each offer in product.offers
+          li
+            .offer
+              .price= offer.priceTerms
+              .created-at= offer.createdAt
+        
   .row
     .small-6.columns
-      a.pointer.action
+      link-to "products.product.offers.new" product.id class="action"
         tr-span en="Make public offer"      
     .small-6.columns
       .action
@@ -93,14 +91,14 @@
         .company
           span.bold.colon
             tr-span en="seller"
-          span Riverstar Inc.
+          span= product.user.companyName
         .email
           span.bold.colon
             tr-span en="email"
-          span liar@riverstar.com
+          span= product.user.email
         .phone
           span.bold.colon
             tr-span en="phone"
-          span 666 555 1234
+          span= product.user.phoneNumber
 
 

@@ -11,9 +11,11 @@
 #  document_updated_at   :datetime
 #  created_at            :datetime
 #  updated_at            :datetime
+#  deleted_at            :datetime
 #
 
 class Apiv1::Attachment < ActiveRecord::Base
+  acts_as_paranoid
   DocumentTypes = [
     "application/pdf",
     "application/docx",
