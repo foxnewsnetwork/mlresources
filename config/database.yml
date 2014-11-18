@@ -51,4 +51,4 @@ production:
   <<: *default
   database: mlresources_production
   username: mlresources
-  password: <%= ENV['MLRESOURCES_DATABASE_PASSWORD'] %>
+  password: <%= ENV['APIV1_DATABASE_PASSWORD'] %>

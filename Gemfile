@@ -58,7 +58,7 @@ group :development do
   gem "spring"
   gem 'easy_translate'
   gem 'painful_translate', '>=0.0.4'
-  gem 'cloudrider', '>=0.2.18'
+  gem 'cloudrider', path: File.expand_path("../../cloudrider", __FILE__)
 end
 
 group :production do
