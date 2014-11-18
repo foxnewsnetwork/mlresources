@@ -4,7 +4,7 @@ namespace :seeds do
     require Rails.root.join "db", "seeds", "translation_seeds"
   end
 
-  ["dimensions", "products", "users"].each do |seeds|
+  ["dimensions", "products", "users", "taxons"].each do |seeds|
     desc "seeds the database with the data living in db/seeds/#{seeds}.rb"
     task seeds => :environment do
       require Rails.root.join "db", "seeds", seeds

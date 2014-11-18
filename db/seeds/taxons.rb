@@ -1,4 +1,6 @@
-root_classifications = [:material, :quality, :form, :processing, :packaging, :location]
+root_classifications = [:material, :quality, :location].map { |n| { taxon_name: n } }
+roots = Apiv1::Taxon.create! root_classifications
+location = roots.last
 
 location_taxons = [
   { taxon_name: "Los Angeles" },
@@ -9,9 +11,10 @@ location_taxons = [
   { taxon_name: "Chicago" },
   { taxon_name: "Houston" }
 ].map do |n|
-  n.merge root_genus: :location
+  n.merge parent: location
 end
 
+material = roots.first
 material_taxons = [
   { taxon_name: "pet", explanation: "Polyethylene terephthalate. Commonly used in drinking bottles. Also known as PETE."  },
   { taxon_name: "hdpe", explanation: "High-density polyethylene. Known for its high density. Used in anything requiring strength." },
@@ -22,9 +25,10 @@ material_taxons = [
   { taxon_name: "pla", explanation: "Polylactic acid. Biodegradable aliphastic polyester from renewable resuorces such as corn starch." },
   { taxon_name: "abs", explanation: "Acrylonitrile butadiene styrene. Toxic when heated. Used in computers chasis, lego blocks, and other hard applications." }
 ].map do |n|
-  n.merge  root_genus: :material 
+  n.merge  parent: material
 end
 
+quality = roots.second
 quality_taxons = [
   { taxon_name: "virgin", explanation: "Factory-produced, usually from petroleum. Pure chemically and unused. Frequently pelletized." },
   { taxon_name: "natural", explanation: "Natural uncolored recycled plastics." },
@@ -32,50 +36,11 @@ quality_taxons = [
   { taxon_name: "commingled", explanation: "Recycled product with different plastics alloyed together." },
   { taxon_name: "mixed", explanation: "Recycled plastics mixed together." }
 ].map do |n|
-  n.merge root_genus: :quality
+  n.merge parent: quality
 end
 
-form_taxons = ["rigid", "bottle", "regrind", "flakes", "pellet", "purge", "supersack", "film", "rope"].map do |n|
-  { root_genus: :form, taxon_name: n }
-end
-
-processing_taxons = ["hot-washed", "washed"].map do |n|
-  { root_genus: :processing, taxon_name: n }
-end
-
-packaging_taxons = ["baled", "gaylord", "pallet", "supersack", "none"].map do |n|
-  { root_genus: :packaging, taxon_name: n }
-end
 
 Apiv1::Taxon.create! location_taxons
 Apiv1::Taxon.create! material_taxons
 Apiv1::Taxon.create! quality_taxons
-Apiv1::Taxon.create! form_taxons
-Apiv1::Taxon.create! processing_taxons
-Apiv1::Taxon.create! packaging_taxons
 
-bottle = Apiv1::Taxon.find_by_permalink_genus! "bottle", "form"
-bottle_types = ["pill", "shampoo", "soda"].map do |n|
-  { root_genus: :form, taxon_name: n, parent: bottle }
-end
-
-film = Apiv1::Taxon.find_by_permalink_genus! "film", "form"
-film_types = ["grade a", "grade b", "grade c", "grade d", "colored", "agricultural"].map do |n|
-  { root_genus: :form, taxon_name: n, parent: film }
-end
-
-rope = Apiv1::Taxon.find_by_permalink_genus! "rope", "form"
-rope_types = ["twine", "strap"].map do |n|
-  { root_genus: :form, taxon_name: n, parent: rope }
-end
-
-colored = Apiv1::Taxon.find_by_permalink_genus! "colored", "quality"
-colored_types = ["black", "blue", "red", "green", "white", "yellow"].map do |n|
-  { root_genus: :quality, taxon_name: n, parent: colored }
-end
-
-Apiv1::Taxon.create! bottle_types
-Apiv1::Taxon.create! film_types
-
-Apiv1::Taxon.create! rope_types
-Apiv1::Taxon.create! colored_types
