@@ -2,6 +2,6 @@
   .small-12.columns
     .space-between
       link-to "index" class="button-like"
-        span MLR
+        span Plastic Scrap Market
       a.pointer.button-like click="displayModal 'login'"
         tr-span en="my account"

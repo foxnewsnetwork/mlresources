@@ -1,8 +1,14 @@
 class Apiv1::Products::IndexController < Apiv1::HomeController
   def index
-    render json: { products: _products_hash, meta: _meta_hash }
+    render json: { products: _products_hash, meta: _meta_hash, pictures: _pictures_hash, taxons: _taxons_hash }
   end
   private
+  def _pictures_hash
+    _products.map(&:pictures).flatten.map(&:to_ember_hash)
+  end
+  def _taxons_hash
+    _products.map(&:taxons).flatten.map(&:to_ember_hash)
+  end
   def _products_hash
     _products.map &:to_ember_hash
   end
