@@ -3,5 +3,9 @@
     .space-between
       link-to "index" class="button-like"
         span Plastic Scrap Market
-      a.pointer.button-like click="displayModal 'login'"
-        tr-span en="my account"
+      if userLoggedIn
+        link-to "users.index" class="button-like"
+          tr-span en="my account"
+      else
+        a.pointer.button-like click="displayModal 'login'"
+          tr-span en="login or register"

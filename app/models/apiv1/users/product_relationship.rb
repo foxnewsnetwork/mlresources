@@ -12,7 +12,7 @@
 class Apiv1::Users::ProductRelationship < ActiveRecord::Base
   self.table_name = 'apiv1_users_product_relationships'
   belongs_to :user,
-    class_name: 'Apiv1::User'
+    class_name: 'Admin::User'
 
   belongs_to :product,
     class_name: 'Apiv1::Product'

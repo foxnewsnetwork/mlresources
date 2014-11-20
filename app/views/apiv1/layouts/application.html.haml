@@ -13,9 +13,13 @@
 %head
   %meta{ :charset => "utf-8" }
   %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+  %title Plastic Scrap Market
   = stylesheet_link_tag 'application', media: 'all', "data-turbolinks-track" => false
   = javascript_include_tag "application", "data-turbolinks-track" => false
   = csrf_meta_tags
 
+  - if logged_in?
+    :javascript
+      Apiv1.CurrentUserSession = Ember.ObjectProxy.create( { content: #{current_user.to_ember_hash.to_json} } );
 %body#apiv1
   = yield

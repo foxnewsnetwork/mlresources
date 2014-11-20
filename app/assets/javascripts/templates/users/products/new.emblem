@@ -39,12 +39,6 @@
           label.form-label
             tr-span en="anything else?"
             Ember.TextArea name="others" value=model.others
-        .input-section attr-name="files"
-          label.form-label
-            tr-span en="related files"
-            span.parantheses
-              tr-span en="these will be pubicly available"
-            files-field name="attachments" files=model.attachments class="form-control upload-control"
         .input-section attr-name="pictures"
           label.form-label
             span.asterisk

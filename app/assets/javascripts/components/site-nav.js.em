@@ -24,6 +24,10 @@ class Apiv1.SiteNavComponent extends Ember.Component
     $("#page-wrapper").unbind "touchmove"
     $("#page-wrapper").unbind "scroll"
 
+  +computed Apiv1.CurrentUserSession.id
+  userLoggedIn: -> 
+    get$ Apiv1, "CurrentUserSession.id"
+
   actions:
     displayModal: (modal) ->
       @sendAction 'action', modal

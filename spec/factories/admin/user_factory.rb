@@ -29,7 +29,8 @@ class Admin::UserFactory < Apiv1::BaseFactory
         password_confirmation: "asdf123",
         company_name: Faker::Company.name,
         phone_number: '554654',
-        address: Faker::AddressUS.street_address
+        address: Faker::AddressUS.street_address,
+        user_rank: 'admin'
       }
     end
   end

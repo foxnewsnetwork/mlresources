@@ -47,5 +47,6 @@ Rails.application.routes.draw do
     resources :taxons, only: [:update], controller: 'taxons/update'
 
     resources :admin_sessions, only: [:create], controller: 'sessions/create'
+    resources :admin_sessions, only: [:destroy], controller: 'sessions/destroy'
   end
 end

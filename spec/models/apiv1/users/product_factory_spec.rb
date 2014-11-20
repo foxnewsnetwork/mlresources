@@ -17,7 +17,6 @@ describe Apiv1::Users::ProductFactory do
   context 'user' do
     subject { user }
     specify { should be_persisted }
-    specify { should be_valid }
   end
   context '_product' do
     before { factory.satisfy_specifications? }
@@ -25,10 +24,16 @@ describe Apiv1::Users::ProductFactory do
     specify { should be_a Apiv1::Product }
   end
   context 'user.products' do
-    before { factory.satisfy_specifications? }
+    before { factory.satisfy_specifications? && factory.save! }
     let(:product) { factory.send "_product" }
-    subject { user.products }
+    subject { Admin::User.find(user.id).products }
     specify { should include product }
+  end
+  context 'creations' do
+    before { factory.satisfy_specifications? }
+    subject { -> { factory.save! } }
+    specify { should change(Apiv1::Product, :count).by 1 }
+    specify { should change(Apiv1::Users::ProductRelationship, :count).by 1 }
   end
   
   context 'post-save' do

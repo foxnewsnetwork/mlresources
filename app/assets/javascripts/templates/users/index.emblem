@@ -1,3 +1,7 @@
 h4 welcome
 
 p.todo TODO: analytics dashboard goes here
+
+button.alert click="logoutUser"
+  span.capitalize
+    tr-span en="logout"

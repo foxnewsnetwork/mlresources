@@ -9,11 +9,11 @@ class Apiv1.ModalsRegisterController extends Ember.ObjectController
   redirectToIndex: ->
     @transitionToRoute 'users.index'
   notifySuccess: ->
-    Apiv1.Flash.register "success", "account created!"
+    Apiv1.Flash.register "success", "account created!", 4000
   successfulSave: (user) ->
     @notifySuccess()
     @redirectToIndex()
-    window.location.reload()
+    Apiv1.CurrentUserSession = user
   failedSave: (reason) ->
     Apiv1.Flash.register "warning", "the server died for some reason", 5000 if reason.status is 500
     @failureReason = reason.responseJSON if reason.responseJSON

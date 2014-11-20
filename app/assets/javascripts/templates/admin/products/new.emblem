@@ -45,12 +45,7 @@
             span.parantheses
               tr-span en="the smaller the number, the higher up it appears in the showcase on the front page"
             Ember.TextField type="number" name="showcaseOrder" value=model.showcaseOrder
-        .input-section attr-name="files"
-          label.form-label
-            tr-span en="related files"
-            span.parantheses
-              tr-span en="these will be pubicly available"
-            files-field name="attachments" files=model.attachments class="form-control upload-control"
+        
         .input-section attr-name="pictures"
           label.form-label
             span.asterisk

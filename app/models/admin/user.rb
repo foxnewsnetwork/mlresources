@@ -20,9 +20,12 @@
 class Admin::User < ActiveRecord::Base
   authenticates_with_sorcery!
   validates :email,
+    :company_name,
     presence: true,
     uniqueness: true
   validates :password,
+    presence: true,
+    length: { minimum: 2 },
     confirmation: true
 
   has_many :product_relationships,

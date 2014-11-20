@@ -3,30 +3,29 @@ class Apiv1.ModalsLoginController extends Ember.ObjectController
   model: -> @store.createRecord("adminSession")
   
   +computed model
-  session: -> 
-    @login @model if @model
-    @model
+  session: -> @model
 
-  +computed session.id
-  isAuthenticated: -> @get("session.id")
+  +computed model.id
+  isAuthenticated: -> @get("model.id")
 
   login: (session) ->
     session.save().then(_.bind @successfulLogin, @).catch(_.bind @failedLogin, @)
 
   successfulLogin: (session) ->
-    if @session.isAdmin
+    if session.isAdmin
       Apiv1.Flash.register "success", "Admin logged in", 5000
     else
       Apiv1.Flash.register "success", "User logged in", 5000
+    Apiv1.CurrentUserSession = session
     @redirectOut()
 
   redirectOut: ->
-    if @session.get "isAdmin"
+    if @get("model.isAdmin")
       @transitionToRoute "admin.index" 
     else
       @transitionToRoute "users.index"
 
-  failedLogin: _.after 1, (reason) ->
+  failedLogin: (reason) ->
     Apiv1.Flash.register "warning", "login failed", 5000
     @failureReason = reason.responseJSON.admin_session if reason.responseJSON?
 
@@ -36,4 +35,4 @@ class Apiv1.ModalsLoginController extends Ember.ObjectController
       if @isAuthenticated
         @redirectOut()
       else
-        @login @session
+        @login @model

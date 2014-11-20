@@ -21,7 +21,7 @@ class Apiv1.FormForComponent extends Ember.Component
 
   explainErrorFields: ->
     _.map @errors, (errors, field) =>
-      @$(".input-section[attr-name=#{field}]").addClass("error").append("<small class='error'>#{errors}</small>")
+      @$(".input-section[attr-name=#{Ember.String.camelize field}]").addClass("error").append("<small class='error'>#{errors}</small>")
       
 
   actions:
