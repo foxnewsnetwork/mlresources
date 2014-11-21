@@ -23,4 +23,8 @@ Apiv1.ApplicationStore = DS.Store.extend do
   # is built to work nicely with the ActiveModel::Serializers gem.
   adapter: DS.ActiveModelAdapter
   
-$ _.once -> $('#now-loading').hide!
+$ _.once -> 
+  if window.RawCurrentUserSession
+    store = Apiv1.__container__.lookup("store:main")
+    set$ Apiv1, "CurrentUserSession", store.push "adminSession", window.RawCurrentUserSession
+  $('#now-loading').hide "puff", 600

@@ -16,14 +16,14 @@ end
 
 material = roots.first
 material_taxons = [
-  { taxon_name: "pet", explanation: "Polyethylene terephthalate. Commonly used in drinking bottles. Also known as PETE."  },
-  { taxon_name: "hdpe", explanation: "High-density polyethylene. Known for its high density. Used in anything requiring strength." },
-  { taxon_name: "pvc", explanation: "Polyvinyl chloride. Comes in both rigid and flexible forms. Used in pipes, credit cards, etc." },
-  { taxon_name: "ldpe", explanation: "Low-density polyethylene. Low density version of HDPE. Used in applications requiring flexibility." },
-  { taxon_name: "pp", explanation: "Polypropylene. Chemically resistant. Used in ropes, packaging, textiles, and padding." },
-  { taxon_name: "ps", explanation: "Polystyrene. Inexpensive resin per unit weight with low-melting point. Naturally transparent, but often colored." },
-  { taxon_name: "pla", explanation: "Polylactic acid. Biodegradable aliphastic polyester from renewable resuorces such as corn starch." },
-  { taxon_name: "abs", explanation: "Acrylonitrile butadiene styrene. Toxic when heated. Used in computers chasis, lego blocks, and other hard applications." }
+  { taxon_name: "PET", explanation: "Polyethylene terephthalate. Commonly used in drinking bottles. Also known as PETE."  },
+  { taxon_name: "HDPE", explanation: "High-density polyethylene. Known for its high density. Used in anything requiring strength." },
+  { taxon_name: "PVC", explanation: "Polyvinyl chloride. Comes in both rigid and flexible forms. Used in pipes, credit cards, etc." },
+  { taxon_name: "LDPE", explanation: "Low-density polyethylene. Low density version of HDPE. Used in applications requiring flexibility." },
+  { taxon_name: "PP", explanation: "Polypropylene. Chemically resistant. Used in ropes, packaging, textiles, and padding." },
+  { taxon_name: "PS", explanation: "Polystyrene. Inexpensive resin per unit weight with low-melting point. Naturally transparent, but often colored." },
+  { taxon_name: "PLA", explanation: "Polylactic acid. Biodegradable aliphastic polyester from renewable resuorces such as corn starch." },
+  { taxon_name: "ABS", explanation: "Acrylonitrile butadiene styrene. Toxic when heated. Used in computers chasis, lego blocks, and other hard applications." }
 ].map do |n|
   n.merge  parent: material
 end

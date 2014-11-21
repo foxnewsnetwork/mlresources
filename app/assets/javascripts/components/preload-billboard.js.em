@@ -16,7 +16,7 @@ class Apiv1.PreloadBillboardComponent extends Ember.Component
     if @finishedLoading
       @alreadyLoaded = true
       $("#everything-else-holder").show()
-      $("#billboard-holder").hide "puff", 750
+      $("#billboard-holder").hide "puff", 600
 
   didInsertElement: ->
     @manageWhichToHide()

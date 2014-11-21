@@ -14,12 +14,43 @@
   %meta{ :charset => "utf-8" }
   %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0"}
   %title Plastic Scrap Market
-  = stylesheet_link_tag 'application', media: 'all', "data-turbolinks-track" => false
-  = javascript_include_tag "application", "data-turbolinks-track" => false
+  = stylesheet_link_tag 'application', media: 'all', async: true
+  = javascript_include_tag "application"
   = csrf_meta_tags
 
   - if logged_in?
     :javascript
-      Apiv1.CurrentUserSession = Ember.ObjectProxy.create( { content: #{current_user.to_ember_hash.to_json} } );
+      window.RawCurrentUserSession = #{current_user.to_ember_hash.to_json};
+
+  :css
+    #now-loading {
+      position: fixed;
+      top: 45%;
+      z-index: 99999;
+      width: 100%;
+    }
+    .now-loading-text {
+      text-align: center;
+    }
+    .now-loading-spinner {
+      text-align: center;
+      font-weight: bold;
+      -webkit-animation: spin 1s ease-in-out infinite alternate;
+      -moz-animation: spin 1s ease-in-out infinite alternate;
+      animation: spin 1s ease-in-out infinite alternate;
+    }
+    @-moz-keyframes spin {
+      from { -moz-transform: rotate(0deg); }
+      to { -moz-transform: rotate(360deg); }
+    }
+    @-webkit-keyframes spin {
+      from { -webkit-transform: rotate(0deg); }
+      to { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes spin {
+      from {transform:rotate(0deg);}
+      to {transform:rotate(360deg);}
+    }
+
 %body#apiv1
   = yield

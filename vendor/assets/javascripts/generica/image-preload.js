@@ -1,1 +1,1 @@
-Apiv1.ImagesToPreload = ["assets/hero-splash/albatross.jpg", "assets/hero-splash/rocks.jpg", "assets/cookie-splash/albatross.jpg"];
+Apiv1.ImagesToPreload = [];
