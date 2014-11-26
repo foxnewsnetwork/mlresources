@@ -1,4 +1,4 @@
-search-and-filter taxons=taxons action="search"
+search-and-filter taxons=taxons action="search" query=query activeTaxons=activeTaxons
   fancy-paginator page=page per=per metadatum=metadatum
 
   products-catalog products=products

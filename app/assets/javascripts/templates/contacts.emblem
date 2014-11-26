@@ -1,3 +1,0 @@
-cookie-splash path="contacts"
-
-table-booths id="contacts" contacts=model.employees message=model.message

@@ -1,6 +1,8 @@
 class Apiv1.IndexController extends Ember.ObjectController
   queryParams: ['anchor']
-  anchor: null
+  anchor: ""
+  query: ""
+  activeTaxons: []
 
   +observer anchor
   scroll2Anchor: ->

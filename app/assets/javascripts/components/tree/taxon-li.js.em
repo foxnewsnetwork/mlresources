@@ -9,7 +9,7 @@ class Apiv1.TreeTaxonLiComponent extends Ember.Component
     return false unless @isExpandable
     if arguments.length > 1
       @expansionCoefficient = expand
-    unless @expansionCoefficient?
+    if Ember.isBlank @expansionCoefficient
       @expansionCoefficient = @isExpandable and @activeTaxons.contains @taxon
     @expansionCoefficient
 
@@ -24,7 +24,7 @@ class Apiv1.TreeTaxonLiComponent extends Ember.Component
     return false unless @isSelectable
     if arguments.length > 1
       @selectionCoefficient = select
-    unless @selectionCoefficient?
+    if Ember.isBlank @selectionCoefficient
       @selectionCoefficient = @isSelectable and @activeTaxons.contains @taxon
     @selectionCoefficient
 
@@ -45,9 +45,13 @@ class Apiv1.TreeTaxonLiComponent extends Ember.Component
       @selectMe()
 
   unexpandMe: ->
+    @activeTaxons ||= []
+    @activeTaxons.removeObject @taxon
     @isExpanded = false
 
   expandMe: ->
+    @activeTaxons ||= []
+    @activeTaxons.addObject @taxon
     @isExpanded = true
 
   unselectMe: ->

@@ -48,7 +48,7 @@ class Apiv1::ProductsMachine
   def _process_taxons
     lambda do |product|
       if _taxon_ids.present?
-        @taxon_query ||= product.involving_taxon_ids(_taxon_ids)
+        product.intersection_of_taxon_ids(_taxon_ids)
       else
         product
       end
@@ -64,7 +64,8 @@ class Apiv1::ProductsMachine
     params[:query]
   end
   def _taxon_ids
-    params[:taxons]
+    return params[:taxons].flatten if params[:taxons].respond_to? :flatten
+    params[:taxons].to_s.split(/\s*,\s*/)
   end
   def _page
     params[:page] || 0

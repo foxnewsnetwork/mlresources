@@ -56,13 +56,19 @@ class Apiv1::Product < ActiveRecord::Base
     class_name: 'Admin::User'
 
   scope :belonging_to_taxon,
-    -> (taxon) { joins(:taxons).where("#{Apiv1::Taxon.table_name}.id = ?", taxon.id) }
+    -> (taxon) { union_of_taxon_ids taxon.id }
+    
+  scope :union_of_taxon_ids,
+    -> (taxon_ids) { joins(:taxon_relationships).where("#{Apiv1::Listings::TaxonRelationship.table_name}.taxon_id" => taxon_ids) } 
 
-  scope :involving_taxon_ids,
-    -> (taxon_ids) { joins(:taxons).where("#{Apiv1::Taxon.table_name}.id" => taxon_ids) }
+  scope :grouped_by_count,
+    -> { select("#{Apiv1::Product.table_name}.*, COUNT(#{Apiv1::Product.table_name}.id) as product_count").group("#{Apiv1::Product.table_name}.id") }
 
-  scope :involving_taxons,
-    -> (taxons) { involving_taxon_ids taxons.map(&:id) }
+  scope :intersection_of_taxon_ids,
+    -> (taxon_ids) { taxon_ids.count > 1 ?  intersection_of_two_or_more_taxon_ids(taxon_ids) : union_of_taxon_ids(taxon_ids) }
+
+  scope :intersection_of_two_or_more_taxon_ids,
+    -> (taxon_ids) { union_of_taxon_ids(taxon_ids).grouped_by_count.having("product_count = ?", taxon_ids.count) }
 
   scope :order_by_created_at,
     -> { order "#{self.table_name}.created_at desc"}

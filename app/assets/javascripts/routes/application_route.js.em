@@ -20,9 +20,8 @@ class Apiv1.ApplicationRoute extends Ember.Route
       @sessionify(Apiv1.CurrentUserSession).destroyRecord().then =>
         Apiv1.Flash.register "success", "you've been signed out, refreshing page", 4000
         @transitionTo "index"
-        $(".application-container").hide "fade", 400
-        $("#now-loading").show "fade", 400
-        window.location.reload()
+        $(".application-container").hide "fade"
+        $("#now-loading").show "fade", 400, -> window.location.reload()
     closeModal: ->
       @disconnectModal()
     willTransition: ->

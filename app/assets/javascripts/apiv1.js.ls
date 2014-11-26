@@ -17,6 +17,11 @@
 
 window.Apiv1 = Ember.Application.create do
   rootElement: 'body#apiv1'
+  ready: ->
+    store = Apiv1.__container__.lookup("store:main")
+    if window.RawCurrentUserSession
+      set$ Apiv1, "CurrentUserSession", store.push "adminSession", window.RawCurrentUserSession
+    set$ window.Apiv1, "PreloadedTaxons", store.find("taxon")
 
 Apiv1.ApplicationStore = DS.Store.extend do
   # Override the default adapter with the `DS.ActiveModelAdapter` which
@@ -24,7 +29,4 @@ Apiv1.ApplicationStore = DS.Store.extend do
   adapter: DS.ActiveModelAdapter
   
 $ _.once -> 
-  if window.RawCurrentUserSession
-    store = Apiv1.__container__.lookup("store:main")
-    set$ Apiv1, "CurrentUserSession", store.push "adminSession", window.RawCurrentUserSession
   $('#now-loading').hide "puff", 600

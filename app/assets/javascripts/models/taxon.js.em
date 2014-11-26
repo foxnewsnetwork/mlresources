@@ -8,8 +8,10 @@ class Apiv1.Taxon extends DS.Model
   createdAt: DS.attr "date"
   updatedAt: DS.attr "date"
 
-  +computed id
-  children: -> @store.find "taxon", parent_id: @id
+  +computed id, Apiv1.PreloadedTaxons.@each
+  children: -> 
+    Apiv1.PreloadedTaxons.filter (taxon) =>
+      taxon.get("parentId") is @id
 
   +computed parentId
   parent: -> @parentId && @store.find("taxon", @parentId)

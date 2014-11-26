@@ -8,6 +8,9 @@ class Apiv1.SearchAndFilterComponent extends Ember.Component
   searchParams: ->
     activeTaxons: @activeTaxons
     searchQuery: @searchQuery
+
+  didInsertElement: ->
+    @searchQuery = @query
     
   actions:
     search: ->

@@ -3,17 +3,18 @@
     select-locale class="lang-btn"
   .small-4.medium-3.large-2.column
     .center-vertical
-      if adminLoggedIn
-        link-to "admin.index" class="login"
-          tr-span en="admin"
-      
-      if userLoggedIn
-        link-to "users.index" class="login"
-          tr-span en="my account"
+      .login
+        if adminLoggedIn
+          link-to "admin.index"
+            tr-span en="admin"
+        
+        if userLoggedIn
+          link-to "users.index"
+            tr-span en="my account"
 
-      if notLoggedIn
-        .login.pointer click="displayModal 'login'"
-          tr-span en="login"
+        if notLoggedIn
+          .pointer click="displayModal 'login'"
+            tr-span en="login"
   .small-4.medium-6.large-8.column
     .center-vertical
       .copyright Plastic Scrap Market. All Rights Reserved

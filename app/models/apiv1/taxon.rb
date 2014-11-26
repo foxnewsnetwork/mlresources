@@ -73,7 +73,7 @@ class Apiv1::Taxon < ActiveRecord::Base
   end
 
   def listings
-    Apiv1::Product.belonging_to_taxon self
+    Apiv1::Product.union_of_taxon_ids self.id
   end
 
   def to_ember_hash
