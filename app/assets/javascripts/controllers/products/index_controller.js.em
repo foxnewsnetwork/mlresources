@@ -3,14 +3,16 @@ class Apiv1.ProductsIndexController extends Ember.ObjectController
   page: 1
   per: 15
   query: ""
+  ati: ""
 
   +computed model.activeTaxons.@each
   activeTaxons: -> @model.activeTaxons
 
-  +computed activeTaxons.@each.id
-  ati: -> 
+  +observer activeTaxons.@each.id
+  manageATI: ->
     return if Ember.isBlank @activeTaxons
-    @activeTaxons.mapBy "id"
+    qp = _.extend { query: @query }, @searchParams
+    @transitionToRoute "products.index", queryParams: qp
 
   +computed Apiv1.PreloadedTaxons.@each.parentId
   taxons: -> Apiv1.PreloadedTaxons.rejectBy "parentId"

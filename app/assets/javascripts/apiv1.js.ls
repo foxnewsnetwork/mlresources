@@ -2,6 +2,7 @@
 #= require generica/image-preload
 #= require ./packages/flash
 #= require ./packages/image_preloader
+#= require ./packages/tag_parser
 #= require_tree ./mixins
 #= require_tree ./helpers
 #= require_tree ./controllers

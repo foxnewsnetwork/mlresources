@@ -1,13 +1,16 @@
 class Apiv1.SearchAndFilterComponent extends Ember.Component
   classNames: ['search-and-filter']
   activeTaxons: []
-  searchQuery: ""
   attributeBindings: ['class']
 
-  +computed activeTaxons.@each, searchQuery
+  +computed activeTaxons.@each, cleanSearchQuery
   searchParams: ->
     activeTaxons: @activeTaxons
-    searchQuery: @searchQuery
+    searchQuery: @cleanSearchQuery
+
+  +computed searchQuery
+  cleanSearchQuery: ->
+    Apiv1.TagParser.parse(@searchQuery).justText().join("").trim()
 
   didInsertElement: ->
     @searchQuery = @query

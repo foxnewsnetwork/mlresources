@@ -4,7 +4,7 @@
   .small-12.medium-8.large-9.column.query
     form.row.collapse submit="search"
       .small-10.columns
-        taggable-field tags=activeTaxons text=searchQuery class="full-width" name="search"
+        Ember.TextField value=searchQuery class="full-width" name="search"
       .small-2.columns
         button.button.postfix.search-button type="submit"
           i.fa.fa-search

@@ -1,6 +1,1 @@
-each tag in tags
-  .taggable-field-tag.pointer
-    .centered-fully
-      .tagname= tag.taxonName
-
 Ember.TextField class="taggable-textfield" value=text
