@@ -1,0 +1,95 @@
+.header {
+  background: {
+    color: #795548
+  }
+  color: rgba(255,255,255,0.87);
+  padding: 1rem 1rem;
+}
+.headline {
+  font-size: 1.45rem;
+}
+.header,
+.body,
+.footer,
+.the-gist,
+.real-footer {
+  width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.body {
+  margin-top: 4rem;
+}
+.body,
+.the-gist,
+.footer {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+.formal-address {
+  font-size: 1.25rem;
+  padding-bottom: 2rem;
+  text-transform: capitalize;
+  &::after {
+    content: ",";
+  }
+}
+.date {
+  &::after {
+    content: ",";
+  }
+}
+.offering-party {
+  padding-bottom: 1rem;
+}
+.message {
+  padding-top: 1rem;
+}
+
+.sincerely {
+  padding-bottom: 1.25rem;
+}
+
+.product-owner,
+.offer-company {
+  text-transform: capitalize;
+  font-weight: bold;
+}
+
+.footer,
+.real-footer {
+  border-bottom: 1px solid #D7CCC8;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.real-footer,
+.shoddy {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #BDBDBD;
+}
+
+.email {
+  padding-right: 15px;
+}
+
+.the-gist {
+  margin-bottom: 2rem;
+}
+
+.the-gist {
+  &:nth-child(even) {
+    background-color: #eee;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+.upcase {
+  text-transform: uppercase;
+}
+.colon::after {
+  content: ": ";
+}

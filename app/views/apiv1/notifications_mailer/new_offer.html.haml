@@ -1,0 +1,51 @@
+%table.header
+  %thead
+    %tr
+      %th.headline You have a new offer
+
+%table.body
+  %tbody
+    %tr
+      %td.formal-address
+        %span Dear
+        %span.product-owner= @ctx.product_owner
+
+%table.the-gist
+  %tbody
+    %tr
+      %td.offer-message
+        .offering-party
+          %span.bold.upcase.colon offer
+          %span= @ctx.company_who_made_offer
+          %span.email
+            = mail_to @ctx.sender_email
+          - if @ctx.phone_number.present?
+            %span.bold.colon= phone
+            %span.phone= @ctx.phone_number
+        .offer-terms= @ctx.price_terms
+        .message= @ctx.message
+      %td.filler
+    %tr
+      %td.related-product
+        %span Re:
+        %a{ href: @ctx.cta_path }
+          %span= @ctx.product_summary
+
+      %td.sent-date
+        %span On:
+        %span= @ctx.created_at.to_date.to_formatted_s(:db)
+
+%table.footer
+  %tfoot
+    %tr
+      %td.sincerely Sincerely,
+    %tr
+      %td
+        .offer-company
+          %span= @ctx.company_who_made_offer
+    %tr
+      %td.signature
+        .address= @ctx.company_address
+        .email= @ctx.sender_email
+        .phone= @ctx.phone_number
+    

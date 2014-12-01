@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141116235808) do
+ActiveRecord::Schema.define(version: 20141127230455) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                        null: false
@@ -44,6 +44,32 @@ ActiveRecord::Schema.define(version: 20141116235808) do
   end
 
   add_index "apiv1_attachments", ["attachable_id", "attachable_type"], name: "index_apiv1_attachments_on_attachable_id_and_attachable_type", using: :btree
+
+  create_table "apiv1_email_objects", force: true do |t|
+    t.integer  "email_id"
+    t.string   "class_name"
+    t.string   "permalink_id"
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "apiv1_email_objects", ["email_id"], name: "index_apiv1_email_objects_on_email_id", using: :btree
+
+  create_table "apiv1_email_requests", force: true do |t|
+    t.string   "to",           null: false
+    t.string   "cc"
+    t.string   "bcc"
+    t.string   "subject"
+    t.string   "status"
+    t.string   "from"
+    t.string   "mailer_class", null: false
+    t.datetime "deleted_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "apiv1_email_requests", ["to", "mailer_class"], name: "index_apiv1_email_requests_on_to_and_mailer_class", using: :btree
 
   create_table "apiv1_employees", force: true do |t|
     t.string   "person_name"

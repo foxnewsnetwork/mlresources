@@ -100,6 +100,9 @@ class Apiv1::Product < ActiveRecord::Base
       user_id: user.try(:id)
   end
 
+  def rough_summary
+    [material, sku, quality, place, amount].select(&:present?).join(" - ")
+  end
   private
   def _make_permalink
     self.permalink ||= Apiv1::Permalinkifier.permalinkify material

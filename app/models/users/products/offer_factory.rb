@@ -13,6 +13,9 @@ class Users::Products::OfferFactory
   def error_hash
     _offer.errors.to_h
   end
+  def offer
+    _offer
+  end
   private
   def _offer
     @offer ||= Apiv1::OfferMessage.new _offer_params

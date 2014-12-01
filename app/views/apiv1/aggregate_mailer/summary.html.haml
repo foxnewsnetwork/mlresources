@@ -1,0 +1,24 @@
+%table.header
+  %thead
+    %tr
+      %th.headline= @ctx.subject
+
+%table.body
+  %tbody
+    %tr
+      %td.formal-address
+        %span Dear
+        %span.product-owner= @ctx.whoever_this_is_sent_to
+
+- @ctx.html_bodies.each do |body|
+  = body.html_safe
+  
+
+%table.footer
+  %tfoot
+    %tr
+      %td.sincerely Sincerely,
+    %tr
+      %td
+        .offer-company
+          %span Plastic Scrap Market

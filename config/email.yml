@@ -1,0 +1,11 @@
+development:
+  username: defaultemailhelper@gmail.com
+  password: <%= ENV['APIV1_EMAIL_PASSWORD'] %>
+
+test:
+  username: defaultemailhelper@gmail.com
+  password: <%= ENV['APIV1_EMAIL_PASSWORD'] %>
+
+production:
+  username: defaultemailhelper@gmail.com
+  password: <%= ENV['APIV1_EMAIL_PASSWORD'] %>
