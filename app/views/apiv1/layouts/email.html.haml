@@ -16,8 +16,10 @@
   = stylesheet_link_tag 'email', media: 'all'
 %body
   = yield
-  %table.real-footer
+  %table.real-footer{ width: "100%" }
     %tfoot
+      %tr.filler-30px
+        %td &nbsp;
       %tr
         %td
           .origin 
@@ -28,3 +30,5 @@
         %td.unsubscribe
           %a.shoddy{ href: "http://www.plasticscrapmarket.org/unsubscribe" } Unsubscribe
           %span from this type of email
+      %tr.filler-30px
+        %td &nbsp;

@@ -16,7 +16,6 @@ class Apiv1::NotificationsMailer::NewOfferContext
     "secretary@plasticscrapmarket.org"
   end
   def cc
-    "archives@plasticscrapmarket.org"
   end
   def bcc
   end

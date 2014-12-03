@@ -17,6 +17,7 @@ gem 'elasticsearch', '~> 1.0.4'
 gem 'paranoia', '~> 2.0.2'
 gem 'premailer-rails', '~> 1.8.0'
 gem 'gmail', '~> 0.4.2'
+gem 'god', '~> 0.13.4'
 
 # Support
 gem "haml", "~> 4.0.0"

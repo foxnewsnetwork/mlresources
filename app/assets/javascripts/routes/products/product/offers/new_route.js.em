@@ -12,7 +12,7 @@ class Apiv1.ProductsProductOffersNewRoute extends Ember.Route
     offer
 
   currentUser: (stat) ->
-    s1 = stat
-    s2 = Ember.String.camelize(stat)
-    s3 = Ember.String.underscore(stat)
-    get$(Apiv1.CurrentUserSession, s1) || get$(Apiv1.CurrentUserSession, s2) || get$(Apiv1.CurrentUserSession, s3)
+    keyCombos = Apiv1.ArrayEx.product ["", "data."], [stat, Ember.String.camelize(stat), Ember.String.underscore(stat)]
+    keys = keyCombos.map (combo) -> combo[0] + combo[1]
+    reducer = (result, key) -> result or get$(Apiv1.CurrentUserSession, key)
+    keys.reduce reducer, null

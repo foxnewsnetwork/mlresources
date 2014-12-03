@@ -1,24 +1,38 @@
-%table.header
-  %thead
-    %tr
-      %th.headline= @ctx.subject
-
-%table.body
+%table.header{ width: "100%" }
   %tbody
+    %tr.filler-15px
+      %td &nbsp;
+    %tr
+      %td.headline= @ctx.subject
+    %tr.filler-15px
+      %td &nbsp;
+
+%table.body{ width: "100%" }
+  %tbody
+    %tr.filler-30px
+      %td &nbsp;
     %tr
       %td.formal-address
         %span Dear
         %span.product-owner= @ctx.whoever_this_is_sent_to
+    %tr.filler-30px
+      %td &nbsp;
 
 - @ctx.html_bodies.each do |body|
   = body.html_safe
   
 
-%table.footer
+%table.footer{ width: "100%" }
   %tfoot
+    %tr.filler-30px
+      %td &nbsp;
     %tr
       %td.sincerely Sincerely,
+    %tr.filler-30px
+      %td &nbsp;
     %tr
       %td
         .offer-company
           %span Plastic Scrap Market
+    %tr.filler-30px
+      %td &nbsp;

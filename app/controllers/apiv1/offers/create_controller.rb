@@ -2,12 +2,16 @@ class Apiv1::Offers::CreateController < Apiv1::HomeController
   def create
     if _offer_creation_success?
       _offer_factory.save!
+      _offer_postboy.request_work!
       render json: _offer_hash
     else
       render json: _error_hash, status: :expectation_failed
     end
   end
   private
+  def _offer_postboy
+    @offer_postboy ||= Apiv1::OfferPostboy.new _offer_factory.offer
+  end
   def _offer_creation_success?
     _offer_factory.satisfy_specifications?
   end

@@ -16,6 +16,19 @@ class Apiv1::EmailObject < ActiveRecord::Base
   belongs_to :email,
     class_name: 'Apiv1::EmailRequest'
 
+  validates :class_name,
+    :permalink_id,
+    presence: true
+
+  class << self
+    def paramify(some_object)
+      {
+        class_name: some_object.class,
+        permalink_id: some_object.id
+      }
+    end
+  end
+
   def objectify
     Object.const_get(class_name).find permalink_id
   end

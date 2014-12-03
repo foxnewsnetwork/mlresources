@@ -1,17 +1,27 @@
-%table.header
-  %thead
-    %tr
-      %th.headline You have a new offer
-
-%table.body
+%table.header{ width: "100%" }
   %tbody
+    %tr.filler-15px
+      %td &nbsp;
+    %tr
+      %td.headline You have a new offer
+    %tr.filler-15px
+      %td &nbsp;
+
+%table.body{ width: "100%" }
+  %tbody
+    %tr.filler-30px
+      %td &nbsp;
     %tr
       %td.formal-address
         %span Dear
         %span.product-owner= @ctx.product_owner
+    %tr.filler-30px
+      %td &nbsp;
 
-%table.the-gist
+%table.the-gist{ width: "100%" }
   %tbody
+    %tr.filler-15px
+      %td &nbsp;
     %tr
       %td.offer-message
         .offering-party
@@ -20,25 +30,33 @@
           %span.email
             = mail_to @ctx.sender_email
           - if @ctx.phone_number.present?
-            %span.bold.colon= phone
+            %span.bold.colon phone
             %span.phone= @ctx.phone_number
         .offer-terms= @ctx.price_terms
         .message= @ctx.message
       %td.filler
+    %tr.filler-15px
+      %td &nbsp;
     %tr
       %td.related-product
         %span Re:
         %a{ href: @ctx.cta_path }
           %span= @ctx.product_summary
 
-      %td.sent-date
-        %span On:
-        %span= @ctx.created_at.to_date.to_formatted_s(:db)
+        %span.float-right.sent-date
+          %span On:
+          %span= @ctx.created_at.to_date.to_formatted_s(:db)
+    %tr.filler-15px
+      %td &nbsp;
 
-%table.footer
+%table.footer{ width: "100%" }
   %tfoot
+    %tr.filler-30px
+      %td &nbsp;
     %tr
       %td.sincerely Sincerely,
+    %tr.filler-30px
+      %td &nbsp;
     %tr
       %td
         .offer-company
@@ -48,4 +66,6 @@
         .address= @ctx.company_address
         .email= @ctx.sender_email
         .phone= @ctx.phone_number
+    %tr.filler-30px
+      %td &nbsp;
     

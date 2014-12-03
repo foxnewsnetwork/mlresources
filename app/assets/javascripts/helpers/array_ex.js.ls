@@ -25,3 +25,13 @@ class Apiv1.ArrayEx
       [y].concat Apiv1.ArrayEx.replace-concat(predicate, xs, ys)
     else
       [x].concat Apiv1.ArrayEx.replace-concat(predicate, xs, yys)
+
+  # creates the cartesian product of xs and ys
+  # that is, [x1, x2, x3] * [y1, y2, y3]
+  # = [[x1, y1], [x1, y2], [x1, y3], [x2, y1]...]
+  # note [] * [x1, x2...] = []
+  @product = (xs, ys) ->
+    return [] if xs.length is 0 or ys.length is 0
+    [x,...xxs] = xs
+    x-with-ys = ys.map (y) -> [x,y]
+    x-with-ys.concat @product xxs, ys

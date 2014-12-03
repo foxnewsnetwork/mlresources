@@ -1,12 +1,43 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+tr.filler-15px {
+  td {
+    height: 15px;
+    line-height: 15px;
+  }
+}
+tr.filler-20px {
+  td {
+    height: 20px;
+    line-height: 20px;
+  }
+}
+tr.filler-30px {
+  td {
+    height: 30px;
+    line-height: 30px;
+  }
+}
+td.filler-15px {
+  display: block;
+  width: 15px;
+}
+td.filler-30px {
+  display: block;
+  width: 30px;
+}
 .header {
   background: {
     color: #795548
   }
-  color: rgba(255,255,255,0.87);
-  padding: 1rem 1rem;
+  color: #eee;
 }
 .headline {
   font-size: 1.45rem;
+  text-align: center;
+  font-weight: bold;
 }
 .header,
 .body,
@@ -17,18 +48,8 @@
   margin-right: auto;
   margin-left: auto;
 }
-.body {
-  margin-top: 4rem;
-}
-.body,
-.the-gist,
-.footer {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
 .formal-address {
   font-size: 1.25rem;
-  padding-bottom: 2rem;
   text-transform: capitalize;
   &::after {
     content: ",";
@@ -38,16 +59,6 @@
   &::after {
     content: ",";
   }
-}
-.offering-party {
-  padding-bottom: 1rem;
-}
-.message {
-  padding-top: 1rem;
-}
-
-.sincerely {
-  padding-bottom: 1.25rem;
 }
 
 .product-owner,
@@ -70,18 +81,19 @@
   color: #BDBDBD;
 }
 
-.email {
-  padding-right: 15px;
-}
-
-.the-gist {
-  margin-bottom: 2rem;
-}
-
 .the-gist {
   &:nth-child(even) {
     background-color: #eee;
   }
+}
+
+.float-right {
+  float: right;
+}
+
+.sent-date {
+  color: #666;
+  font-size: 0.85rem;
 }
 
 .bold {

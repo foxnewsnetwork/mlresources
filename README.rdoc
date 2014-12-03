@@ -1,5 +1,11 @@
 == README
 
+# Resque job
+1. always running
+2. sends out a batch email to the user with the most batch emails
+3. users with the oldest emails goes first
+4. a user must have 1 email that is undelivered within the last n=1 hour to qualify for a delivery
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 

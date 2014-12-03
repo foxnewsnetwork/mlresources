@@ -149,6 +149,7 @@ GEM
       mime (>= 0.1)
     gmail_xoauth (0.4.1)
       oauth (>= 0.3.6)
+    god (0.13.4)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -349,6 +350,7 @@ DEPENDENCIES
   functional_support (>= 0.0.12)
   gctools (~> 0.2.3)
   gmail (~> 0.4.2)
+  god (~> 0.13.4)
   haml (~> 4.0.0)
   haml-rails (~> 0.4)
   i18n-js
