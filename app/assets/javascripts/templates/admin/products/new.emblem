@@ -53,6 +53,8 @@
               span.parantheses
                 tr-span en="the first picture will be displayed in the showcase"
             files-field name="pictures" files=model.pictures class="form-control upload-control"
+          .attached-pictures
+            pictures-group pictures=model.pictures
         .input-section attr-name="taxons"
           label.form-label
             tr-span en="select appropriate category tags for this product"

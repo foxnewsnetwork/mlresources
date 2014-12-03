@@ -1,0 +1,9 @@
+.picture-chunk.thumbnail
+  .avatar
+    img.img-thumbnail src=src
+
+  .dialogue
+    span.bold= fileName
+
+  .cancel-button.pointer click="killPicture"
+    i.fa-times.fa-3x.fa

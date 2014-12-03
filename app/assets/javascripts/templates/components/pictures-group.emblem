@@ -1,0 +1,2 @@
+each picture in pictures
+  picture-chunk action="killPicture" model=picture

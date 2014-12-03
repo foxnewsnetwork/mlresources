@@ -1,0 +1,32 @@
+.pictures-group {
+  .thumbnail {
+    margin-bottom: 1rem;
+    background: #fff;
+  }
+  .picture-chunk {
+    @include display-flex;
+    @include flex-direction(row);
+    @include justify-content(space-between);  
+  }
+  .dialogue,
+  .avatar,
+  .cancel-button {
+    padding: 1rem 1rem;
+  }
+  .dialogue,
+  .cancel-button {
+    @include display-flex;
+    @include flex-direction(column);
+    @include justify-content(center);
+  }
+  .cancel-button {
+    color: darken(red, 15%);
+  }
+  .avatar {
+    text-align: center;
+  }
+  img.img-thumbnail {
+    height: 55px;
+    max-width: 55px;
+  }
+}
