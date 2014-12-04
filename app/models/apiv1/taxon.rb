@@ -50,9 +50,6 @@ class Apiv1::Taxon < ActiveRecord::Base
     :permalink,
     presence: true
 
-  validates :taxon_name,
-    format: { with: /[a-z0-9 \-_\(\)#@]+/i, message: "only allow letters and numbers" }
-
   scope :children_of_parent,
     -> (p_id) { where "#{self.table_name}.parent_id = ?", p_id } 
 
