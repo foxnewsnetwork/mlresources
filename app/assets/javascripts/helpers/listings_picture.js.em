@@ -6,6 +6,9 @@ class Apiv1.ListingsPicture extends Ember.Object
   +computed file.name
   fileName: -> @get "file.name"
 
+  +computed file.size
+  fileSize: -> @get "file.size"
+
 Apiv1.ListingsPicture.fromFile = (file) ->
   p = new Apiv1.ListingsPicture()
   p.set "file", file

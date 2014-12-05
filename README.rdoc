@@ -1,5 +1,8 @@
 == README
 
+1. offering date
+
+
 # Resque job
 1. always running
 2. sends out a batch email to the user with the most batch emails

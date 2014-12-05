@@ -5,7 +5,7 @@ class Apiv1::Products::DestroyController < Admin::BaseController
   end
   private
   def _ensure_product_ownership
-    unless current_user.owns? _product
+    unless current_user.admin? || current_user.owns?(_product)
       render json: { message: "This isn't your listing" }, status: 401
     end
   end

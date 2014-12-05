@@ -13,6 +13,7 @@ class Apiv1.UsersProductsNewController extends Ember.ObjectController
     @redirectToIndex()
   failedSave: (reason) ->
     Apiv1.Flash.register "warning", "listing unsccessful #{reason.status}", 5000
+    Apiv1.Flash.register "warning", "your pictures are too big", 5000 if reason.status is 413
     @failureReason = Apiv1.HashEx.camelize reason.responseJSON if reason.responseJSON
     
   actions:

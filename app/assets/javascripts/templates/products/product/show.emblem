@@ -44,6 +44,11 @@
                 tr-span en="description"
               dd
                 tr-span en=product.others
+            if product.createdAt
+              dt.upcase
+                tr-span en="created at"
+              dd
+                span= product.createdAt
                     
       if product.taxons
         .row
