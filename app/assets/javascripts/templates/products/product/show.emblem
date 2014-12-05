@@ -46,18 +46,10 @@
                 tr-span en=product.others
             if product.createdAt
               dt.upcase
-                tr-span en="created at"
+                tr-span en="listing date"
               dd
-                span= product.createdAt
-                    
-      if product.taxons
-        .row
-          .small-12.columns
-            h4.tags.capitalize
-              tr-span en="category tags"
-            .taxon-tags
-              each taxon in product.taxons
-                span.tag= taxon.taxonName
+                span= product.createdAt                    
+
   .row
     .small-12.columns
       ul.pics.small-block-grid-3.medium-block-grid-6.large-block-grid-9
@@ -73,17 +65,6 @@
         each attachment in product.attachments
           a href=attachment.fileUrl
             span.spacebar= attachment.fileName
-
-  .row
-    .small-12.columns
-      h4.section-title
-        tr-span en="offers"
-      ul.offers.small-block-grid-2.medium-block-4.large-block-grid-6
-        each offer in product.offers
-          li
-            .offer
-              .price= offer.priceTerms
-              .created-at= offer.createdAt
         
   .row
     .small-6.columns
@@ -106,4 +87,14 @@
             tr-span en="phone"
           span= product.user.phoneNumber
 
+  .row
+    .small-12.columns
+      h4.section-title
+        tr-span en="offers"
+      ul.offers.small-block-grid-2.medium-block-4.large-block-grid-6
+        each offer in product.offers
+          li
+            .offer
+              .price= offer.priceTerms
+              .created-at= offer.createdAt
 

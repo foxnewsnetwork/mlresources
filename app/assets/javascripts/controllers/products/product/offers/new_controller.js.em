@@ -1,5 +1,5 @@
 class Apiv1.ProductsProductOffersNewController extends Ember.ObjectController
-  
+  showOfferForm: false
   +computed Apiv1.CurrentUserSession.id
   userLoggedIn: -> 
     get$ Apiv1, "CurrentUserSession.id"
@@ -27,3 +27,8 @@ class Apiv1.ProductsProductOffersNewController extends Ember.ObjectController
     formSubmitted: ->
       @failureReason = null
       @model.save().then(_.bind @successfulSave, @).catch(_.bind @failedSave, @)
+    toggleOfferForm: ->
+      if @showOfferForm
+        @showOfferForm = false 
+      else
+        @showOfferForm = true
