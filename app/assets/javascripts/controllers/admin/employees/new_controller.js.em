@@ -7,7 +7,7 @@ class Apiv1.AdminEmployeesNewController extends Ember.ObjectController
     @notifySuccess()
     @redirectToIndex()
   failedSave: (reason) ->
-    Apiv1.Flash.register "warning", "please fill out the form before clicking submit", 5000 if reason.status is 500
+    Apiv1.Flash.register "warning", "response: #{resonse.status}", 5000 if reason.status?
     @failureReason = reason.responseJSON if reason.responseJSON
     
   actions:

@@ -20,14 +20,11 @@ class Apiv1.ModalsLoginController extends Ember.ObjectController
     @redirectOut()
 
   redirectOut: ->
-    if @get("model.isAdmin")
-      @transitionToRoute "admin.index" 
-    else
-      @transitionToRoute "users.index"
+    @send "closeModal"
 
   failedLogin: (reason) ->
-    Apiv1.Flash.register "warning", "login failed", 5000
-    @failureReason = reason.responseJSON.admin_session if reason.responseJSON?
+    Apiv1.Flash.register "warning", "login failed: #{reason.status}", 5000 if reason.status?
+    @failureReason = Apiv1.HashEx.camelize reason.responseJSON.admin_session if reason.responseJSON?
 
 
   actions:

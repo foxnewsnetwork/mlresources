@@ -26,6 +26,8 @@ gem "stringex", "~> 2.1.2"
 gem 'ffaker', ">=1.20.0"
 gem 'numbers_and_words', "~> 0.10.0"
 gem 'decent_exposure', '~> 2.3.1'
+gem 'squash_ruby', '~> 2.0.0', :require => 'squash/ruby'
+gem 'squash_rails', '~>1.3.3', :require => 'squash/rails'
 
 # Assets Frameworks
 gem "font-awesome-sass", "~> 4.1.0.0"

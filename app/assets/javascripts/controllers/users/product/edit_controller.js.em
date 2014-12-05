@@ -21,7 +21,7 @@ class Apiv1.UsersProductEditController extends Ember.ObjectController
     @redirectToIndex()
   failedUpdate: (reason) ->
     Apiv1.Flash.register "warning", "welp, you killed the server", 5000 if reason.status is 500
-    @failureReason = reason.responseJSON if reason.responseJSON
+    @failureReason = Apiv1.HashEx.camelize reason.responseJSON if reason.responseJSON
     Apiv1.Flash.register "warning", "you're not authorized because #{@failureReason.message}", 5000 if reason.status is 401
 
   actions:

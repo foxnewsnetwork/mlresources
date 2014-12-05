@@ -7,7 +7,8 @@ class Apiv1.ModalsRegisterController extends Ember.ObjectController
   user: -> @model
 
   redirectToIndex: ->
-    @transitionToRoute 'users.index'
+    @send "closeModal"
+
   notifySuccess: ->
     Apiv1.Flash.register "success", "account created!", 4000
   successfulSave: (user) ->
@@ -15,8 +16,8 @@ class Apiv1.ModalsRegisterController extends Ember.ObjectController
     @redirectToIndex()
     Apiv1.CurrentUserSession = user
   failedSave: (reason) ->
-    Apiv1.Flash.register "warning", "the server died for some reason", 5000 if reason.status is 500
-    @failureReason = reason.responseJSON if reason.responseJSON
+    Apiv1.Flash.register "warning", "server broke: #{reason.status}", 5000
+    @failureReason = Apiv1.HashEx.camelize reason.responseJSON if reason.responseJSON
     
   actions:
     formSubmitted: ->

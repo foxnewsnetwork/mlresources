@@ -1,0 +1,8 @@
+.somesort-of-request
+  button.button.secondary.capitalize click="displayModal 'login'"
+    tr-span en="login if you have an account"
+
+  button.button.secondary.capitalize click="displayModal 'register'"
+    tr-span en="or register an account"
+.the-form
+  == partial "products/product/offers/offer-form"

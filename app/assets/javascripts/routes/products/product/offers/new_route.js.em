@@ -16,3 +16,8 @@ class Apiv1.ProductsProductOffersNewRoute extends Ember.Route
     keys = keyCombos.map (combo) -> combo[0] + combo[1]
     reducer = (result, key) -> result or get$(Apiv1.CurrentUserSession, key)
     keys.reduce reducer, null
+
+  actions:
+    closeModal: ->
+      @refresh()
+      true

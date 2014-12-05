@@ -20,8 +20,8 @@ class Apiv1.AdminProductEditController extends Ember.ObjectController
     @notifySuccess()
     @redirectToIndex()
   failedUpdate: (reason) ->
-    Apiv1.Flash.register "warning", "welp, you killed the server", 5000 if reason.status is 500
-    @failureReason = reason.responseJSON if reason.responseJSON
+    Apiv1.Flash.register "warning", "product editing failed #{reason.status}", 5000
+    @failureReason = Apiv1.HashEx.camelize reason.responseJSON if reason.responseJSON
 
   actions:
     formSubmitted: ->

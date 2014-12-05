@@ -1,0 +1,53 @@
+form-for errors=failureReason submit="formSubmitted"
+  .input-section attr-name="fromCompany"
+    label.form-label
+      span.capitalize.white
+        span.asterisk
+        tr-span en="your company name"
+      Ember.TextField value=model.fromCompany type="text" placeholder="Acme Purchase Co."
+
+  .input-section attr-name="contactPerson"
+    label.form-label
+      span.capitalize.white
+        tr-span en="your name"
+      Ember.TextField value=model.contactPerson type="text" placeholder="Jack Smith"
+
+  .input-section attr-name="senderEmail"
+    label.form-label
+      span.capitalize.white
+        span.asterisk
+        tr-span en="your company email"
+      Ember.TextField value=model.senderEmail type="email" placeholder="ex. jsmith@gmail.com"
+
+  .input-section attr-name="phoneNumber"
+    label.form-label
+      span.capitalize.white
+        tr-span en="your call back number"
+      Ember.TextField value=model.phoneNumber type="text" placeholder="(555) 123 - 1234"
+
+  .input-section attr-name="companyAddress"
+    label.form-label
+      span.capitalize.white
+        tr-span en="where is your company?"
+      span.parantheses
+        tr-span en="so the seller has an idea who he is dealing with"
+      Ember.TextField value=model.companyAddress type="text" placeholder="1234 Main Street, Los Angeles, California"
+
+  .input-section attr-name="priceTerms"
+    label.form-label
+      span.capitalize.white
+        span.asterisk
+        tr-span en="offer price terms"
+      Ember.TextField value=model.priceTerms type="text" placeholder="$0.12/lb FAS Los Angeles"
+    
+  .input-section attr-name="message"
+    label.form-label
+      span.capitalize.white
+        tr-span en="anything else?"
+      Ember.TextArea value=model.message
+
+  .button-forms
+    promise-button model=model class="button"
+      span.capitalize 
+        i.fa.fa-check
+        tr-span en="submit"

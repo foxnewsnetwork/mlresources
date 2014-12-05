@@ -1,4 +1,16 @@
 class Apiv1.ProductsProductOffersNewController extends Ember.ObjectController
+  
+  +computed Apiv1.CurrentUserSession.id
+  userLoggedIn: -> 
+    get$ Apiv1, "CurrentUserSession.id"
+
+  +computed userLoggedIn
+  notLoggedIn: ->
+    not @userLoggedIn
+
+  +computed Apiv1.CurrentUserSession.isAdmin, userLoggedIn
+  adminLoggedIn: ->
+    @userLoggedIn and get$(Apiv1, "CurrentUserSession.isAdmin")
 
   notifySuccess: ->
     Apiv1.Flash.register "success", "offer message sent!", 5000
@@ -8,7 +20,7 @@ class Apiv1.ProductsProductOffersNewController extends Ember.ObjectController
   swapOutForm: ->
     $(".form-for").hide "highlight", {}, 450, => @alreadySubmitted = true
   failedSave: (reason) ->
-    Apiv1.Flash.register "warning", "uh-oh, the server is down", 5000 if reason.status is 500
+    Apiv1.Flash.register "warning", "offer unsuccessful: #{reason.status}", 5000 if reason.status?
     @failureReason = Apiv1.HashEx.camelize reason.responseJSON if reason.responseJSON
     
   actions:
