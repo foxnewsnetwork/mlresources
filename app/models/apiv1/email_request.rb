@@ -63,6 +63,9 @@ class Apiv1::EmailRequest < ActiveRecord::Base
   scope :the_null_scope,
     -> { where("id != id").limit 0 }
 
+  validates :to,
+    presence: true
+
   validates :mailer_class,
     presence: true,
     format: { with: /[A-Z][a-zA-Z0-9_:]+#[a-z0-9_]+/ }

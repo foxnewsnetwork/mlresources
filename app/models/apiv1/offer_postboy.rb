@@ -4,7 +4,7 @@ class Apiv1::OfferPostboy
   end
 
   def request_work!
-    _email_objects && _email_request.tap(&:save!)
+    _email_objects && _email_request.valid? && _email_request.tap(&:save!)
   end
 
   private
@@ -16,13 +16,16 @@ class Apiv1::OfferPostboy
   end
   def _request_params
     {
-      to: _mail.to.first,
+      to: _mail_to_with_default,
       cc: _mail.cc.join(","),
       bcc: _mail.bcc.join(","),
       from: _mail.from.first,
       subject: _mail.subject,
       mailer_class: "Apiv1::NotificationsMailer#new_offer"
     }
+  end
+  def _mail_to_with_default
+    _mail.to.first || "missing_destination@mailinator.com"
   end
   def _mail
     @mail ||= Apiv1::NotificationsMailer.new_offer @offer
