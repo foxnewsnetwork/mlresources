@@ -1,6 +1,6 @@
 .row
   .small-12.medium-4.large-3.column.taxons
-    tree-taxon-wrapper activeTaxons=activeTaxons taxons=taxons
+    tree-taxon-wrapper activeTaxons=activeTaxons taxons=taxons tempLocked=tempLocked
   .small-12.medium-8.large-9.column.query
     form.row.collapse submit="search"
       .small-10.columns

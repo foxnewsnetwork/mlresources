@@ -7,3 +7,4 @@ class Apiv1.TreeTaxonWrapperComponent extends Ember.Component
     Ember.Object.create 
       children: @taxons
       hasChildren: true
+

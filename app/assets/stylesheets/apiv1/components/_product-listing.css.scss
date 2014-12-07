@@ -18,6 +18,10 @@
     font-size: 1.45rem;
     width: 100%;
   }
+  .big-title {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
   .smaller-details {
     font-size: 0.8rem;
     color: #444;
@@ -56,5 +60,8 @@
     padding-top: 2.5px;
     padding-bottom: 2.5px;
     margin-right: 5px;
+  }
+  .decent-prespace {
+    padding-left: 1.2rem;
   }
 }

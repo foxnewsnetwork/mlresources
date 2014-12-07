@@ -12,8 +12,13 @@
       span class=isSelected:visible:hidden
         i.fa.fa-check-square-o
     
-    span.taxon-name
-      tr-span en=taxon.taxonName
+    if tempLocked
+      span.temp-locked
+        i.fa.fa-cog.fa-spin
+        tr-span en="please wait"
+    else
+      span.taxon-name
+        tr-span en=taxon.taxonName
 
   if adminModeReasonable
     .edit
@@ -34,4 +39,4 @@ if adminMode
 
 if taxon.hasChildren
   if isExpanded
-    tree-taxon-ul rootTaxon=taxon activeTaxons=activeTaxons adminMode=adminMode
+    tree-taxon-ul rootTaxon=taxon activeTaxons=activeTaxons adminMode=adminMode tempLocked=tempLocked

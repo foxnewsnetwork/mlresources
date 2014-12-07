@@ -14,7 +14,9 @@ else
         link-to "products.product.show" model.product.id
           tr-span en="back to listing"
   .row
-    .small-12.medium-10.large-8.columns
+    .small-12.medium-10.large-4.large-push-8.columns
+      products-showcase id="products" products=productPlural
+    .small-12.medium-10.large-8.large-pull-4.columns.end
       if userLoggedIn
         == partial "products/product/offers/offer-form"
       else

@@ -10,7 +10,10 @@ class Apiv1.ProductsIndexRoute extends Ember.Route
       refreshModel: true
   model: (params) ->
     products: @findProducts(params)
-    activeTaxons: @findTaxons(params.ati || [])
+    activeTaxons: @findTaxons @normalizeATI params.ati
+
+  normalizeATI: (ati) ->
+    (ati or "").split ","
 
   findProducts: (params)-> 
     ati = params.ati || []

@@ -10,7 +10,6 @@ class Apiv1.ProductsIndexController extends Ember.ObjectController
 
   +observer activeTaxons.@each.id
   manageATI: ->
-    return if Ember.isBlank @activeTaxons
     qp = _.extend { query: @query }, @searchParams
     @transitionToRoute "products.index", queryParams: qp
 

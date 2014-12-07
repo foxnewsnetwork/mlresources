@@ -1,5 +1,10 @@
 class Apiv1.ProductsProductOffersNewController extends Ember.ObjectController
   showOfferForm: false
+
+  +computed model.product
+  productPlural: ->
+    [@get("model.product")]
+
   +computed Apiv1.CurrentUserSession.id
   userLoggedIn: -> 
     get$ Apiv1, "CurrentUserSession.id"

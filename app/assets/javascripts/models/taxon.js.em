@@ -27,5 +27,6 @@ class Apiv1.Taxon extends DS.Model
     else
       [@parent.fullName, @taxonName].join ":"
 
-  +computed fullName
-  presentation: -> @get "fullName"
+  +computed fullName, id
+  presentation: -> 
+    ["+", @taxonName, ":", @id].join ""

@@ -5,21 +5,32 @@ if product
     .media-texts
       .big-title
         tr-span en=product.material
-        if product.quality
-          span.predash
-            tr-span en=product.quality
+        if product.sku
+          span.predash= product.sku
 
-      .smaller-details
+      p.smaller-details
         if product.price
           span= product.price
         if product.place
-          span @
+          span.decent-prespace @
           tr-span en=product.place
+        if product.amount
+          span.upcase.colon.decent-prespace
+            tr-span en="quantity"
+          span.spec.spacebar= product.amount
+        if product.price
+          span.upcase.colon.decent-prespace
+            tr-span en="price"
+          span.spec.spacebar= product.price
+        if product.place
+          span.upcase.colon.decent-prespace
+            tr-span en="origin"
+          span.spec.spacebar= product.place
+        if product.quality
+          span.upcase.colon.decent-prespace
+            tr-span en="quality"
+          span.spec.spacebar= product.quality
       
-      if product.taxons
-        .taxon-tags
-          each taxon in product.taxons
-            span.tag= taxon.taxonName
 else
   .product-header
     .media-object

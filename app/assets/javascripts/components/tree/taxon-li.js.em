@@ -46,7 +46,7 @@ class Apiv1.TreeTaxonLiComponent extends Ember.Component
 
   unexpandMe: ->
     @activeTaxons ||= []
-    @activeTaxons.removeObject @taxon
+    @removeTaxonBang()
     @isExpanded = false
 
   expandMe: ->
@@ -56,7 +56,7 @@ class Apiv1.TreeTaxonLiComponent extends Ember.Component
 
   unselectMe: ->
     @activeTaxons ||= []
-    @activeTaxons.removeObject @taxon
+    @removeTaxonBang()
     @isSelected = false
 
   selectMe: ->
@@ -64,11 +64,26 @@ class Apiv1.TreeTaxonLiComponent extends Ember.Component
     @activeTaxons.addObject @taxon
     @isSelected = true
 
+  removeTaxonBang: ->
+    loc = @activeTaxons.length || 0
+    while --loc >= 0
+      curTax = @activeTaxons.objectAt loc
+      if curTax is @taxon
+        @activeTaxons.removeAt loc
+        removedTaxon = curTax
+    if Ember.isBlank removedTaxon
+      throw new Error "#{@taxon.presentation} not in #{@activeTaxonPresentations}"
+
+  +computed activeTaxons.@each.presentation
+  activeTaxonPresentations: ->
+    @activeTaxons.mapBy "presentation"
+
   actions:
     killTaxon: ->
       @taxon.destroyRecord().then -> Apiv1.Flash.register "success", "taxon destroyed", 2000
 
     interactWithTaxon: ->
+      return if @tempLocked
       if @taxon.hasChildren
         @toggleExpansion()
       else

@@ -1,4 +1,9 @@
-search-and-filter taxons=taxons action="search" query=query activeTaxons=activeTaxons
+search-and-filter taxons=taxons action="search" query=query activeTaxons=activeTaxons tempLocked=products.isPending
+  p.taxoncrumbs
+    each taxon in activeTaxons
+      span.spacebar
+        span +
+        span= taxon.taxonName
   fancy-paginator page=page per=per metadatum=metadatum
 
   products-catalog products=products
