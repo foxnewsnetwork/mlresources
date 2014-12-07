@@ -1,0 +1,9 @@
+h4.section-title
+  tr-span en="existing offers"
+ul.offers.small-block-grid-2.medium-block-4.large-block-grid-6
+  each offer in offers
+    li
+      .offer
+        .price= offer.priceTerms
+        .created-at= offer.createdAt
+

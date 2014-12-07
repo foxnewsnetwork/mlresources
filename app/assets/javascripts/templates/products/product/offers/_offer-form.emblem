@@ -1,4 +1,6 @@
 form-for errors=failureReason submit="formSubmitted"
+  legend.form-legend
+    tr-span en="new offer"
   .input-section attr-name="fromCompany"
     label.form-label
       span.capitalize.white

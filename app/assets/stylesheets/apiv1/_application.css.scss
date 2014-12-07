@@ -16,8 +16,10 @@
 @import 'apiv1/components/preload-billboard';
 @import 'apiv1/components/taggable-field';
 @import 'apiv1/components/pictures-group';
+@import 'apiv1/components/offers-summary';
 @import "apiv1/modals/login";
 @import 'apiv1/products/product/show';
+@import 'apiv1/products/product/offers/new';
 
 body {
   background: {

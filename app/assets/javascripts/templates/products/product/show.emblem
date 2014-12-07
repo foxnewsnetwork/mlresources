@@ -89,12 +89,4 @@
 
   .row
     .small-12.columns
-      h4.section-title
-        tr-span en="offers"
-      ul.offers.small-block-grid-2.medium-block-4.large-block-grid-6
-        each offer in product.offers
-          li
-            .offer
-              .price= offer.priceTerms
-              .created-at= offer.createdAt
-
+      offers-summary offers=product.offers

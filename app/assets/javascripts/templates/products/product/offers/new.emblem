@@ -1,23 +1,39 @@
-if alreadySubmitted
-  .row
-    .small-12.columns
-      h2.thank-you-card.text-center
-        tr-span en="your message has been submitted"
-      h2.go-back.text-center
-        link-to "products.product.show" model.product.id
-          tr-span en="go back"
+.products-product-offers-new
+  if alreadySubmitted
+    .row
+      .small-12.columns
+        h2.thank-you-card.text-center
+          tr-span en="your message has been submitted"
+        h2.go-back.text-center
+          link-to "products.product.show" model.product.id
+            tr-span en="go back"
 
-else
-  .row
-    .small-12.columns
-      h3.go-back.capitalize
-        link-to "products.product.show" model.product.id
-          tr-span en="back to listing"
-  .row
-    .small-12.medium-10.large-4.large-push-8.columns
-      products-showcase id="products" products=productPlural
-    .small-12.medium-10.large-8.large-pull-4.columns.end
-      if userLoggedIn
-        == partial "products/product/offers/offer-form"
-      else
-        == partial "products/product/offers/anonymous-form"
+  else
+    .row
+      .small-12.columns
+        h3.go-back.capitalize
+          link-to "products.product.show" model.product.id
+            i.fa.fa-chevron-circle-left
+            tr-span en="back to listing"
+    .row
+      .small-12.medium-10.large-8.columns.end
+        products-showcase id="products" products=productPlural
+    .row
+      .small-12.medium-10.large-4.large-push-8.columns
+        .offers-summary
+          h4.section-title
+            tr-span en="existing offers"
+          ul.offers.small-block-grid-1.medium-block-1.large-block-grid-1
+            each offer in model.product.offers
+              li
+                .offer
+                  .price= offer.priceTerms
+                  .created-at= offer.createdAt
+
+      .small-12.medium-10.large-8.large-pull-4.columns.end
+        if userLoggedIn
+          == partial "products/product/offers/offer-form"
+        else
+          == partial "products/product/offers/anonymous-form"
+
+    
