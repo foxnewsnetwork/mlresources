@@ -1,4 +1,4 @@
-class Apiv1::Products::DestroyController < Admin::BaseController
+class Apiv1::Products::DestroyController < Apiv1::UsersController
   before_filter :_ensure_product_ownership
   def destroy
     render json: { product: _product.destroy }
