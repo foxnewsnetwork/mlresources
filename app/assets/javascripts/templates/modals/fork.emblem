@@ -1,0 +1,14 @@
+.row.apiv1-login-modal
+  .action-cancel.pointer click="closeModal"
+    i.fa.fa-times
+
+  .small-12.columns
+    button.expand.button click="closeModal"
+      i.fa.fa-chevron-circle-left
+      span.prespace.capitalize
+        tr-span en="back to what I was doing"
+  .small-12.columns.end
+    button.expand.button click="gotoMyAccount"
+      i.fa.fa-user
+      span.prespace.capitalize
+        tr-span en="go to my account"

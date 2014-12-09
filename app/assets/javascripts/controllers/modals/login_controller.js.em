@@ -20,7 +20,7 @@ class Apiv1.ModalsLoginController extends Ember.ObjectController
     @redirectOut()
 
   redirectOut: ->
-    @send "closeModal"
+    @send "displayModal", "fork"
 
   failedLogin: (reason) ->
     Apiv1.Flash.register "warning", "login failed: #{reason.status}", 5000 if reason.status?
