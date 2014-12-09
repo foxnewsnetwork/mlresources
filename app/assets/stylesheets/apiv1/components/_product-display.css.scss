@@ -17,9 +17,14 @@
     @include flex-direction(row);
     @include justify-content(flex-start);
   }
-  img.product-image {
+  .product-image {
     width: 125px;
-  }  
+    height: 125px;
+    background: {
+      size: cover;
+      position: center center;
+    }
+  }
   .product-title {
     font-size: 1.15rem;
     font-weight: bold;

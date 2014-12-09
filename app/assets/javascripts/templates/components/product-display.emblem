@@ -1,16 +1,14 @@
 if product
   link-to "products.product.show" product.id class="flex-start"
     .media-object
-      img.product-image src=product.pictures.firstObject.picUrl
+      .product-image style=productImageStyle
     .media-texts
       .product-title
         i.fa.fa-star
         tr-span en=product.material
         if product.sku
           span.predash= product.sku
-      if product.others
-        p.product-summary
-          tr-span en=product.others
+      
       .product-specs
         if product.amount
           .line

@@ -10,9 +10,14 @@
       color: #f1f1f1;
     }
   }
+  
   .product-image {
-    width: 100px;
-    max-height: 200px;
+    width: 125px;
+    height: 125px;
+    background: {
+      size: cover;
+      position: center center;
+    }
   }
   .media-texts {
     font-size: 1.45rem;

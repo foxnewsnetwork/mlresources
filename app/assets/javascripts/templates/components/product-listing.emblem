@@ -1,7 +1,7 @@
 if product
   link-to "products.product.show" product.id class="product-header"
     .media-object
-      img.product-image.th src=product.pictures.firstObject.thumbUrl
+      .product-image.th style=productImageStyle
     .media-texts
       .big-title
         tr-span en=product.material
