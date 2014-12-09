@@ -7,10 +7,6 @@ section#admin
 
   .row.admin-nav-tabs
     .small-6.medium-4.large-2.columns
-      link-to "admin" class="admin-nav-tab"
-        span.capitalize
-          tr-span en="dashboard"
-    .small-6.medium-4.large-2.columns
       link-to "admin.products.index" class="admin-nav-tab"
         span.capitalize
           tr-span en="products"
@@ -30,6 +26,10 @@ section#admin
       link-to "admin.messages.index" class="admin-nav-tab"
         span.capitalize
           tr-span en="messages"
+    .small-6.medium-4.large-2.columns.end
+      a.admin-nav-tab.pointer click="logoutUser"
+        span.capitalize
+          tr-span en="logout"
 
   .row
     .small-12.columns

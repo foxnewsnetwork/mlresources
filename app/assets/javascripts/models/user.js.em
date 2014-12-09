@@ -10,3 +10,8 @@ class Apiv1.User extends DS.Model
 
   +computed userRank
   isAdmin: -> @userRank is "admin"
+
+  +computed userRank, isAdmin
+  rank: ->
+    return "admin" if @isAdmin
+    "regular user"

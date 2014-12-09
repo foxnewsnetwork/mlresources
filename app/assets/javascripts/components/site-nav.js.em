@@ -32,9 +32,12 @@ class Apiv1.SiteNavComponent extends Ember.Component
   notLoggedIn: ->
     not @userLoggedIn
 
-  +computed Apiv1.CurrentUserSession.isAdmin, userLoggedIn
+  +computed Apiv1.CurrentUserSession.data
+  user: -> Apiv1.HashEx.camelize get$(Apiv1, "CurrentUserSession.data")
+
+  +computed user.userRank, userLoggedIn
   adminLoggedIn: ->
-    @userLoggedIn and get$(Apiv1, "CurrentUserSession.isAdmin")
+    @userLoggedIn and @get("user.userRank") is "admin"
     
   actions:
     displayModal: (modal) ->

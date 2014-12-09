@@ -1,7 +1,31 @@
-h4 welcome
-
-p.todo TODO: analytics dashboard goes here
-
-button.alert click="logoutUser"
+h4 
   span.capitalize
-    tr-span en="logout"
+    tr-span en="welcome"
+  span.prespace= user.companyName
+
+dl.company-info
+  dt
+    tr-span en="email"
+  dd
+    span= user.email
+  if user.userRank
+    dt
+      tr-span en="user rank"
+    dd
+      span= user.userRank
+  dt
+    tr-span en="company name"
+  dd
+    span= user.companyName
+  dt
+    tr-span en="phone number"
+  dd
+    span= user.phoneNumber
+  dt
+    tr-span en="address"
+  dd
+    span= user.address
+  dt
+    tr-span en="about me"
+  dd
+    span= user.aboutMe
