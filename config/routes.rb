@@ -28,6 +28,11 @@ Rails.application.routes.draw do
     resources :offers, only: [:show], controller: 'offers/show'
     resources :offers, only: [:destroy], controller: 'offers/destroy'
     resources :offers, only: [:index], controller: 'offers/index'
+    resources :contacts, only: [:create], controller: 'contacts/create'
+    resources :contacts, only: [:update], controller: 'contacts/update'
+    resources :contacts, only: [:destroy], controller: 'contacts/destroy'
+    resources :contacts, only: [:index], controller: 'contacts/index'
+    resources :contacts, only: [:show], controller: 'contacts/show'
   end
 
   namespace :users do

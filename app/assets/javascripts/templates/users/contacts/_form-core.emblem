@@ -1,0 +1,19 @@
+.input-section attr-name="name"
+  label.form-label
+    tr-span en="company name"
+    Ember.TextField name="name" value=model.name placeholder="Acme Trade Co"
+
+.input-section attr-name="email"
+  label.form-label
+    tr-span en="email"
+    Ember.TextField name="email" value=model.email placeholder="dog@example.co"
+
+.input-section attr-name="phone"
+  label.form-label
+    tr-span en="phone number"
+    Ember.TextField name="phone" value=model.phone placeholder="(555) 123 - 1234"
+
+.input-section attr-name="address"
+  label.form-label
+    tr-span en="company address"
+    Ember.TextField name="address" value=model.address placeholder="1234 Main Street, Beverly Hills, CA 90210"

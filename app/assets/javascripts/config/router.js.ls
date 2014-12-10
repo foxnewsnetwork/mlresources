@@ -12,6 +12,11 @@ Apiv1.Router.map ->
       @route "new"
     @resource "users.product", path: "/product/:product_id", ->
       @route "edit"
+    @resource "users.contacts", path: "/contacts", ->
+      @route "index"
+      @route "new"
+    @resource "users.contact", path: "/contact/:contact_id", ->
+      @route "edit"
 
     @resource "users.offers", path: "/offers", ->
       @route "index"

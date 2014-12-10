@@ -1,31 +1,37 @@
-h4 
-  span.capitalize
-    tr-span en="welcome"
-  span.prespace= user.companyName
+.row
+  .small-12.columns
+    h4 
+      span.capitalize
+        tr-span en="welcome"
+      span.prespace= companyName
+.row
+  .small-12.columns
+    dl.company-info
+      dt
+        tr-span en="email"
+      dd
+        span= email
+      if user.userRank
+        dt
+          tr-span en="user rank"
+        dd
+          span= user.userRank
+      dt
+        tr-span en="company name"
+      dd
+        span= companyName
+      dt
+        tr-span en="phone number"
+      dd
+        span= phoneNumber
+      dt
+        tr-span en="address"
+      dd
+        span= address
+      dt
+        tr-span en="about me"
+      dd
+        span= user.aboutMe
 
-dl.company-info
-  dt
-    tr-span en="email"
-  dd
-    span= user.email
-  if user.userRank
-    dt
-      tr-span en="user rank"
-    dd
-      span= user.userRank
-  dt
-    tr-span en="company name"
-  dd
-    span= user.companyName
-  dt
-    tr-span en="phone number"
-  dd
-    span= user.phoneNumber
-  dt
-    tr-span en="address"
-  dd
-    span= user.address
-  dt
-    tr-span en="about me"
-  dd
-    span= user.aboutMe
+
+

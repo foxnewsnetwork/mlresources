@@ -1,0 +1,16 @@
+.row
+  .small-6.medium-4.large-2.columns.end
+    link-to "users.index" class="button expand secondary"
+      i.fa.fa-chevron-left
+      span.capitalize.bold 
+        tr-span en="back"
+.row
+  .small-12.medium-10.large-8.columns.end
+    form-for errors=failureReason submit="formSubmitted"
+      == partial "users/contacts/form-core"
+
+      .button-forms
+        promise-button model=model class="button"
+          span.capitalize 
+            i.fa.fa-check
+            tr-span en="submit"

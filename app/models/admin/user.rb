@@ -35,6 +35,20 @@ class Admin::User < ActiveRecord::Base
     class_name: 'Apiv1::Product',
     through: :product_relationships
 
+  has_many :raw_contacts,
+    class_name: 'Apiv1::UserContact',
+    foreign_key: 'user_id'
+    
+  has_many :contacts,
+    -> { order_by_primality },
+    class_name: 'Apiv1::UserContact',
+    foreign_key: 'user_id'
+
+  has_one :primary_contact,
+    -> { is_primary.order_by_primality },
+    class_name: 'Apiv1::UserContact',
+    foreign_key: 'user_id'
+
   has_many :offers,
     -> { order "#{Apiv1::OfferMessage.table_name}.created_at desc" },
     through: :products,
@@ -49,7 +63,7 @@ class Admin::User < ActiveRecord::Base
       phone_number: phone_number,
       address: address,
       about_me: about_me
-    }
+    }.merge _primary_contact_hash
   end
 
   def admin?
@@ -62,5 +76,10 @@ class Admin::User < ActiveRecord::Base
 
   def owns?(product)
     product_relationships.exists?(product_id: product.id)
+  end
+
+  private
+  def _primary_contact_hash
+    primary_contact.try(:to_user_hash) || {}
   end
 end

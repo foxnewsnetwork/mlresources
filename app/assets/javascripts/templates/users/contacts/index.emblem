@@ -1,0 +1,62 @@
+.row
+  .small-12.medium-6.large-4.columns.end
+    link-to "users.contacts.new" class="button capitalize success expand"
+      tr-span en="add new contact"
+.row
+  .small-12.medium-6.large-4.columns
+    if primaryContact
+      ul.pricing-table
+        li.title.capitalize click="makePrimary contact"
+          tr-span en="primary contact"
+        li.price= primaryContact.name
+        li.bullet-item
+          span.bold.colon
+            tr-span en="email"
+          span= primaryContact.email
+        li.bullet-item
+          span.bold.colon
+            tr-span en="phone"
+          span= primaryContact.phone
+        li.bullet-item
+          span.bold.colon
+            tr-span en="address"
+          span= primaryContact.address
+        li.description
+          span.bold.colon
+            tr-span en="created at"
+          span= primaryContact.createdAt
+        li.cta-button
+          link-to "users.contact.edit" primaryContact.id class="button capitalize"
+            i.fa.fa-edit
+            tr-span en="edit"
+  each contact in secondaryContacts
+    .small-12.medium-6.large-4.columns
+      ul.pricing-table
+        li.title.capitalize.pointer click="makePrimary contact"
+            tr-span en="contact"
+            span.parantheses
+              tr-span en="click to make primary"
+        li.price= contact.name
+        li.bullet-item
+          span.bold.colon
+            tr-span en="email"
+          span= contact.email
+        li.bullet-item
+          span.bold.colon
+            tr-span en="phone"
+          span= contact.phone
+        li.bullet-item
+          span.bold.colon
+            tr-span en="address"
+          span= contact.address
+        li.description
+          span.bold.colon
+            tr-span en="created at"
+          span= contact.createdAt
+        li.cta-button
+          link-to "users.contact.edit" contact.id class="button capitalize"
+            i.fa.fa-edit
+            tr-span en="edit"
+          button.button.alert.capitalize click="destroyContact contact"
+            i.fa.fa-times-circle
+            tr-span en="destroy"

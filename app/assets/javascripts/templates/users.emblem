@@ -18,6 +18,10 @@ section#user
       link-to "users.offers.index" class="admin-nav-tab"
         span.capitalize
           tr-span en="my offers"
+    .small-6.medium-3.large-2.columns
+      link-to "users.contacts.index" class="admin-nav-tab"
+        span.capitalize
+          tr-span en="my contact info"
     .small-6.medium-3.large-2.columns.end
       a.admin-nav-tab.pointer click="logoutUser"
         span.capitalize
