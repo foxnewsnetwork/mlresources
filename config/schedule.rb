@@ -21,6 +21,6 @@
 
 set :output, '/home/ia/workspace/mlresources/log/cron_log.log'
 
-every 2.hours do
-  rake "email_slave:work_the_queue"
+every 1.minute do
+  rake "email_slave:display_the_queue"
 end

@@ -9,6 +9,7 @@ namespace :email_slave do
 
   desc "just blandly outputs the emails to be sent" 
   task display_the_queue: :environment do
-    puts Generica::EmailSlave.new.send("_emails").map(&:to_s)
+    puts "the slave is workin the queue"
+    # puts Generica::EmailSlave.new.send("_emails").map(&:to_s)
   end
 end
