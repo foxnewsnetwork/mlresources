@@ -54,6 +54,10 @@ class Admin::User < ActiveRecord::Base
     through: :products,
     class_name: 'Apiv1::OfferMessage'
 
+  def default_email
+    primary_contact.try(:email) || email
+  end
+
   def to_ember_hash
     {
       id: id,

@@ -10,7 +10,7 @@ class Apiv1::NotificationsMailer::NewOfferContext
     @offer = offer_message
   end
   def to
-    product.try(:user).try(:email)
+    product.try(:user).try(:default_email)
   end
   def from
     "secretary@plasticscrapmarket.org"

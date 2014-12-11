@@ -19,6 +19,7 @@ gem 'premailer-rails', '~> 1.8.0'
 gem 'gmail', '~> 0.4.2'
 gem 'god', '~> 0.13.4'
 gem 'arrows', '>= 0.0.6'
+gem 'whenever', '~> 0.9.4', require: false
 
 # Support
 gem "haml", "~> 4.0.0"

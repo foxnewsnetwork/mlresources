@@ -5,7 +5,6 @@ namespace :email_slave do
     puts "begin dispatching emails..."
     Generica::EmailSlave.new.dispatch_emails!
     puts "finished"
-    sleep 1
   end
 
 end
