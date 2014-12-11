@@ -18,7 +18,7 @@
 # end
 
 # Learn more: http://github.com/javan/whenever
-
+set :job_template, "bash -l -c ':job'"
 set :output, '/home/ia/workspace/mlresources/log/cron_log.log'
 
 every 1.minute do
