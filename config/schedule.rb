@@ -19,6 +19,8 @@
 
 # Learn more: http://github.com/javan/whenever
 
+set :output, '/home/ia/workspace/mlresources/log/cron_log.log'
+
 every 2.hours do
   rake "email_slave:work_the_queue"
 end
