@@ -23,6 +23,9 @@ set :output, '/home/ia/workspace/mlresources/log/cron_log.log'
 
 every 1.minute do
   command "whoami"
+  command "echo $APIV1_DATABASE_PASSWORD"
+  command "echo $PATH"
+  command "which node"
   command "which ruby"
   command "which rake"
   command "which bundle"
