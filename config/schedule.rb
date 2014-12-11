@@ -22,5 +22,9 @@
 set :output, '/home/ia/workspace/mlresources/log/cron_log.log'
 
 every 1.minute do
-  rake "email_slave:display_the_queue"
+  command "whoami"
+  command "which ruby"
+  command "which rake"
+  command "which bundle"
+  # rake "email_slave:display_the_queue"
 end
