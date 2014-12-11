@@ -1,2 +1,7 @@
 search-and-filter taxons=model.taxons action="search" query=query activeTaxons=activeTaxons
   products-showcase id="products" products=model.products
+
+  .row
+    .small-12.columns.align-center.buffer20.capitalize
+      link-to "products.index" class="button secondary"
+        tr-span en="load more"

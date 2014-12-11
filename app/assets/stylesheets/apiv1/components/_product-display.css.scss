@@ -14,12 +14,38 @@
   }
   .flex-start {
     @include display-flex;
-    @include flex-direction(row);
-    @include justify-content(flex-start);
+    @media #{$small-only} {
+      @include flex-direction(column);
+      @include justify-content(flex-start);
+      @include align-items(center);
+    }
+    @media #{$medium-up} {
+      @include flex-direction(row);
+      @include justify-content(flex-start);
+    }
+  }
+  .media-texts {
+    @media #{$small-only} {
+      width: 100%;
+      @include order(-1);
+    }
+    @media #{$medium-only} {
+      width: 100%;
+    }
   }
   .product-image {
-    width: 125px;
-    height: 125px;
+    @media #{$small-only} {
+      width: 175px;
+      height: 175px;
+    }
+    @media #{$medium-only} {
+      width: 75px;
+      height: 75px;
+    }
+    @media #{$large-up} {
+      width: 125px;
+      height: 125px; 
+    }
     background: {
       size: cover;
       position: center center;

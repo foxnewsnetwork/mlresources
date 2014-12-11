@@ -30,10 +30,10 @@ if product
             span.upcase.colon
               tr-span en="quality"
             span.spec.spacebar= product.quality
-      if product.taxons
-        .taxon-tags
-          each taxon in product.taxons
-            span.tag= taxon.taxonName
+        .line
+          span.upcase.colon
+            tr-span en="creation date"
+          span.spec.spacebar= product.createdAt
 else
   .media-object.align-right
     i.fa.fa-circle-o.fa-4x

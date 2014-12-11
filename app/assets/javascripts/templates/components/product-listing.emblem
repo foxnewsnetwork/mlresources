@@ -7,7 +7,7 @@ if product
         tr-span en=product.material
         if product.sku
           span.predash= product.sku
-
+      .dateline= product.createdAt
       p.smaller-details
         if product.price
           span= product.price
