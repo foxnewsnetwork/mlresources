@@ -35,7 +35,7 @@ end
 class Generica::EmailSlave::GarbageMan
   class << self
     def cleanup!(requests)
-      return if request.blank?
+      return if requests.blank?
       requests.map(&:mark_as_failed!)
     end
   end
