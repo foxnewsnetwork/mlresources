@@ -1,3 +1,5 @@
+.the-form class=showOfferForm::hidden
+  == partial "products/product/offers/offer-form"
 .somesort-of-request
   button.button.secondary.capitalize click="displayModal 'login'"
     tr-span en="login if you have an account"
@@ -7,5 +9,3 @@
 .somesort-of-request
   button.button.secondary.capitalize click="toggleOfferForm"
     tr-span en="or make anonymous offer"
-.the-form class=showOfferForm::hidden
-  == partial "products/product/offers/offer-form"
