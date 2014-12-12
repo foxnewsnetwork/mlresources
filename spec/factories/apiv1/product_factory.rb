@@ -15,6 +15,7 @@
 #  updated_at     :datetime
 #  showcase_order :integer
 #  deleted_at     :datetime
+#  finished_at    :datetime
 #
 
 class Apiv1::ProductFactory

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :products, only: [:show], controller: 'products/show'
     resources :products, only: [:destroy], controller: 'products/destroy'
     resources :products, only: [:index], controller: 'products/index'
+    resources :products, only: [:update], controller: 'products/update'
     resource :product_metadatum, only: [:show], controller: 'product_metadatum/show'
     resource :product_metadata, only: [:show], controller: 'product_metadatum/show'
     resources :pictures, only: [:show], controller: 'pictures/show'

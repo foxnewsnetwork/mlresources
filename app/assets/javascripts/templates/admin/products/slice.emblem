@@ -7,6 +7,22 @@
         if model.hasShowOrder
           span #
           span= model.showcaseOrder
+        if model.isFinished
+          span.parantheses
+            tr-span en="finished"
+    .edit
+      if model.isPending
+        i.fa.fa-cog.fa-spin
+        span.prespace
+          tr-span en="loading"
+      else
+        .pointer click="requestToggleFinish"
+          if model.isFinished
+            span.prespace
+              tr-span en="unfinish"
+          else
+            span.prespace
+              tr-span en="mark finish"
     .edit
       link-to "admin.product.edit" model.id
         i.fa.fa-edit

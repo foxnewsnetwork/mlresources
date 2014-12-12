@@ -15,6 +15,7 @@
 #  updated_at     :datetime
 #  showcase_order :integer
 #  deleted_at     :datetime
+#  finished_at    :datetime
 #
 
 class Apiv1::Product < ActiveRecord::Base
@@ -57,6 +58,12 @@ class Apiv1::Product < ActiveRecord::Base
 
   scope :belonging_to_taxon,
     -> (taxon) { union_of_taxon_ids taxon.id }
+
+  scope :has_been_finished,
+    -> { where("#{self.table_name}.finished_at < ?", DateTime.now) }
+
+  scope :still_unfinished,
+    -> { where("#{self.table_name}.finished_at is null or #{self.table_name}.finished_at > ?", DateTime.now) }
     
   scope :union_of_taxon_ids,
     -> (taxon_ids) { joins(:taxon_relationships).where("#{Apiv1::Listings::TaxonRelationship.table_name}.taxon_id" => taxon_ids) } 
@@ -98,7 +105,24 @@ class Apiv1::Product < ActiveRecord::Base
       attachments: attachments.map(&:id),
       offers: offers.map(&:id),
       user_id: user.try(:id),
-      thumbnail: pictures.first.try(:thumbnail)
+      thumbnail: pictures.first.try(:thumbnail),
+      isFinished: finished?
+  end
+
+  def mark_finish!
+    update finished_at: DateTime.now
+  end
+
+  def mark_unfinish!
+    update finished_at: nil
+  end
+
+  def unfinished?
+    finished_at.blank? || finished_at > DateTime.now
+  end
+
+  def finished?
+    not unfinished?
   end
 
   def rough_summary

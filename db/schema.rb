@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209185105) do
+ActiveRecord::Schema.define(version: 20141212162545) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                        null: false
@@ -147,6 +147,7 @@ ActiveRecord::Schema.define(version: 20141209185105) do
     t.datetime "updated_at"
     t.integer  "showcase_order"
     t.datetime "deleted_at"
+    t.datetime "finished_at"
   end
 
   add_index "apiv1_products", ["permalink"], name: "index_apiv1_products_on_permalink", using: :btree

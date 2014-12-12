@@ -7,6 +7,9 @@ if product
         tr-span en=product.material
         if product.sku
           span.predash= product.sku
+        if product.isFinished
+          span.parantheses
+            tr-span en="finished"
       .dateline= product.createdAt
       p.smaller-details
         if product.price

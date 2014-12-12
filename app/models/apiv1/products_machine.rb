@@ -18,7 +18,7 @@ class Apiv1::ProductsMachine
     @elastic_query.try(:count) || Apiv1::Product.count
   end
   def _filter_pipeline
-    _possible_query_search >> _paginate >> _unify_type >> _process_taxons >> _process_ordering
+    _possible_query_search >> _paginate >> _unify_type >> _process_taxons >> _process_ordering >> _process_finishing
   end
   def _possible_query_search
     lambda do |product|
@@ -45,6 +45,13 @@ class Apiv1::ProductsMachine
       -> (product) { product.order_by_created_at }
     end
   end
+  def _process_finishing
+    if _user.blank?
+      lambda(&:still_unfinished)
+    else
+      -> (product) { product }
+    end
+  end
   def _process_taxons
     lambda do |product|
       if _taxon_ids.present?
@@ -58,7 +65,7 @@ class Apiv1::ProductsMachine
     -> (t) { t.respond_to?(:records) ? t.records.load : t }
   end
   def _user
-    Admin::User.find_by_id params[:user_id]
+    @user ||= Admin::User.find_by_id params[:user_id]
   end
   def _query
     params[:query]

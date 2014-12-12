@@ -10,6 +10,9 @@
         tr-span en=product.material
         if product.sku
           span.predash= product.sku
+        if product.isFinished
+          span.parantheses
+            tr-span en="finished"
 
   .row
     .small-12.medium-4.large-3.columns
