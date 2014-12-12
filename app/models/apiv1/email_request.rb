@@ -94,6 +94,10 @@ class Apiv1::EmailRequest < ActiveRecord::Base
     update status: :delivered
   end
 
+  def mark_as_failed!
+    update status: :failed
+  end
+
   private
   def _mailer_class
     Object.const_get _mailer_class_name

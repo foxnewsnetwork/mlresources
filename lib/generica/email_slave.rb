@@ -1,75 +1,81 @@
 module Generica; end
 class Generica::EmailSlave
   def dispatch_emails!
-    return puts "no emails" if _emails.blank?
-    _requests.update_all(status: :attempt_dispatch) 
-    _postal_pipeline.call _emails
-    _requests.update_all(status: :delivered)
+    _dispatch_process.call
   end
   private
-  def _postal_pipeline
-    _group_by_user_emails >> _crunch_into_digest >> _send_off!
+  def _dispatch_process
+    _all_unfulfilled_requests >> _group_by_target_email >= _crunch_down_emails >= (_dispatch_email! % _manage_failure!)
   end
-  def _group_by_user_emails
-    -> (emails) { Sorter.group_by_user_emails emails }
+  def _all_unfulfilled_requests
+    Arrows.lift Apiv1::EmailRequest.awaiting_delivery
   end
-  def _crunch_into_digest
-    -> (email_hash) { _hash_map_crunch email_hash }
+  def _group_by_target_email
+    Arrows.lift -> (requests) { Sorter.group_by_to requests }  
   end
-  def _send_off!
-    -> (email_hash) { _hash_map_dispatch email_hash }
+  def _crunch_down_emails
+    Arrows.lift -> (requests) { Cruncher.crunch requests }
   end
-  def _requests
-    @requests ||= _request_process.call Apiv1::EmailRequest
+  def _dispatch_email!
+    Arrows.lift -> (mail) { Dispatcher.dispatch! mail }
   end
-  def _request_process
-    _consider_workload >> _consider_email_address
-  end
-  def _consider_email_address
-    -> (scope) { @user.present? ? scope.meant_for_email(@email) : scope }
-  end
-  def _consider_workload
-    -> (klass) { klass.belonging_to_the_user_with_oldest_undelivered }
-  end
-  def _emails
-    @emails ||= _requests.map(&:mailify)
-  end
-  def _hash_map_dispatch(hash)
-    _right_map(hash) { |email| Dispatcher.dispatch email }
-  end
-  def _hash_map_crunch(hash)
-    _right_map(hash) { |emails| Cruncher.crunch emails }
-  end
-  def _right_map(hash, &block)
-    thing = hash.map { |key_and_value| [key_and_value.first, yield(key_and_value.last)] }
-    Hash[thing]
+  def _manage_failure!
+    Arrows.lift -> (requests) { GarbageMan.cleanup! requests }
   end
 end
 
 class Generica::EmailSlave::Sorter
   class << self
-    def group_by_user_emails(emails)
-      emails.reduce({}) do |hash, email|
-        hash[email.to.first] ||= []
-        hash[email.to.first].push email
-        hash
-      end
+    def group_by_to(requests)
+      requests.group_by { |request| request.to }.map(&:last)
+    end
+  end
+end
+
+class Generica::EmailSlave::GarbageMan
+  class << self
+    def cleanup!(requests)
+      return if request.blank?
+      requests.map(&:mark_as_failed!)
     end
   end
 end
 
 class Generica::EmailSlave::Cruncher
   class << self
-    def crunch(emails)
-      return emails.first if emails.count < 2
-      Apiv1::AggregateMailer.summary emails
+    def crunch(requests)
+      mails_or_fails = requests.map { |request| _convert_request request }
+      _crunch_process.call mails_or_fails
+    end
+    private
+    def _crunch_process
+      _separate_good_and_evil >> (_payload % _payload) >> (_crunch_good_emails % Arrows::ID)
+    end
+    def _crunch_good_emails
+      Arrows.lift -> (emails) { emails.count < 2 ? emails.first : Apiv1::AggregateMailer.summary(emails) }
+    end
+    def _payload
+      Arrows.lift -> (eithers) { eithers.map &:payload }
+    end
+    def _separate_good_and_evil
+      Arrows.lift -> (mails_and_fails) { [mails_and_fails.select(&:good?), mails_and_fails.reject(&:good?)] }
+    end
+    def _convert_request(request)
+      begin
+        mail = request.mailify
+        request.mark_as_delivered!
+        Arrows.good mail
+      rescue
+        Arrows.evil request
+      end
     end
   end
 end
 
 class Generica::EmailSlave::Dispatcher
   class << self
-    def dispatch(email)
+    def dispatch!(email)
+      return if email.blank?
       gmail.compose(email).deliver!
     end
     def gmail(&block)
