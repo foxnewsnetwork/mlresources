@@ -97,7 +97,8 @@ class Apiv1::Product < ActiveRecord::Base
       taxons: taxons.map(&:id),
       attachments: attachments.map(&:id),
       offers: offers.map(&:id),
-      user_id: user.try(:id)
+      user_id: user.try(:id),
+      thumbnail: pictures.first.try(:thumbnail)
   end
 
   def rough_summary

@@ -36,4 +36,8 @@ class Apiv1::Picture < ActiveRecord::Base
     attributes.merge pic_url: pic.url,
       thumb_url: pic.url(:thumb)
   end
+
+  def thumbnail
+    pic.url :thumb
+  end
 end

@@ -9,6 +9,7 @@ class Apiv1.Product extends DS.Model
   showcaseOrder: DS.attr "number"
   createdAt: DS.attr "date"
   updatedAt: DS.attr "date"
+  thumbnail: DS.attr "string"
   attachments: DS.hasMany "attachment", async: true
   pictures: DS.hasMany "picture", async: true
   taxons: DS.hasMany "taxon", async: true
