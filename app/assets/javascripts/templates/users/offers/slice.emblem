@@ -1,5 +1,5 @@
 .admin-message-slice
-  .actions
+  link-to "products.product.show" model.product.id class="actions"
     .view
       i.fa.fa-user
       span.prespace= model.fromCompany
@@ -11,8 +11,7 @@
     .media-subject
       span.bold= model.priceTerms
       span.spacebar.prespace -
-      link-to "products.product.show" model.product.id
-        span= model.product.material
+      span= model.product.material
       
     .media-text= model.message
     .media-extras
@@ -29,3 +28,11 @@
           dt
             tr-span en="company location"
           dd= model.companyAddress
+        if model.message
+          dt
+            tr-span en="message"
+          dd= model.message
+        if model.status
+          dt
+            tr-span en="status"
+          dd= model.status

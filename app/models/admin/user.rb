@@ -58,6 +58,10 @@ class Admin::User < ActiveRecord::Base
     primary_contact.try(:email) || email
   end
 
+  def all_known_emails
+    contacts.map(&:email).push(email).select(&:present?)
+  end
+
   def to_ember_hash
     {
       id: id,

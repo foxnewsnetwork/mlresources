@@ -22,9 +22,20 @@ class Apiv1::OfferMessage < ActiveRecord::Base
   belongs_to :product,
     class_name: 'Apiv1::Product'
 
+  has_one :product_owner,
+    through: :product,
+    source: :user,
+    class_name: 'Admin::User'
+
   validates :price_terms,
     :product,
     presence: true
+
+  scope :made_to,
+    -> (user) { joins(:product_owner).where "#{Admin::User.table_name}.id" => user.id }
+
+  scope :made_by,
+    -> (user) { where "#{self.table_name}.sender_email" => user.all_known_emails }
 
   def to_ember_hash
     attributes.merge price_terms: price_terms,

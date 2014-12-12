@@ -337,7 +337,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (>= 2.5.0.pre1)
-  arrows (>= 0.0.6)
+  arrows (~> 0.0.6)
   capybara (~> 2.4.4)
   coffee-rails (~> 4.0.1)
   commerce_units (>= 0.0.5)
