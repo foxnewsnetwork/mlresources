@@ -8,4 +8,4 @@
     tr-span en="or register an account"
 .somesort-of-request
   button.button.secondary.capitalize click="toggleOfferForm"
-    tr-span en="or make anonymous offer"
+    tr-span en="or make a quick offer"
