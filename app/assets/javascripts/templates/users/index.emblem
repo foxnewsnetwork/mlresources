@@ -24,14 +24,19 @@
         tr-span en="phone number"
       dd
         span= phoneNumber
-      dt
-        tr-span en="address"
-      dd
-        span= address
-      dt
-        tr-span en="about me"
-      dd
-        span= user.aboutMe
+      if address
+        dt
+          tr-span en="address"
+        dd
+          span= address
+      if user.aboutMe
+        dt
+          tr-span en="about me"
+        dd
+          span= user.aboutMe
 
-
-
+.row
+  .small-12.columns
+    link-to "users.contacts.new" class="button success"
+      span.capitalize
+        tr-span en="change contact info"

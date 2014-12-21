@@ -8,57 +8,14 @@
   .small-12.columns
     form-for errors=failureReason submit="formSubmitted"
       fieldset
-        legend.capitalize.bold 
-          tr-span en="new listing"
-        .input-section attr-name="material"
-          label.form-label
-            span.asterisk
-              tr-span en="listing name"
-            Ember.TextField name="material" value=model.material placeholder="hot dog"
-        .input-section attr-name="sku"
-          label.form-label
-            tr-span en="external reference number"
-            Ember.TextField name="sku" value=model.sku placeholder="XYZ-00123"
-        .input-section attr-name="price"
-          label.form-label
-            tr-span en="how much to sell for?"
-            Ember.TextField name="price" value=model.price placeholder="0.33 USD / pound FAS Long Beach Port"
-        .input-section attr-name="amount"
-          label.form-label
-            tr-span en="how much of it do you have?"
-            Ember.TextField name="amount" value=model.amount placeholder="200 tons every week"
-        .input-section attr-name="quality"
-          label.form-label
-            tr-span en="what sort of goods are these?"
-            Ember.TextField name="quality" value=model.quality placeholder="A grade, baled"
-        .input-section attr-name="place"
-          label.form-label
-            tr-span en="where is this?"
-            Ember.TextField name="place" value=model.place placeholder="Los Angeles"
-        .input-section attr-name="others"
-          label.form-label
-            tr-span en="anything else?"
-            Ember.TextArea name="others" value=model.others
+        == partial "users/products/form-core"
+        
         .input-section attr-name="showcaseOrder"
           label.form-label
             tr-span en="showcase display number"
             span.parantheses
               tr-span en="the smaller the number, the higher up it appears in the showcase on the front page"
             Ember.TextField type="number" name="showcaseOrder" value=model.showcaseOrder
-        
-        .input-section attr-name="pictures"
-          label.form-label
-            span.asterisk
-              tr-span en="listing pictures"
-              span.parantheses
-                tr-span en="the first picture will be displayed in the showcase"
-            files-field name="pictures" files=model.pictures class="form-control upload-control"
-          .attached-pictures
-            pictures-group pictures=model.pictures
-        .input-section attr-name="taxons"
-          label.form-label
-            tr-span en="select appropriate category tags for this product"
-          tree-taxon-wrapper taxons=rootTaxons activeTaxons=activeTaxons
         
         .actions.row
           .small-6.columns.end

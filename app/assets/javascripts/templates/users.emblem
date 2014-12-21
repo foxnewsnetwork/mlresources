@@ -7,6 +7,10 @@ section#user
 
   .row.admin-nav-tabs
     .small-6.medium-3.large-2.columns
+      link-to "users.index" class="admin-nav-tab"
+        span.capitalize
+          tr-span en="user profile"
+    .small-6.medium-3.large-2.columns
       link-to "users.products.index" class="admin-nav-tab"
         span.capitalize
           tr-span en="my listings"

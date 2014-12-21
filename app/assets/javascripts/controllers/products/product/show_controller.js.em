@@ -17,5 +17,7 @@ class Apiv1.ProductsProductShowController extends Ember.ObjectController
     @store.createRecord "offer"
 
   actions:
+    showSellerInfo: ->
+      @showSellerInfo = true
     selectMainPic: (picture) ->
       @mp = picture.get("id")

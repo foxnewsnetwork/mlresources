@@ -71,24 +71,28 @@
         
   .row
     .small-6.columns
-      link-to "products.product.offers.new" product.id class="action"
-        tr-span en="Make public offer"      
+      link-to "products.product.offers.new" product.id class="action button success"
+        tr-span en="Make price offer"
     .small-6.columns
-      .action
-        tr-span en="Directly contact seller to make a private offer"
-      .contact-info
-        .company
-          span.bold.colon
-            tr-span en="seller"
-          span= product.user.companyName
-        .email
-          span.bold.colon
-            tr-span en="email"
-          span= product.user.email
-        .phone
-          span.bold.colon
-            tr-span en="phone"
-          span= product.user.phoneNumber
+      if showSellerInfo
+        .action
+          tr-span en="Directly contact seller to make a private offer"
+        .contact-info
+          .company
+            span.bold.colon
+              tr-span en="seller"
+            span= product.user.companyName
+          .email
+            span.bold.colon
+              tr-span en="email"
+            span= product.user.email
+          .phone
+            span.bold.colon
+              tr-span en="phone"
+            span= product.user.phoneNumber
+      else
+        button.action.button.secondary.pointer click="showSellerInfo"
+          tr-span en="Directly contact seller"
 
   .row
     .small-12.columns

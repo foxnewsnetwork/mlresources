@@ -12,18 +12,16 @@ class Apiv1.ProductsIndexController extends Ember.ObjectController
   +computed model.activeTaxons.@each
   activeTaxons: -> @model.activeTaxons
 
-  +computed firstActiveLocationTaxon.coordinates, userDefaultCoordinates
+  +computed userDefaultCoordinates
   defaultCoordinate: ->
     @get("userDefaultCoordinates")
 
   +computed Apiv1.CurrentUserSession.latitude, Apiv1.CurrentUserSession.longitude
   userDefaultCoordinates: ->
-    [get$(Apiv1, "CurrentUserSession.latitude"), get$(Apiv1, "CurrentUserSession.longitude")]
-
-  +computed activeTaxons.@each
-  firstActiveLocationTaxon: ->
-    return if Ember.isBlank @activeTaxons
-    @activeTaxons.filterBy("rootGenus", "location").firstObject
+    lat = get$(Apiv1, "CurrentUserSession.latitude")
+    lng = get$(Apiv1, "CurrentUserSession.longitude")
+    return if Ember.isBlank(lat) or Ember.isBlank(lng)
+    [lat, lng]
 
   +observer activeTaxons.@each.id
   manageATI: ->
