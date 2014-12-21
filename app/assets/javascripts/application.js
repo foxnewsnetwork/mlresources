@@ -21,7 +21,5 @@
 //= require ember-data
 //= require i18n
 //= require bower_components/typeahead.js/dist/typeahead.bundle.min
-//= require bower_components/leaflet/dist/leaflet
-//= require bower_components/leaflet.markerclusterer/dist/leaflet.markercluster
 //= require ./apiv1
 //= require_self
