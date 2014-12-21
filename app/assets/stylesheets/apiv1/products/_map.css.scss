@@ -1,0 +1,19 @@
+.products-map {
+  .forced-onto-the-map {
+    position: absolute;
+    z-index: 1;
+    left: 60px;
+    top: 10px;
+  }
+  .map-button {
+    @include box-shadow(black 1px 1px 5px);
+    @include border-radius(5px);
+    background: #fff;
+    padding: 17px 10px;
+    display: block;
+    text-transform: capitalize;
+    &:hover {
+      background: #f4f4f4;
+    }
+  }
+}

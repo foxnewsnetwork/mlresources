@@ -34,7 +34,7 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
-    arrows (0.0.6)
+    arrows (0.0.8)
       activesupport (>= 2.3)
     barber (0.5.0)
       ember-source
@@ -146,6 +146,7 @@ GEM
     functional_support (0.0.12)
       activesupport (>= 2.3)
     gctools (0.2.3)
+    geocoder (1.2.6)
     gmail (0.4.2)
       gmail_xoauth (>= 0.3.0)
       mail (>= 2.2.1)
@@ -337,7 +338,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (>= 2.5.0.pre1)
-  arrows (~> 0.0.6)
+  arrows (~> 0.0.8)
   capybara (~> 2.4.4)
   coffee-rails (~> 4.0.1)
   commerce_units (>= 0.0.5)
@@ -359,6 +360,7 @@ DEPENDENCIES
   foundation-rails (~> 5.3.1.0)
   functional_support (>= 0.0.12)
   gctools (~> 0.2.3)
+  geocoder (~> 1.2.6)
   gmail (~> 0.4.2)
   god (~> 0.13.4)
   haml (~> 4.0.0)

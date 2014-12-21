@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141212162545) do
+ActiveRecord::Schema.define(version: 20141217173451) do
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                        null: false
@@ -79,6 +79,30 @@ ActiveRecord::Schema.define(version: 20141212162545) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "apiv1_geomark_requests", force: true do |t|
+    t.integer  "place_id"
+    t.string   "place_type"
+    t.string   "permalink"
+    t.string   "slugstyle"
+    t.datetime "attempted_at"
+    t.datetime "failed_at"
+    t.datetime "succeed_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "apiv1_geomarkers", force: true do |t|
+    t.integer  "place_id"
+    t.string   "place_type"
+    t.string   "permalink"
+    t.decimal  "longitude",  precision: 10, scale: 0
+    t.decimal  "latitude",   precision: 10, scale: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "apiv1_geomarkers", ["place_id", "place_type"], name: "index_apiv1_geomarkers_on_place_id_and_place_type", using: :btree
 
   create_table "apiv1_listings_taxons", force: true do |t|
     t.integer  "listing_id"

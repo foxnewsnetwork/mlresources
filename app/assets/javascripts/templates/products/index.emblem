@@ -1,11 +1,18 @@
 search-and-filter taxons=taxons action="search" query=query activeTaxons=activeTaxons tempLocked=products.isPending
-  p.taxoncrumbs
-    each taxon in activeTaxons
-      span.spacebar
-        span +
-        span= taxon.taxonName
-  fancy-paginator page=page per=per metadatum=metadatum
+  if showMap
+    == partial "products/map"
+  else
+    p.taxoncrumbs
+      each taxon in activeTaxons
+        span.spacebar
+          span +
+          span= taxon.taxonName
 
-  products-catalog products=products
+    link-to "products.index" (query-params vi="map") class="button secondary"
+      tr-span en="map view"
 
-  fancy-paginator page=page per=per metadatum=metadatum
+    fancy-paginator page=page per=per metadatum=metadatum
+
+    products-catalog products=products
+
+    fancy-paginator page=page per=per metadatum=metadatum

@@ -1,0 +1,4 @@
+.marker-container
+  .media-title= listing.roughSummary
+  .media-image
+    img src=listing.thumbnail

@@ -1,0 +1,5 @@
+.products-map
+  .forced-onto-the-map
+    link-to "products.index" (query-params vi="index") class="map-button"
+      tr-span en="index view"
+  regional-map listings=products coordinate=defaultCoordinate

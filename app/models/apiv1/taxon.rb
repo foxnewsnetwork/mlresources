@@ -80,6 +80,11 @@ class Apiv1::Taxon < ActiveRecord::Base
     attributes.merge children: children.map(&:id)
   end
 
+  def place
+    return unless root_genus == "location"
+    taxon_name
+  end
+
   private
   def _create_permalink
     self.permalink ||= Apiv1::Permalinkifier.permalinkify taxon_name

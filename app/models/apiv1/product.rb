@@ -55,6 +55,13 @@ class Apiv1::Product < ActiveRecord::Base
   has_one :user,
     through: :ownership,
     class_name: 'Admin::User'
+  has_many :geomarkers,
+    class_name: 'Apiv1::Geomarker',
+    as: :place
+  has_one :latest_geomarker,
+    -> { order "#{Apiv1::Geomarker.table_name}.created_at desc" },
+    class_name: 'Apiv1::Geomarker',
+    as: :place
 
   scope :belonging_to_taxon,
     -> (taxon) { union_of_taxon_ids taxon.id }
@@ -100,13 +107,23 @@ class Apiv1::Product < ActiveRecord::Base
   end
 
   def to_ember_hash
-    attributes.merge pictures: pictures.map(&:id),
+    attributes.merge auxiliary_attribute_hash
+  end
+
+  def geolocation_hash
+    latest_geomarker.try(:to_ember_hash) || {}
+  end
+
+  def auxiliary_attribute_hash
+    {
+      pictures: pictures.map(&:id),
       taxons: taxons.map(&:id),
       attachments: attachments.map(&:id),
       offers: offers.map(&:id),
       user_id: user.try(:id),
       thumbnail: pictures.first.try(:thumbnail),
       isFinished: finished?
+    }
   end
 
   def mark_finish!

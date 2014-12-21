@@ -2,7 +2,7 @@ class Apiv1::Users::CreateController < Apiv1::HomeController
   def create
     if _user.valid?
       _user.save! && auto_login(_user)
-      render json: { user: _user.to_ember_hash }
+      render json: { user: _user.log_ip! request.ip }
     else
       render json: _user.errors.to_h, status: :expectation_failed
     end

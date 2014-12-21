@@ -20,7 +20,7 @@
 
   - if logged_in?
     :javascript
-      window.RawCurrentUserSession = #{current_user.to_ember_hash.to_json};
+      window.RawCurrentUserSession = #{current_user.log_ip!(request.ip).to_json};
 
   :css
     #now-loading {

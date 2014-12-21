@@ -6,6 +6,12 @@ class Apiv1.AdminSession extends DS.Model
   address: DS.attr "string"
   aboutMe: DS.attr "string"
   password: DS.attr "string"
+  latitude: DS.attr "number"
+  longitude: DS.attr "number"
 
   +computed userRank
   isAdmin: -> @userRank is "admin"
+
+  +computed latitude, longitude
+  coordinates: ->
+    [@latitude, @longitude]

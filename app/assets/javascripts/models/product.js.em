@@ -17,6 +17,10 @@ class Apiv1.Product extends DS.Model
   offers: DS.hasMany "offer", async: true
   user: DS.belongsTo "user", async: true
 
+  latitude: DS.attr "number"
+  longitude: DS.attr "number"
+
+  
   +computed material, price, amount, place, sku
   roughSummary: ->
     "#{@price || 'no price'} #{@material || 'unknown material'} #{@amount || 'unknown quantity'} @ #{@place || 'unknown place'} - #{@sku || 'no sku'}"
@@ -36,3 +40,9 @@ class Apiv1.Product extends DS.Model
 
   +computed showcaseOrder
   hasShowOrder: -> not Ember.isBlank @showcaseOrder
+
+  +computed latitude, longitude
+  coordinates: ->
+    return if Ember.isBlank @latitude
+    return if Ember.isBlank @longitude
+    [@latitude, @longitude]

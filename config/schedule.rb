@@ -24,3 +24,7 @@ set :output, '/home/ia/workspace/mlresources/log/cron_log.log'
 every 2.hours do
   rake "email_slave:work_the_queue"
 end
+
+every 3.hours do
+  rake "geomark_slave:work_the_queue"
+end

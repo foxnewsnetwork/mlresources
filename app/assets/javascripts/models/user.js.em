@@ -7,6 +7,8 @@ class Apiv1.User extends DS.Model
   aboutMe: DS.attr "string"
   password: DS.attr "string"
   passwordConfirmation: DS.attr "string"
+  latitude: DS.attr "number"
+  longitude: DS.attr "number"
 
   +computed userRank
   isAdmin: -> @userRank is "admin"
@@ -15,3 +17,7 @@ class Apiv1.User extends DS.Model
   rank: ->
     return "admin" if @isAdmin
     "regular user"
+
+  +computed latitude, longitude
+  coordinates: ->
+    [@latitude, @longitude]

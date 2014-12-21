@@ -1,6 +1,4 @@
 class Admin::TaxonFactory
-  delegate :save!,
-    to: :_taxon
   def initialize(params)
     @params = params
   end
@@ -12,6 +10,9 @@ class Admin::TaxonFactory
   end
   def error_hash
     _taxon.errors.to_h
+  end
+  def save!
+    _taxon.tap(&:save!)
   end
   private
   def _taxon

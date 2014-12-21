@@ -1,7 +1,7 @@
 class Admin::Taxons::CreateController < Admin::BaseController
   def create
     if _taxon_creation_success?
-      _taxon_factory.save!
+      Apiv1::Geomarks::RequestJobManager.new(_taxon_factory.save!).queue_job!
       render json: _taxon_hash
     else
       render json: _error_hash, status: :expectation_failed

@@ -11,5 +11,8 @@
  * file per style scope.
  *
  *= require_self
+ *= require leaflet
+ *= require MarkerCluster
+ *= require MarkerCluster.Default
  *= require ./apiv1
  */

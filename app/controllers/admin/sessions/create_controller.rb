@@ -2,7 +2,7 @@ class Admin::Sessions::CreateController < ApplicationController
   class ShouldNeverGetHere < ::StandardError; end
   def create
     if _already_logged_in? || _login_success?
-      render json: _session_hash
+      render json: @user.log_ip! request.ip
     else
       render json: _failure_hash, status: :unauthorized
     end

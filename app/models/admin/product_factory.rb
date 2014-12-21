@@ -1,6 +1,4 @@
 class Admin::ProductFactory
-  delegate :save!,
-    to: :_product
   def initialize(input_params)
     @params = input_params.permit *Apiv1::Product::Fields
     @taxon_ids = _arrayify input_params[:taxons]
@@ -9,6 +7,9 @@ class Admin::ProductFactory
   end
   def satisfy_specifications?
     _taxon_relationships.all?(&:valid?) && _pictures.all?(&:valid?) && _attachments.all?(&:valid?) && _product.valid?
+  end
+  def save!
+    _product.tap &:save!
   end
   def product_hash
     {

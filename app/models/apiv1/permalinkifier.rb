@@ -4,7 +4,9 @@ class Apiv1::Permalinkifier
     def permalinkify(string)
       _single_spacify_string _spacify_illegal_characters string.to_s.downcase
     end
-
+    def normalize_address(address)
+      permalinkify address
+    end
     private
     def _single_spacify_string(string)
       string.gsub(/ +/, ' ').strip

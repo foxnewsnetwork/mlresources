@@ -28,6 +28,11 @@ class Admin::User < ActiveRecord::Base
     length: { minimum: 2 },
     confirmation: true
 
+  has_many :geomarkers,
+    -> { order "#{Apiv1::Geomarker.table_name}.created_at desc" },
+    class_name: 'Apiv1::Geomarker',
+    as: :place
+
   has_many :product_relationships,
     class_name: 'Apiv1::Users::ProductRelationship'
 
@@ -54,6 +59,18 @@ class Admin::User < ActiveRecord::Base
     through: :products,
     class_name: 'Apiv1::OfferMessage'
 
+  def log_ip!(ip)
+    Admin::Users::CoordinateLogger.new(self).log_ip! ip
+  end
+
+  def has_ip?(ip)
+    geomarkers.any? { |geomarker| geomarker.permalink == ip }
+  end
+
+  def latest_geomarker
+    geomarkers.first
+  end
+
   def default_email
     primary_contact.try(:email) || email
   end
@@ -62,7 +79,7 @@ class Admin::User < ActiveRecord::Base
     contacts.map(&:email).push(email).select(&:present?)
   end
 
-  def to_ember_hash
+  def public_attributes
     {
       id: id,
       email: email,
@@ -71,7 +88,11 @@ class Admin::User < ActiveRecord::Base
       phone_number: phone_number,
       address: address,
       about_me: about_me
-    }.merge _primary_contact_hash
+    }
+  end
+
+  def to_ember_hash
+    public_attributes.merge(_primary_contact_hash).merge(_geomarker_hash)
   end
 
   def admin?
@@ -87,6 +108,9 @@ class Admin::User < ActiveRecord::Base
   end
 
   private
+  def _geomarker_hash
+    latest_geomarker.try(:to_ember_hash) || {}
+  end
   def _primary_contact_hash
     primary_contact.try(:to_user_hash) || {}
   end
