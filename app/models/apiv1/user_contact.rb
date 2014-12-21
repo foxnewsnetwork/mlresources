@@ -33,6 +33,10 @@ class Apiv1::UserContact < ActiveRecord::Base
     update made_primary_at: DateTime.now
   end
 
+  def status
+    'primary'.freeze if user.primary_contact == self
+  end
+
   def to_user_hash
     {
       email: email,

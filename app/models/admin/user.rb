@@ -50,7 +50,7 @@ class Admin::User < ActiveRecord::Base
     foreign_key: 'user_id'
 
   has_one :primary_contact,
-    -> { is_primary.order_by_primality },
+    -> { is_primary.order_by_primality.limit 1 },
     class_name: 'Apiv1::UserContact',
     foreign_key: 'user_id'
 

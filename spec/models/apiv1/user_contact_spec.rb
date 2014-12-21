@@ -25,7 +25,7 @@ RSpec.describe Apiv1::UserContact do
       phone: 'Devonture 314',
       email: 'hardcastle@police.co.uk',
       address: '44 Wilbehelm Crescent, Devonture England',
-      status: 'primary'
+      made_primary_at: 10.days.ago
     }
   end
   context '#to_ember_hash' do
