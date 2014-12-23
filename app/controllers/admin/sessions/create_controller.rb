@@ -2,7 +2,7 @@ class Admin::Sessions::CreateController < ApplicationController
   class ShouldNeverGetHere < ::StandardError; end
   def create
     if _already_logged_in? || _login_success?
-      render json: @user.log_ip!(request.ip)
+      render json: _session_hash
     else
       render json: _failure_hash, status: :unauthorized
     end
@@ -18,7 +18,7 @@ class Admin::Sessions::CreateController < ApplicationController
     params.require(:admin_session).permit :email, :password, :remember_me
   end
   def _session_hash
-    { admin_session: @user.to_ember_hash }
+    { admin_session: @user.log_ip!(request.ip) }
   end
   def _failure_hash
     return { admin_session: { email: "that email doesn't exist" } } unless _email_exists?
