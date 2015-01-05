@@ -19,6 +19,7 @@
 window.Apiv1 = Ember.Application.create do
   rootElement: 'body#apiv1'
   ready: ->
+    $('#now-loading').hide "puff", 600
     store = Apiv1.__container__.lookup("store:main")
     if window.RawCurrentUserSession
       set$ Apiv1, "CurrentUserSession", store.push "adminSession", window.RawCurrentUserSession
@@ -28,6 +29,3 @@ Apiv1.ApplicationStore = DS.Store.extend do
   # Override the default adapter with the `DS.ActiveModelAdapter` which
   # is built to work nicely with the ActiveModel::Serializers gem.
   adapter: DS.ActiveModelAdapter
-  
-$ _.once -> 
-  $('#now-loading').hide "puff", 600

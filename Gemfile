@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 # Cloudrider requires the following gems
 # Core Backend
-gem 'rails', '4.1.6'
+gem 'rails', '4.2.0'
 gem 'gctools', '~>0.2.3'
 gem 'functional_support', '>=0.0.12'
 gem 'mysql2'
@@ -33,23 +33,24 @@ gem 'squash_ruby', '~> 2.0.0', :require => 'squash/ruby'
 gem 'squash_rails', '~>1.3.3', :require => 'squash/rails'
 
 # Assets Frameworks
-gem "font-awesome-sass", "~> 4.1.0.0"
-gem 'font-awesome-rails', '~> 4.1.0.0'
-gem 'compass-rails', '~> 1.1.7'
-gem 'compass-flexbox', '~>1.1.3'
+gem "font-awesome-sass", "~> 4.2.0.0"
+gem 'font-awesome-rails', '~> 4.2.0.0'
+gem 'compass-rails', '~> 2.0.2'
 gem 'jquery-ui-rails', '>=5.0.2'
 gem 'jquery-rails'
-gem 'foundation-rails', '~> 5.3.1.0'
+gem 'foundation-rails', '~> 5.5'
 gem 'modernizr-rails', '~> 2.7.1'
 gem 'ember-rails'
 gem 'ember-source', '~> 1.7.0'
+gem 'ember-data-source', '~> 1.0.0.beta.14'
 gem 'emblem-rails', '~>0.2.1'
 gem 'ember_script-rails' #, :github => 'ghempton/ember-script-rails'
-gem 'i18n-js'
+gem 'i18n-js', '>=3.0.0.rc8'
 
 # Asset Compilation
-gem 'sass-rails', '~> 4.0.3'
-gem 'coffee-rails', '~> 4.0.1'
+gem 'sass-rails', '~> 5.0'
+gem 'compass', '>= 1'
+gem 'coffee-rails', '~> 4.1.0'
 gem 'livescript-rails'
 gem 'underscore-rails'
 gem 'uglifier', '>= 1.3.0'

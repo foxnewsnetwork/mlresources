@@ -1,0 +1,56 @@
+@import "compass/css3/flexbox";
+@import "compass/css3/border-radius";
+@import "compass/css3/animation";
+@include keyframes(loading-bar) {
+  0% {
+    background: {
+      color: #d9534f;
+    }
+    width: 1%;
+  }
+  100% {
+    background: {
+      color: #5cb85c;
+    }
+    width: 100%;
+  }
+}
+#now-loading {
+  background: {
+    color: #ddd;
+  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  height: 105%;
+  width: 100%;
+  @include display-flex;
+  @include flex-direction(column);
+  @include justify-content(center);
+  .bottom {
+    text-align: center;
+    @include display-flex;
+    @include justify-content(center);
+  }
+  .chunk {
+    min-width: 450px;
+  }
+  .now-loading-text {
+    text-transform: capitalize;
+    font-size: 1.55rem;
+    margin-bottom: 15px; 
+    color: #444;
+    font-weight: bold;
+  }
+}
+#now-loading-bar {
+  height: 1rem;
+  @include border-radius(5px);
+  @include animation-name(loading-bar);
+  @include animation-duration(10s);
+  @include animation-timing-function(ease-out);
+  @include animation-iteration-count(1);
+  @include animation-fill-mode(forwards);
+}
+
