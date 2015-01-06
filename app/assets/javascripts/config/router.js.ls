@@ -49,4 +49,7 @@ Apiv1.Router.map ->
       @route "index"
 
 Apiv1.Router.reopen do
-  notifyGoogleAnalytics: (-> ga 'send', 'pageview', page: @get('url'), title: @get('url')).on 'didTransition'
+  notifyGoogleAnalytics: (-> 
+    return unless ga?
+    ga 'send', 'pageview', page: @get('url'), title: @get('url')
+  ).on 'didTransition'
