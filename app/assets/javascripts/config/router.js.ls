@@ -1,5 +1,4 @@
 Apiv1.Router.map ->
-  
   @resource "products", path: "/products", ->
     @resource "products.product", path: "/product/:product_id", ->
       @route "show"
@@ -48,3 +47,6 @@ Apiv1.Router.map ->
 
     @resource "admin.messages", path: "/messages", ->
       @route "index"
+
+App.Router.reopen do
+  notifyGoogleAnalytics: (-> ga 'send', 'pageview', page: @get('url'), title: @get('url')).on 'didTransition'

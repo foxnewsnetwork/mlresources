@@ -1,10 +1,4 @@
 #billboard-holder
-  .row 
-    .small-12.columns
-      h2.bill-title.capitalize.bold
-        i.fa.fa-cog.fa-spin
-        tr-span en="loading"
-
 
 #everything-else-holder
   == yield
