@@ -48,5 +48,5 @@ Apiv1.Router.map ->
     @resource "admin.messages", path: "/messages", ->
       @route "index"
 
-App.Router.reopen do
+Apiv1.Router.reopen do
   notifyGoogleAnalytics: (-> ga 'send', 'pageview', page: @get('url'), title: @get('url')).on 'didTransition'
