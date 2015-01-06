@@ -1,4 +1,4 @@
-search-and-filter taxons=taxons action="search" query=query activeTaxons=activeTaxons tempLocked=products.isPending
+search-and-filter taxons=taxons action="search" query=query activeTaxons=activeTaxons tempLocked=products.isPending showMap=showMap
   if showMap
     == partial "products/map"
   else
@@ -7,9 +7,6 @@ search-and-filter taxons=taxons action="search" query=query activeTaxons=activeT
         span.spacebar
           span +
           span= taxon.taxonName
-
-    link-to "products.index" (query-params vi="map") class="button secondary"
-      tr-span en="map view"
 
     fancy-paginator page=page per=per metadatum=metadatum
 

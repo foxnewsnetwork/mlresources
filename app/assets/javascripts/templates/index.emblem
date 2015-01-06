@@ -3,5 +3,5 @@ search-and-filter taxons=model.taxons action="search" query=query activeTaxons=a
 
   .row
     .small-12.columns.align-center.buffer20.capitalize
-      link-to "products.index" class="button secondary"
-        tr-span en="load more"
+      link-to "products.index" (query-params page=2) class="button secondary"
+        tr-span en="next page"
