@@ -1,0 +1,10 @@
+.mouseover-image {
+  .mouseover-text {
+    position: absolute;
+    font-size: 2rem;
+    background: fade-out(#fff, 0.5);
+    bottom: 0;
+    padding: 2rem 0.5rem;
+    text-align: center;
+  }
+}

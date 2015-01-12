@@ -17,7 +17,8 @@
   .row
     .small-12.medium-4.large-3.columns
       a href=mainPic.picUrl target="blank"
-        img.main-image.th src=mainPic.picUrl
+        mouseover-image imgClass="main-image th" src=mainPic.picUrl
+          tr-span en="click to enlarge"
     .small-12.medium-8.large-9.columns
       .row
         .small-12.columns

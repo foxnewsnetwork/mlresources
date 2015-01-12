@@ -1,0 +1,3 @@
+img src=src class=imgClass
+.mouseover-text
+  == yield
