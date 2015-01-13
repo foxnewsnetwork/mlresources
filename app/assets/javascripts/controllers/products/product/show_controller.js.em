@@ -16,6 +16,7 @@ class Apiv1.ProductsProductShowController extends Ember.ObjectController
   offer: ->
     @store.createRecord "offer"
 
+
   actions:
     showSellerInfo: ->
       @showSellerInfo = true

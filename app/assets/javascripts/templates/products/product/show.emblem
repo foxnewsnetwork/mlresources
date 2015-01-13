@@ -8,8 +8,7 @@
     .small-12.columns
       h2.material-title
         tr-span en=product.material
-        if product.sku
-          span.predash= product.sku
+        span.predash= product.publicSKU
         if product.isFinished
           span.parantheses
             tr-span en="finished"
@@ -23,6 +22,7 @@
       .row
         .small-12.columns
           dl.product-specs
+            
             if product.amount
               dt.upcase 
                 tr-span en="quantity"

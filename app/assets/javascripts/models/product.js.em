@@ -25,6 +25,9 @@ class Apiv1.Product extends DS.Model
   roughSummary: ->
     "#{@price || 'no price'} #{@material || 'unknown material'} #{@amount || 'unknown quantity'} @ #{@place || 'unknown place'} - #{@sku || 'no sku'}"
 
+  +computed id
+  publicSKU: ->
+    "PSM-#{id}"
 
   +computed id, sku, material, price, amount, place, quality, others, showcaseOrder, taxonIds
   coreAttributes: ->
