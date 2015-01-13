@@ -21,9 +21,9 @@ class Apiv1.Product extends DS.Model
   longitude: DS.attr "number"
 
   
-  +computed material, price, amount, place, sku
+  +computed material, price, amount, place, publicSKU
   roughSummary: ->
-    "#{@price || 'no price'} #{@material || 'unknown material'} #{@amount || 'unknown quantity'} @ #{@place || 'unknown place'} - #{@sku || 'no sku'}"
+    "#{@price || 'no price'} #{@material || 'unknown material'} #{@amount || 'unknown quantity'} @ #{@place || 'unknown place'} - #{@publicSKU || 'no sku'}"
 
   +computed id
   publicSKU: ->
