@@ -27,7 +27,7 @@ class Apiv1.Product extends DS.Model
 
   +computed id
   publicSKU: ->
-    "PSM-#{id}"
+    "PSM-#{@id}"
 
   +computed id, sku, material, price, amount, place, quality, others, showcaseOrder, taxonIds
   coreAttributes: ->
