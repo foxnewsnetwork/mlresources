@@ -3,7 +3,9 @@ class Apiv1.RegionalMarkerComponent extends Ember.Component
   
   +computed listing.coordinates
   marker: ->
-    L.marker(@listing.coordinates).bindPopup @$().html()
+    marker = L.marker(@listing.coordinates)
+    marker.payloadListing = @listing
+    marker.bindPopup @$().html()
   
   didInsertElement: ->
     @cluster.addLayer @marker

@@ -1,4 +1,6 @@
 .marker-container
-  .media-title= listing.roughSummary
+  .media-title
+    link-to "products.product.show" listing.id
+      span= listing.roughSummary
   .media-image
     img src=listing.thumbnail

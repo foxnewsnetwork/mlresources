@@ -42,7 +42,7 @@ class Apiv1.Product extends DS.Model
   hasShowOrder: -> not Ember.isBlank @showcaseOrder
 
   LongBeach: [33.7552014,-118.2122094]
-
+  Camarillo: [34.2313572,-119.0285353]
   +computed latitude, longitude
   coordinates: ->
     return @LongBeach if Ember.isBlank @latitude

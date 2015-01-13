@@ -1,3 +1,8 @@
 .regional-markers.hidden
   each listing in listings
     regional-marker cluster=clusterGroup listing=listing
+
+.cluster-popup.hidden
+  .regional-slices-container
+    each listing in clusterListings
+      regional-slice listing=listing

@@ -10,4 +10,20 @@
     font-weight: bold;
     text-transform: capitalize;
   }
+  .regional-slices-container {
+    max-height: 425px;
+    overflow: scroll;
+  }
+  .slice-link {
+    @include display-flex;
+    margin-bottom: 15px;
+  }
+  .media-image img {
+    width: 50px;
+  }
+  .media-body {
+    font-weight: bold;
+    text-transform: capitalize;
+    margin-left: 25px;
+  }
 }

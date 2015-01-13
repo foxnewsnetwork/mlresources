@@ -1,0 +1,4 @@
+link-to "products.product.show" listing.id class="slice-link"
+  .media-image
+    img src=listing.thumbnail
+  .media-body= listing.roughSummary

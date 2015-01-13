@@ -4,18 +4,25 @@ class Apiv1.RegionalMapComponent extends Ember.Component
   creditAttributions: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
   clusterGroup: new L.MarkerClusterGroup( zoomToBoundsOnClick: false )
   zoom: 11
+  
   didInsertElement: ->
     @map = L.map(@retrieveDOMId())
     @map.setView(@LosAngeles, @zoom)
     @attributionLayer().addTo @map
     @map.addLayer @clusterGroup
 
-    @clusterGroup.on "clusterclick", (a) ->
-      if a.layer.getChildCount() > 12
-        a.layer.zoomToBounds()
-      else
-        a.layer.spiderfy()
-      
+    @clusterGroup.on "clusterclick", (a) =>
+      clusterMarkers = a.layer.getAllChildMarkers()
+      @layerGroup = a.layer
+      @clusterListings = clusterMarkers.mapBy "payloadListing"
+  
+  +observer clusterListings.@each
+  manageClusterPopup: ->
+    Ember.run.later @, @openPopup, 155
+
+  openPopup: ->
+    @layerGroup.bindPopup @$(".cluster-popup").html()
+    @layerGroup.openPopup()
 
   attributionLayer: ->
     L.tileLayer 'http://{s}.tile.osm.org/{z}/{x}/{y}.png',
