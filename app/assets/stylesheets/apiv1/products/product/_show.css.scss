@@ -12,11 +12,9 @@
     }
   }
   .main-image {
-    min-width: 275px;
-    max-width: 285px;
+    height: 235px;
     @media #{$medium-only} {
-      min-width: 200px;
-      max-width: 210px;
+      height: 195px;
     }
   }
   .other-image {

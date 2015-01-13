@@ -58,8 +58,9 @@
     .small-12.columns
       ul.pics.small-block-grid-3.medium-block-grid-6.large-block-grid-9
         each picture in product.pictures
-          li.pointer click="selectMainPic picture"
-            img.other-image.th src=picture.thumbUrl
+          li.pointer mouseEnter="selectMainPic picture"
+            a target="blank" href=picture.picUrl
+              img.other-image.th src=picture.thumbUrl
 
   if product.attachments
     .row
