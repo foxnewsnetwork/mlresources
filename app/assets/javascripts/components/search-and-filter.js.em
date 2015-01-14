@@ -7,7 +7,7 @@ class Apiv1.SearchAndFilterComponent extends Ember.Component
   searchParams: ->
     activeTaxons: @activeTaxons
     searchQuery: @cleanSearchQuery
-  
+
   +computed searchQuery
   cleanSearchQuery: ->
     return "" if Ember.isBlank @searchQuery
@@ -18,4 +18,10 @@ class Apiv1.SearchAndFilterComponent extends Ember.Component
     
   actions:
     search: ->
+      @sendAction 'action', @searchParams
+    selectTaxon: (taxon) ->
+      @activeTaxons.pushObject taxon
+      @sendAction 'action', @searchParams
+    unselectTaxon: (taxon) ->
+      @activeTaxons.removeObject taxon
       @sendAction 'action', @searchParams

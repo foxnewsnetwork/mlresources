@@ -8,3 +8,9 @@ class Apiv1.TreeTaxonWrapperComponent extends Ember.Component
       children: @taxons
       hasChildren: true
 
+  actions:
+    select: (taxon) ->
+      @sendAction "select", taxon
+
+    unselect: (taxon) ->
+      @sendAction "unselect", taxon

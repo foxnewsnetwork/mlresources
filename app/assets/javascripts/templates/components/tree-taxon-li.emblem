@@ -39,4 +39,4 @@ if adminMode
 
 if taxon.hasChildren
   if isExpanded
-    tree-taxon-ul rootTaxon=taxon activeTaxons=activeTaxons adminMode=adminMode tempLocked=tempLocked
+    tree-taxon-ul rootTaxon=taxon activeTaxons=activeTaxons adminMode=adminMode tempLocked=tempLocked select="select" unselect="unselect"

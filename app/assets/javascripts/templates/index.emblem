@@ -1,4 +1,4 @@
-search-and-filter taxons=model.taxons action="search" query=query activeTaxons=activeTaxons
+search-and-filter taxons=model.taxons action="search"
   products-showcase id="products" products=model.products
 
   .row

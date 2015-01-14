@@ -1,5 +1,5 @@
 if taxons
-  tree-taxon-ul rootTaxon=rootTaxon activeTaxons=activeTaxons adminMode=adminMode tempLocked=tempLocked
+  tree-taxon-ul rootTaxon=rootTaxon activeTaxons=activeTaxons adminMode=adminMode tempLocked=tempLocked select="select" unselect="unselect"
 else
   .no-taxons
     tr-span en="no categories yet"

@@ -45,34 +45,20 @@ class Apiv1.TreeTaxonLiComponent extends Ember.Component
       @selectMe()
 
   unexpandMe: ->
-    @activeTaxons ||= []
-    @removeTaxonBang()
     @isExpanded = false
+    @sendAction "unselect", @taxon
 
   expandMe: ->
-    @activeTaxons ||= []
-    @activeTaxons.addObject @taxon
     @isExpanded = true
+    @sendAction "select", @taxon
 
   unselectMe: ->
-    @activeTaxons ||= []
-    @removeTaxonBang()
     @isSelected = false
+    @sendAction "unselect", @taxon
 
   selectMe: ->
-    @activeTaxons ||= []
-    @activeTaxons.addObject @taxon
     @isSelected = true
-
-  removeTaxonBang: ->
-    loc = @activeTaxons.length || 0
-    while --loc >= 0
-      curTax = @activeTaxons.objectAt loc
-      if curTax is @taxon
-        @activeTaxons.removeAt loc
-        removedTaxon = curTax
-    if Ember.isBlank removedTaxon
-      throw new Error "#{@taxon.presentation} not in #{@activeTaxonPresentations}"
+    @sendAction "select", @taxon
 
   +computed activeTaxons.@each.presentation
   activeTaxonPresentations: ->
@@ -88,3 +74,9 @@ class Apiv1.TreeTaxonLiComponent extends Ember.Component
         @toggleExpansion()
       else
         @toggleSelection()
+
+    select: (taxon) ->
+      @sendAction "select", taxon
+
+    unselect: (taxon) ->
+      @sendAction "unselect", taxon

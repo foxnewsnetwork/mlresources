@@ -1,4 +1,4 @@
-search-and-filter taxons=taxons action="search" query=query activeTaxons=activeTaxons tempLocked=products.isPending showMap=showMap
+search-and-filter taxons=taxons action="search" activeTaxons=activeTaxons query=query tempLocked=products.isPending showMap=showMap
   if showMap
     == partial "products/map"
   else

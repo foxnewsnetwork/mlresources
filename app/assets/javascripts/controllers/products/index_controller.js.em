@@ -1,10 +1,10 @@
 class Apiv1.ProductsIndexController extends Ember.ObjectController
-  queryParams: ["page", "per", "ati", "query", "vi"]
+  queryParams: ["page", "per", "vi", "ati", "query"]
   page: 1
   per: 15
-  query: ""
-  ati: ""
   vi: "index"
+  ati: ""
+  query: ""
 
   +computed vi
   showMap: -> @vi is "map"
@@ -23,11 +23,6 @@ class Apiv1.ProductsIndexController extends Ember.ObjectController
     return if Ember.isBlank(lat) or Ember.isBlank(lng)
     [lat, lng]
 
-  +observer activeTaxons.@each.id
-  manageATI: ->
-    qp = _.extend { query: @query }, @searchParams
-    @transitionToRoute "products.index", queryParams: qp
-
   +computed Apiv1.PreloadedTaxons.@each.parentId
   taxons: -> Apiv1.PreloadedTaxons.rejectBy "parentId"
 
@@ -37,14 +32,14 @@ class Apiv1.ProductsIndexController extends Ember.ObjectController
   +computed model.products
   products: -> @model.products
 
-  +computed page, per, activeTaxons.@each.id, vi
+  +computed page, per, vi
   searchParams: ->
     page: @page
     per: @per
-    ati: @activeTaxons.mapBy("id")
     vi: @vi
 
   actions:
     search: (opts)->
       qp = _.extend { query: opts.searchQuery }, @searchParams
+      qp = _.extend { ati: opts.activeTaxons.mapBy "id" }, qp
       @transitionToRoute "products.index", queryParams: qp
