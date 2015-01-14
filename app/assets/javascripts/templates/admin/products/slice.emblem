@@ -4,7 +4,8 @@
       link-to "admin.product.edit" model.id
         i.fa.fa-eye
         span.prespace= model.material
-        span.dash= product.sku
+        if product.sku
+          span.dash= product.sku
         if model.hasShowOrder
           span #
           span= model.showcaseOrder

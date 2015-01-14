@@ -7,9 +7,10 @@ class Apiv1.SearchAndFilterComponent extends Ember.Component
   searchParams: ->
     activeTaxons: @activeTaxons
     searchQuery: @cleanSearchQuery
-
+  
   +computed searchQuery
   cleanSearchQuery: ->
+    return "" if Ember.isBlank @searchQuery
     Apiv1.TagParser.parse(@searchQuery).justText().join("").trim()
 
   didInsertElement: ->

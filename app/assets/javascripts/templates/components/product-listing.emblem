@@ -5,8 +5,7 @@ if product
     .media-texts
       .big-title
         tr-span en=product.material
-        if product.sku
-          span.predash= product.publicSKU
+        span.predash= product.publicSKU
         if product.isFinished
           span.parantheses
             tr-span en="finished"
