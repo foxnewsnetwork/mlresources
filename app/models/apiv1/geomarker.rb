@@ -6,8 +6,8 @@
 #  place_id   :integer
 #  place_type :string(255)
 #  permalink  :string(255)
-#  longitude  :integer
-#  latitude   :integer
+#  longitude  :decimal(10, )
+#  latitude   :decimal(10, )
 #  created_at :datetime
 #  updated_at :datetime
 #

@@ -6,7 +6,7 @@
 #  from_company    :string(255)
 #  sender_email    :string(255)
 #  subject_text    :string(255)
-#  message         :text
+#  message         :text(65535)
 #  created_at      :datetime
 #  updated_at      :datetime
 #  phone_number    :string(255)

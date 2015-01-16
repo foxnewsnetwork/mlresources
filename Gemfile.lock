@@ -118,7 +118,7 @@ GEM
     elasticsearch-transport (1.0.6)
       faraday
       multi_json
-    ember-data-source (1.0.0.beta.14)
+    ember-data-source (1.0.0.beta.10)
       ember-source
     ember-rails (0.16.1)
       active_model_serializers
@@ -129,7 +129,7 @@ GEM
       handlebars-source (> 1.0.0)
       jquery-rails (>= 1.0.17)
       railties (>= 3.1)
-    ember-source (1.7.0)
+    ember-source (1.7.1)
       handlebars-source (~> 1.0)
     ember_script (0.0.5)
       ember_script-source (>= 0.0.2)
@@ -391,7 +391,7 @@ DEPENDENCIES
   elasticsearch (~> 1.0.4)
   elasticsearch-model (~> 0.1.4)
   elasticsearch-rails (~> 0.1.4)
-  ember-data-source (~> 1.0.0.beta.14)
+  ember-data-source (= 1.0.0.beta.10)
   ember-rails
   ember-source (~> 1.7.0)
   ember_script-rails

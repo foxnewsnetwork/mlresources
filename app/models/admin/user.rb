@@ -13,7 +13,7 @@
 #  user_rank                    :string(255)
 #  company_name                 :string(255)
 #  phone_number                 :string(255)
-#  about_me                     :text
+#  about_me                     :text(65535)
 #  address                      :string(255)
 #
 

@@ -1,11 +1,14 @@
 .admin-message-slice
-  link-to "products.product.show" model.product.id class="actions"
-    .view
+  .actions
+    link-to "products.product.show" model.product.id class="view"
       i.fa.fa-user
       span.prespace= model.fromCompany
       span.predash= model.senderEmail
     .date
       span.time-created= model.createdAt
+    if canKillOffer
+      .view.pointer click="killOffer offer"
+        i.fa.fa-ban
 
   .summary
     .media-subject

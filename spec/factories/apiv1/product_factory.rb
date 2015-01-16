@@ -10,7 +10,7 @@
 #  price          :string(255)
 #  amount         :string(255)
 #  place          :string(255)
-#  others         :text
+#  others         :text(65535)
 #  created_at     :datetime
 #  updated_at     :datetime
 #  showcase_order :integer

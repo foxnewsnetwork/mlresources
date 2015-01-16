@@ -5,9 +5,9 @@
 #  id             :integer          not null, primary key
 #  locale         :string(255)      not null
 #  key            :string(255)      not null
-#  value          :text
-#  interpolations :text
-#  is_proc        :boolean          default(FALSE)
+#  value          :text(65535)
+#  interpolations :text(65535)
+#  is_proc        :boolean          default("0")
 #  created_at     :datetime
 #  updated_at     :datetime
 #
