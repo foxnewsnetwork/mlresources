@@ -19,7 +19,10 @@ class Apiv1::Offers::IndexController < Apiv1::UsersController
     Arrows.lift -> (offer) { offer.to_ember_hash }
   end
   def _raw_search_process
-    Arrows.lift(current_user.offers) >> _either_from_or_to_me >> (_offers_from_me ^ _offers_to_me)
+    Arrows.lift(current_user.offers) >> _consider_rejection_status >> _either_from_or_to_me >> (_offers_from_me ^ _offers_to_me)
+  end
+  def _consider_rejection_status
+    Arrows.lift -> (offers) { _show_rejected? ? offers : offers.not_rejected }
   end
   def _offers_from_me
     Arrows.lift -> (offers) { offers.made_to current_user }
@@ -41,5 +44,8 @@ class Apiv1::Offers::IndexController < Apiv1::UsersController
   end
   def _to_me?
     params[:f] == "2me"
+  end
+  def _show_rejected?
+    params[:rejected] == true
   end
 end
