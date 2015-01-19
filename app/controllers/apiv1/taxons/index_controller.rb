@@ -4,10 +4,7 @@ class Apiv1::Taxons::IndexController < Apiv1::HomeController
   end
   private
   def _taxons_hash_process
-    Arrows.lift(Apiv1::Taxon) >> _taxon_filter_process >> _final_shipping_port_killer >= _hashify
-  end
-  def _final_shipping_port_killer
-    Arrows.lift -> (taxons) { taxons.reject { |taxon| taxon.root_genus.to_s == "location" } }
+    Arrows.lift(Apiv1::Taxon) >> _taxon_filter_process >= _hashify
   end
   def _hashify
     Arrows.lift lambda(&:to_ember_hash)
@@ -62,6 +59,6 @@ class Apiv1::Taxons::IndexController < Apiv1::HomeController
     Arrows.lift -> (taxons) { taxons.where id: params[:ids].to_a }
   end
   def _consider_shipping_ports
-    Arrows.lift -> (taxons) { taxons.not_shipping_ports }
+    Arrows.lift -> (taxons) { taxons.order("id desc") }
   end
 end

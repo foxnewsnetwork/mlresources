@@ -23,7 +23,7 @@ window.Apiv1 = Ember.Application.create do
     store = Apiv1.__container__.lookup("store:main")
     if window.RawCurrentUserSession
       set$ Apiv1, "CurrentUserSession", store.push "adminSession", window.RawCurrentUserSession
-    set$ window.Apiv1, "PreloadedTaxons", store.find("taxon").rejectBy("rootGenus", "location")
+    set$ window.Apiv1, "PreloadedTaxons", store.find("taxon")
 
 Apiv1.ApplicationStore = DS.Store.extend do
   # Override the default adapter with the `DS.ActiveModelAdapter` which
