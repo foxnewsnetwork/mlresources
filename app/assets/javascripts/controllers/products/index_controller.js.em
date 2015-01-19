@@ -24,7 +24,7 @@ class Apiv1.ProductsIndexController extends Ember.ObjectController
     [lat, lng]
 
   +computed Apiv1.PreloadedTaxons.@each.parentId
-  taxons: -> Apiv1.PreloadedTaxons.rejectBy "parentId"
+  taxons: -> Apiv1.PreloadedTaxons.rejectBy("parentId")
 
   +computed products.content.meta
   metadatum: -> @get("products.content.meta")
