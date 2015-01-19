@@ -50,6 +50,9 @@ class Apiv1::Taxon < ActiveRecord::Base
     :permalink,
     presence: true
 
+  scope :not_shipping_ports,
+    -> { where "#{self.table_name}.root_genus != ?", "location" }
+
   scope :children_of_parent,
     -> (p_id) { where "#{self.table_name}.parent_id = ?", p_id } 
 
